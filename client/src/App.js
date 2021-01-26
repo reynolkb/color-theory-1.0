@@ -1,4 +1,5 @@
 import './App.css';
+import Home from './pages/Home';
 
 function App() {
   return (
@@ -16,11 +17,16 @@ function App() {
       </header>
 
       <main>
-        Main
+        <Home />
       </main>
 
       <footer>
         Footer
+        <ul>
+          <li>An</li>
+          <li>External</li>
+          <li>Link</li>
+        </ul>
       </footer>
     </>
   );
