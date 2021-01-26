@@ -18,6 +18,36 @@ const typeDefs = gql`
         accent2: String
         accent3: String
     }
+
+    type Auth {
+        token: ID!
+        user: User
+    }
+    
+    type Query {
+        me: User
+        users: [User]
+        user(username: String!): User
+        palettes(username: String): [Palette]
+        palette(_id: ID!): Palette
+    }
+
+    type Mutation {
+        login(email: String!, password: String!): Auth
+        addUser(
+            username: String!
+            email: String!
+            password: String!
+        ): Auth
+        addPalette(
+            description: String!
+            primary: String!
+            secondary: String!
+            accent1: String!
+            accent2: String!
+            accent3: String!
+        ): Palette
+    }
 `;
 
 module.exports = typeDefs;
