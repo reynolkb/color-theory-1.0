@@ -45,7 +45,7 @@ const paletteSchema = new Schema({
   }
 );
 
-userSchema.virtual('upvoteCount').get(function() {
+paletteSchema.virtual('upvoteCount').get(function() {
     return this.upvotes.length;
 });
 
