@@ -1,23 +1,34 @@
 import React from 'react';
+
 import Colors from '../../components/Colors';
 
-const Palette = () => {
+const Palette = ({palette}) => {
+
+    const {
+        title,
+        description,
+        user,
+        createdAt,
+        colors,
+        likes,
+        saves
+    } = palette;
 
     return(
         <>
         <div>
-            <h3>Title of Palette</h3>
-            <p>by User on Date</p>
+            <h3>{title}</h3>
+            <p>by {user} on {createdAt}</p>
             <div>
-                <Colors />
+                <Colors colors={colors}/>
             </div>
             <div>
-                Likes Saves Share
+                Likes{likes} Saves{saves} Share
             </div>
             <div>
                 <h5>Description:</h5>
                 <p>
-                    lorem ipsum
+                    {description}
                 </p>
             </div>
         </div>

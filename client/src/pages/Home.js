@@ -1,24 +1,24 @@
 import React from 'react';
+
+import { fakePalettes } from '../const/colors'
+
 import Palette from '../components/Palette';
+import Sidebar from '../components/Sidebar';
 
 const Home = () => {
 
     return(
         <>
             <div>
-                Palette Scrolls
-                <Palette />
-
+                {
+                    fakePalettes.map((palette, i) => (
+                        <Palette key={i} palette={palette}/>
+                    ))
+                }
             </div>
 
             <div>
-                Sidebar
-                <div>
-                    Palette of the Day
-                </div>
-                <div>
-                    Palette of the Week
-                </div>
+                <Sidebar />
             </div>
         </>
     );
