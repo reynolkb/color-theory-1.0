@@ -1,10 +1,13 @@
 import React from 'react';
 
 const flavorText = [
-    "Now You're Thinking With Colors",
     "You’ll hue the day!",
+    "Now You're Thinking With Colors",
     "You hue me for a loop.",
-    "Pantone deaf"
+    "Pantone deaf",
+    "I am only hue man.",
+    "Colors laugh by saying, 'Hue Hue Hue.'",
+
 ];
 
 const Footer = () => {
