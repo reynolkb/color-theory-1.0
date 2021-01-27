@@ -1,6 +1,8 @@
 import React from 'react';
 
+// components
 import Colors from '../../components/Colors';
+import SocialButtons from '../SocialButtons';
 
 const Palette = ({palette}) => {
 
@@ -23,15 +25,7 @@ const Palette = ({palette}) => {
             <div>
                 <Colors palette={palette}/>
             </div>
-            <div className='likes-shares'>
-                <div>
-                    <i className="fas fa-heart"></i>{likes}
-                    <i className="far fa-bookmark"></i>{saves} 
-                </div>
-                <div>
-                    <i className="fas fa-share-square"></i> Share
-                </div>
-            </div>
+            <SocialButtons likes={likes} saves={saves} />
             <div>
                 <h5 className='palette-description'>Description:</h5>
                 <p>

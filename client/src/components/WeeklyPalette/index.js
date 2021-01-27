@@ -4,6 +4,9 @@ import Colors from '../Colors';
 
 import { palette } from '../../const/colors';
 
+// components
+import SocialButtons from '../SocialButtons';
+
 const WeeklyPalette = () => {
     const {
         user,
@@ -18,15 +21,7 @@ const WeeklyPalette = () => {
             <div>
                 <Colors palette={palette}/>
             </div>
-            <div className='likes-shares'>
-                <div>
-                    <i className="fas fa-heart"></i>{likes}
-                    <i className="far fa-bookmark"></i>{saves} 
-                </div>
-                <div>
-                    <i className="fas fa-share-square"></i> Share
-                </div>
-            </div>
+            <SocialButtons likes={likes} saves={saves} />
         </div>
     )
 }
