@@ -9,10 +9,15 @@ const Palette = ({palette}) => {
         description,
         user,
         createdAt,
-        colors,
+        primary,
+        secondary,
+        accent1,
+        accent2,
+        accent3,
         likes,
         saves
     } = palette;
+
 
     return(
         <>
@@ -20,7 +25,7 @@ const Palette = ({palette}) => {
             <h3>{title}</h3>
             <p>by {user} on {createdAt}</p>
             <div>
-                <Colors colors={colors}/>
+                <Colors palette={palette}/>
             </div>
             <div>
                 <p>

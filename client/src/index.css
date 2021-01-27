@@ -100,6 +100,21 @@ footer ul li {
     padding: 0 1em;
 }
 
+footer ul li a {
+    text-decoration: none;
+    color: #000000;
+    
+}
+
+footer ul li a:hover {
+    display: inline-block;
+    color: #a1a1a1;
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+    -ms-transform:rotate(180deg);
+    transform:rotate(180deg);
+}
 
 
 
