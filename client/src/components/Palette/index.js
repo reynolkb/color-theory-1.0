@@ -23,7 +23,11 @@ const Palette = ({palette}) => {
                 <Colors colors={colors}/>
             </div>
             <div>
-                Likes{likes} Saves{saves} Share
+                <p>
+                    <i className="fas fa-heart"></i>{likes}
+                    <i className="far fa-bookmark"></i>{saves} 
+                    <i className="fas fa-share-square"></i> Share
+                </p>
             </div>
             <div>
                 <h5>Description:</h5>

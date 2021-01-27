@@ -1,33 +1,18 @@
-import './App.css';
+import React from 'react';
+
 import Home from './pages/Home';
+
+import Nav from './components/Nav';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <>
-      <header>
-        <h1>Color Theory</h1>
-        <nav>
-          <ul>
-            <li>User Page</li>
-            <li>Search</li>
-            <li>Login</li>
-            <li>Signup</li>
-          </ul>
-        </nav>
-      </header>
-
+      <Nav />
       <main>
         <Home />
       </main>
-
-      <footer>
-        Footer
-        <ul>
-          <li>An</li>
-          <li>External</li>
-          <li>Link</li>
-        </ul>
-      </footer>
+      <Footer />
     </>
   );
 }
