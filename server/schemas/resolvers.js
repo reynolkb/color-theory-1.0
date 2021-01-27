@@ -10,21 +10,18 @@ const resolvers = {
 				const userData = await User.findOne({
 					_id: context.user._id,
 				})
-					.select('-__v -password')
-					.populate('myPalettes')
-					.populate('favorites');
-
+					.select('-__v -password');
 				return userData;
 			}
 
 			throw new AuthenticationError('Not logged in');
         },
-        users: async () => {
-			return User.find()
-				.select('-__v -password')
-				.populate('myPalettes')
-				.populate('favorites');
-		},
+        // users: async () => {
+		// 	return User.find()
+		// 		.select('-__v -password')
+		// 		.populate('myPalettes')
+		// 		.populate('favorites');
+		// },
 		user: async (parent, { username }) => {
 			return User.findOne({ username })
 				.select('-__v -password')
@@ -87,7 +84,20 @@ const resolvers = {
 			throw new AuthenticationError(
 				'You need to be logged in!'
 			);
-		},
+        },
+        removePalette: async (parent, args, context) => {
+			if (context.user) {
+				const deletePalette = await User.findByIdAndUpdate(
+					{ _id: context.user._id },
+					{ $pull: { palettes: palette._id } },
+					{ new: true }
+				);
+
+				delete deletePalette;
+
+				return deletePalette;
+			}
+        },
     }
 };
 
