@@ -82,7 +82,7 @@ const resolvers = {
 			}
 
 			throw new AuthenticationError(
-				'You need to be logged in!'
+				'You need to be logged in to add a palette!'
 			);
         },
         removePalette: async (parent, args, context) => {
