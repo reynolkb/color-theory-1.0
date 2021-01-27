@@ -31,6 +31,10 @@ const paletteSchema = new Schema({
         type: String,
         required: true,
     },
+    username: {
+        type: String,
+        required: true
+    },
     upvotes: [
         {
           type: Schema.Types.ObjectId,
