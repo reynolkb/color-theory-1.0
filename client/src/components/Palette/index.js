@@ -15,6 +15,7 @@ const Palette = ({palette}) => {
 
 
     return(
+        // will need link to by react to link to details page 
         <>
         <div className='palette-wrapper'>
             <h3 className='palette-title'>{title}</h3>
@@ -32,7 +33,7 @@ const Palette = ({palette}) => {
                 </div>
             </div>
             <div>
-                <h5>Description:</h5>
+                <h5 className='palette-description'>Description:</h5>
                 <p>
                     {description}
                 </p>

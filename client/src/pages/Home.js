@@ -8,7 +8,7 @@ import Sidebar from '../components/Sidebar';
 const Home = () => {
 
     return(
-        <div className='home-wrapper'>
+        <div className='global-wrapper'>
             <div className='home-palette-wrapper'>
                 {
                     fakePalettes.map((palette, i) => (
@@ -17,7 +17,7 @@ const Home = () => {
                 }
             </div>
 
-            <div className='side-bar-wrapper'>
+            <div className='sidebar-wrapper'>
                 <Sidebar />
             </div>
         </div>
