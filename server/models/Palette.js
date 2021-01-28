@@ -41,10 +41,6 @@ const paletteSchema = new Schema({
           ref: 'User'
         }
     ],
-    username: {
-        type: String,
-        required: true
-    }
   },
   {
     toJSON: {

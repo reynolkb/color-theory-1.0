@@ -33,13 +33,14 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        login(email: String!, password: String!): Auth
+        login(username: String!, password: String!): Auth
         addUser(
             username: String!
             email: String!
             password: String!
         ): Auth
         addPalette(
+            title: String!
             description: String!
             primary: String!
             secondary: String!
@@ -47,6 +48,7 @@ const typeDefs = gql`
             accent2: String!
             accent3: String!
         ): Palette
+        removePalette(_id: ID!): Palette
     }
 `;
 
