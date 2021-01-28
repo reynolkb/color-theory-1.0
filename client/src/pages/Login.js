@@ -16,7 +16,7 @@ const Login = () => {
                                 <label htmlFor='password'>Password:</label>
                                 <input type='password' name='password' />
                             </div>
-                            <button className='btn pink-btn'>Login</button>
+                            <button type='submit' className='btn pink-btn'>Login</button>
                         </form>
                     </div>
             </AuthWrapper>

@@ -14,7 +14,9 @@ const Nav = () => {
                     {/* <Link to=''>User Page</Link> */}
                 </li>
                 <li>Search</li>
-                <li>Create a Palette</li>
+                <li>
+                    <Link to ='/create'>Create a Palette</Link>
+                </li>
                 <li>
                     <Link to='/login'>Login</Link>
                 </li>

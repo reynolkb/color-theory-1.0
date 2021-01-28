@@ -1,6 +1,8 @@
+//libraries
 import React from 'react';
-import { Link } from 'react-router-dom';
-// components
+// import { Link } from 'react-router-dom';
+
+//components
 import Colors from '../../components/Colors';
 import SocialButtons from '../SocialButtons';
 

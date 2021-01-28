@@ -21,11 +21,10 @@ const Signup = () => {
                                 <label htmlFor='password'>Password:</label>
                                 <input type='password' name='password' />
                             </div>
-                            <button className='btn blue-btn'>Signup</button>
+                            <button type='submit' className='btn blue-btn'>Signup</button>
                         </form>
                     </div>
             </AuthWrapper>
-
     )
 };
 

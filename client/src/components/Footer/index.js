@@ -7,7 +7,7 @@ const flavorText = [
     "Pantone deaf",
     "I am only hue man.",
     "Colors laugh by saying, 'Hue Hue Hue.'",
-
+    "Color me impressed.",
 ];
 
 const Footer = () => {
@@ -16,7 +16,7 @@ const Footer = () => {
 
     return(
         <footer>
-            <h3>{randomFlavor}</h3>
+            <h2>{randomFlavor}</h2>
             <ul>
                 <li>
                     <a href='#'>About The Creators</a>
