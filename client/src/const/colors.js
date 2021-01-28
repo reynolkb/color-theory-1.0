@@ -25,14 +25,15 @@ export const colors = [
 export const palette = {
     title: 'Gangrene',
     description: 'A palette for all your sickly needs.',
-    user: 'p4l3tt3l0v3r',
+    username: 'John Doe',
+    // user: 'p4l3tt3l0v3r',
     createdAt: '1/27/21 at 3:68pm',
     primary: '#9DFF00',
     secondary: '#C7FF00',
     accent1: '#E5FF00',
     accent2: '#FFF500',
     accent3: '#FFD700',
-    likes: 200,
+    upvoteCount: 200,
     saves: 666,
 }
 
