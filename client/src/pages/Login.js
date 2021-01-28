@@ -1,33 +1,25 @@
 import React from 'react';
+import AuthWrapper from '../components/AuthWrapper';
 
 const Login = () => {
 
     return(
-        <div className='auth-wrapper'>
-            <div>
-            {/* this is the div with background color  */}
-                <div>
-                    <h3>Login</h3>
+            <AuthWrapper className='pattern-diagonal-stripes-left'>
+                <h3 className='auth-title'>Login</h3>
                     <div>
-                        <div>
-                            <form>
-                                <div>
-                                    <label htmlFor='email'>Email:</label>
-                                    <input type='email' name='email' />
-                                </div>
-                                <div>
-                                    <label htmlFor='password'>Password:</label>
-                                    <input type='password' name='password' />
-                                </div>
-                                <button>Login</button>
-                            </form>
-                        </div>
+                        <form>
+                            <div  className='auth-element'>
+                                <label htmlFor='email'>Email:</label>
+                                <input type='email' name='email' />
+                            </div>
+                            <div  className='auth-element'>
+                                <label htmlFor='password'>Password:</label>
+                                <input type='password' name='password' />
+                            </div>
+                            <button className='btn pink-btn'>Login</button>
+                        </form>
                     </div>
-                    
-                </div>
-
-            </div>
-        </div>
+            </AuthWrapper>
     )
 };
 

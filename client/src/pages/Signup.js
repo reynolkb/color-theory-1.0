@@ -1,35 +1,31 @@
 import React from 'react';
 
+import AuthWrapper from '../components/AuthWrapper';
+
 const Signup = () => {
 
     return(
-        <div className='auth-wrapper'>
-            <div>
-            {/* this is the div with background color  */}
-                <div>
-                    <h3>Signup</h3>
+            <AuthWrapper className='pattern-diagonal-stripes-right'>
+                <h3 className='auth-title'>Signup</h3>
                     <div>
-                        <div>
-                            <form>
-                                <div>
-                                    <label htmlFor='username'>Username:</label>
-                                    <input type='text' name='username' />
-                                </div>
-                                <div>
-                                    <label htmlFor='email'>Email:</label>
-                                    <input type='email' name='email' />
-                                </div>
-                                <div>
-                                    <label htmlFor='password'>Password:</label>
-                                    <input type='password' name='password' />
-                                </div>
-                                <button>Login</button>
-                            </form>
-                        </div>
+                        <form>
+                            <div className='auth-element'>
+                                <label htmlFor='username'>Username:</label>
+                                <input type='text' name='username' />
+                            </div>
+                            <div className='auth-element'>
+                                <label htmlFor='email'>Email:</label>
+                                <input type='email' name='email' />
+                            </div>
+                            <div className='auth-element'>
+                                <label htmlFor='password'>Password:</label>
+                                <input type='password' name='password' />
+                            </div>
+                            <button className='btn blue-btn'>Signup</button>
+                        </form>
                     </div>
-                </div>
-            </div>
-        </div>
+            </AuthWrapper>
+
     )
 };
 
