@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "watch": "nodemon",
-    "seed": "node config/seeds.js"
+    "seed": "node seeders/seeds.js"
   },
   "author": "Cat, Gino, Jane, Kyle",
   "license": "ISC",
