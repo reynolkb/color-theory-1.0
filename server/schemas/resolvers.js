@@ -68,14 +68,16 @@ const resolvers = {
 					username: context.user.username,
                 });
                 console.log("palette below")
-                console.log(palette._id);
+                const id = palette._id;
+                console.log(id);
 
 				await User.findByIdAndUpdate(
-					{ _id: context.user._id },
-					{ $push: { myPalettes: palette._id } },
+                    { _id: context.user._id },
+					{ $push: { myPalettes: id } },
 					{ new: true }
-				);
+                );
 
+                console.log({palette});
 				return palette;
 			}
 
