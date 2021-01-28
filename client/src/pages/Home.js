@@ -4,10 +4,11 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 
 // import queries 
+// import { QUERY_FILTERED_PALETTES } from '../utils/queries';
 import { QUERY_PALETTES } from '../utils/queries';
 
 // this is Cat's test data
-import { fakePalettes } from '../const/colors'
+// import { fakePalettes } from '../const/colors'
 
 import Palette from '../components/Palette';
 import Sidebar from '../components/Sidebar';
@@ -18,13 +19,14 @@ const Home = () => {
     // data returned from the server stored in the destructured data property
     // query for main content
     // const { loading, data } = useQuery(QUERY_FILTERED_PALETTES);
+    const { loading, data } = useQuery(QUERY_PALETTES);
 
     // get Palette data out of the query's response with optional chaining
     // if data exists, store it in the palette constant we just created
     // if data is undefined, save empty array 
     // constant for main content
-    // const palettes = data?.palettes || [];
-    const palettes = fakePalettes;
+    const palettes = data?.palettes || [];
+    // const palettes = fakePalettes;
 
     // console.log(palettes);
 
