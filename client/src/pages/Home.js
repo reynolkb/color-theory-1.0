@@ -33,16 +33,18 @@ const Home = () => {
 
     return (
         <main>
-            <div>
-                {
-                    fakePalettes.map((palette, i) => (
-                        <Palette key={i} palette={palette} />
-                    ))
-                }
-            </div>
+            <div className='global-wrapper'>
+                <div className='home-palette-wrapper'>
+                    {
+                        fakePalettes.map((palette, i) => (
+                            <Palette key={i} palette={palette} />
+                        ))
+                    }
+                </div>
 
-            <div>
-                <Sidebar />
+                <div className='sidebar-wrapper'>
+                    <Sidebar />
+                </div>
             </div>
         </main>
     );
