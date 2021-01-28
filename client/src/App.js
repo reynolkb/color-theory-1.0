@@ -1,15 +1,17 @@
 import React from 'react';
-
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import apollo libraries for using React Hooks functionality with Apollo queries and mutations
 import { ApolloProvider } from '@apollo/react-hooks';
-
 // functionality to make requests to the server with helper libraries
 import ApolloClient from 'apollo-boost';
 
-import Home from './pages/Home';
-
+//components
 import Nav from './components/Nav';
 import Footer from './components/Footer';
+//pages
+import Home from './pages/Home';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
 
 // establish the connection to the back-end server's /graphql endpoint using apollo
 const client = new ApolloClient({
@@ -32,14 +34,22 @@ const client = new ApolloClient({
 
 });
 
+
 function App() {
+
   return (
     <ApolloProvider client={client}>
-      <Nav />
-      <main>
-        <Home />
-      </main>
-      <Footer />
+      <Router>
+        <Nav />
+        <main>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/signup' component={Signup} />
+          </Switch>
+        </main>
+        <Footer />
+      </Router>
     </ApolloProvider>
   );
 }
