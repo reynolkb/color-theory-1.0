@@ -19,12 +19,23 @@ const Home = () => {
     // --- indicate that the request isn't done just yet
     // --- conditionally render data based on whether or not there is data to even display
     // data returned from the server stored in the destructured data property
-    // const { loading, data } = useQuery(QUERY_PALETTES);
+    // query for main content
+    // const { loading, data } = useQuery(QUERY_FILTERED_PALETTES);
+    // query for sidebar content - trending today
+    // const { loading, data: dailyData } = useQuery(QUERY_DAILY_PALETTE);
+    // query for sidebar content - trending this week
+    // const { loading, data: weeklyData } = useQuery(QUERY_WEEKLY_PALETTE);
+
     
     // get Palette data out of the query's response with optional chaining
     // if data exists, store it in the palette constant we just created
     // if data is undefined, save empty array 
+    // constant for main content
     // const palettes = data?.palettes || [];
+    // constant for sidebar content - trending today
+    // const dailyPalettes = data?.palettes || [];
+    // constant for sidebar content - trending this week
+    // const weeklyPalettes = data?.palettes || [];
     const palettes = fakePalettes;
     // console.log(palettes);
 

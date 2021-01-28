@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
+const dateFormat = require('../utils/dateFormat');
+
 const paletteSchema = new Schema({
     title: {
       type: String,
@@ -35,6 +37,11 @@ const paletteSchema = new Schema({
         type: String,
         required: true
     },
+    createdAt: {
+        type: Date,
+        default: Date.now,
+        get: timestamp => dateFormat(timestamp)
+    },
     upvotes: [
         {
           type: Schema.Types.ObjectId,
@@ -47,10 +54,6 @@ const paletteSchema = new Schema({
           ref: 'User'
         }
     ],
-    username: {
-        type: String,
-        required: true
-    }
   },
   {
     toJSON: {
