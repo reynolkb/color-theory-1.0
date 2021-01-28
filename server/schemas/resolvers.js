@@ -66,15 +66,19 @@ const resolvers = {
 			return { token, user };
         },
         addPalette: async (parent, args, context) => {
+            console.log("context user ------");
+            console.log(context.user);
 			if (context.user) {
 				const palette = await Palette.create({
 					...args,
 					username: context.user.username,
-				});
+                });
+                console.log("palette below")
+                console.log(palette);
 
 				await User.findByIdAndUpdate(
 					{ _id: context.user._id },
-					{ $push: { palettes: palette._id } },
+					{ $push: { myPalettes: palette._id } },
 					{ new: true }
 				);
 

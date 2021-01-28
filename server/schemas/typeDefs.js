@@ -13,10 +13,12 @@ const typeDefs = gql`
         _id: ID
         title: String
         description: String
+        primary: String
         secondary: String
         accent1: String
         accent2: String
         accent3: String
+        username: String
     }
 
     type Auth {
