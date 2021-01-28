@@ -41,7 +41,6 @@ const Home = () => {
 
 
     return (
-        <main>
             <div className='global-wrapper'>
                 <div className='home-palette-wrapper'>
                     {/* cat's styling palettes */}
@@ -63,7 +62,6 @@ const Home = () => {
                     <Sidebar />
                 </div>
             </div>
-        </main>
     );
 };
 
