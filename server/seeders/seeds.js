@@ -51,8 +51,13 @@ db.once('open', async () => {
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username, _id: userId } = createdUsers.ops[randomUserIndex];
 
-    const createdPalette = await Palette.create({ title, description, primary, secondary, accent1, accent2, accent3, username });
+    // const createdAt = faker.date.past();
+    // const upvotes = faker.random.number();
+    // const saves = faker.random.number();
 
+    // const createdPalette = await Palette.create({ title, description, primary, secondary, accent1, accent2, accent3, username, createdAt, upvotes, saves });
+    const createdPalette = await Palette.create({ title, description, primary, secondary, accent1, accent2, accent3, username });
+    
     const updatedUser = await User.updateOne(
       { _id: userId },
       { $push: { myPalettes: createdPalette._id } }
