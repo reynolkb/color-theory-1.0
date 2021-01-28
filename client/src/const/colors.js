@@ -25,8 +25,7 @@ export const colors = [
 export const palette = {
     title: 'Gangrene',
     description: 'A palette for all your sickly needs.',
-    username: 'John Doe',
-    // user: 'p4l3tt3l0v3r',
+    username: 'p4l3tt3l0v3r',
     createdAt: '1/27/21 at 3:68pm',
     primary: '#9DFF00',
     secondary: '#C7FF00',
@@ -34,7 +33,7 @@ export const palette = {
     accent2: '#FFF500',
     accent3: '#FFD700',
     upvoteCount: 200,
-    saveCount: 666,
+    saveCount: 404,
 }
 
 export const fakePalettes = [palette, palette, palette, palette, palette];
