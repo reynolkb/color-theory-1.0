@@ -59,7 +59,16 @@ export const ADD_PALETTE = gql`
                 accent1
                 accent2
                 accent3
-                username
 		}
 	}
+`;
+
+export const REMOVE_PALETTE = gql`
+	removePalette(_id: $_id) {
+			_id
+			username
+			myPalettes {
+                _id
+            }
+		}
 `;

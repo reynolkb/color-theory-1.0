@@ -16,12 +16,6 @@ const resolvers = {
 
 			throw new AuthenticationError('Not logged in');
         },
-        // users: async () => {
-		// 	return User.find()
-		// 		.select('-__v -password')
-		// 		.populate('myPalettes')
-		// 		.populate('favorites');
-		// },
 		user: async (parent, { username }) => {
 			return User.findOne({ username })
 				.select('-__v -password')
@@ -74,27 +68,29 @@ const resolvers = {
 					username: context.user.username,
                 });
                 console.log("palette below")
-                console.log(palette);
+                const id = palette._id;
+                console.log(id);
 
 				await User.findByIdAndUpdate(
-					{ _id: context.user._id },
-					{ $push: { myPalettes: palette._id } },
+                    { _id: context.user._id },
+					{ $push: { myPalettes: id } },
 					{ new: true }
-				);
+                );
 
+                console.log({palette});
 				return palette;
 			}
 
 			throw new AuthenticationError(
-				'You need to be logged in!'
+				'You need to be logged in to add a palette!'
 			);
         },
-        removePalette: async (parent, args, context) => {
+        removePalette: async (parent, {_id}, context) => {
 			if (context.user) {
 				const deletePalette = await User.findByIdAndUpdate(
 					{ _id: context.user._id },
-					{ $pull: { palettes: palette._id } },
-					{ new: true }
+					{ $pull: { myPalettes: {_id} } },
+					{ new: true, runValidators: true }
 				);
 
 				delete deletePalette;

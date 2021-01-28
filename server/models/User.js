@@ -20,8 +20,18 @@ const userSchema = new Schema({
       required: true,
       minlength: 5
     },
-    myPalettes: [Palette.schema],
-    favorites: [Palette.schema]
+    myPalettes: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Palette'
+        }
+    ],
+    favorites: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Palette'
+        }
+    ]
 });
   
 // set up pre-save middleware to create password

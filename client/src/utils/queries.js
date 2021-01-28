@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 export const QUERY_PALETTES = gql`
-	query palettes($username: String) {
-		palettes(username: $username) {
+	query palettes {
+		palettes {
 			_id
 			title
             description
@@ -38,23 +38,9 @@ export const QUERY_USER = gql`
 			email
 			myPalettes {
                 _id
-                title
-                description
-                primary
-                secondary
-                accent1
-                accent2
-                accent3
 			}
 			favorites {
                 _id
-                title
-                description
-                primary
-                secondary
-                accent1
-                accent2
-                accent3
 			}
 		}
 	}
@@ -68,23 +54,9 @@ export const QUERY_ME = gql`
 			email
 			myPalettes {
                 _id
-                title
-                description
-                primary
-                secondary
-                accent1
-                accent2
-                accent3
 			}
 			favorites {
                 _id
-                title
-                description
-                primary
-                secondary
-                accent1
-                accent2
-                accent3
 			}
 		}
 	}
