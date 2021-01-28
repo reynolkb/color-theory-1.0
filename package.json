@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/reynolkb/project-3#readme",
   "dependencies": {
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "react-color": "^2.19.3"
   },
   "devDependencies": {
     "concurrently": "^5.3.0"
