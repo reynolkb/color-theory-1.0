@@ -1,5 +1,10 @@
 import React from 'react';
 
+//components
+import AddTags from '../components/CreateParts/AddTags';
+import PaletteDescription from '../components/CreateParts/PaletteDescription';
+import PalettePicker from '../components/CreateParts/PalettePicker';
+
 const Create = () => {
 
     return(
@@ -8,32 +13,15 @@ const Create = () => {
             <div className='create-wrapper'>
                 {/* left side */}
                 <div className='create-form-wrapper'>
-                    <form>
-                        <div>
-                            <label>Name of Palette:</label>
-                            <input />
-                        </div>
-                        <div>
-                            <label>Description:</label>
-                            <textarea />
-                        </div>
-                    </form>
-                    <form>
-                        <div>
-                            <label>Add Tags</label>
-                            <input />
-                        </div>
-                        <button>Add</button>
-                    </form>
+                    <PaletteDescription />
+                    <AddTags />
                 </div>
                 {/* right side */}
                 <div>
                     <div>
                         the color picker
                     </div>
-                    <div>
-                        the palette picker
-                    </div>
+                    <PalettePicker />
                 </div>
             </div>
         </div>
