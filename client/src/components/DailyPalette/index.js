@@ -1,11 +1,11 @@
 import React from 'react';
 
+// components
+import SocialButtons from '../SocialButtons';
 import Colors from '../Colors';
 
 import { palette } from '../../const/colors';
 
-// components
-import SocialButtons from '../SocialButtons';
 
 const DailyPalette = () => {
 
