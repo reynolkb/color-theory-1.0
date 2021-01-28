@@ -4,25 +4,25 @@ import React from 'react';
 import SocialButtons from '../SocialButtons';
 import Colors from '../Colors';
 
-import { palette } from '../../const/colors';
+// import { palette } from '../../const/colors';
 
 
-const DailyPalette = () => {
+const DailyPalette = ({ palette }) => {
 
     const {
-        user,
+        username,
         title,
-        likes,
-        saves,
+        upvoteCount,
+        saveCount,
     } = palette;
 
     return(
         <div className='daily-palette'>
-            <h4>{title}by {user}</h4>
+            <h4>{title}by {username}</h4>
             <div>
                 <Colors palette={palette}/>
             </div>
-            <SocialButtons likes={likes} saves={saves} />
+            <SocialButtons upvoteCount={upvoteCount} saveCount={saveCount}/>
         </div>
     )
 }

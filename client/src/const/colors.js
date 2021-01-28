@@ -50,7 +50,7 @@ export const dailyPalette = {
     accent2: '#FF9B00',
     accent3: '#68FF00',
     upvoteCount: 404,
-    saves: 543,
+    saveCount: 543,
 }
 
 export const weeklyPalette = {
@@ -63,5 +63,5 @@ export const weeklyPalette = {
     accent2: '#FF0095',
     accent3: '#FFFFFF',
     upvoteCount: 501,
-    saves: 321,
+    saveCount: 321,
 }
