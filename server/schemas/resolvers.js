@@ -16,12 +16,6 @@ const resolvers = {
 
 			throw new AuthenticationError('Not logged in');
         },
-        // users: async () => {
-		// 	return User.find()
-		// 		.select('-__v -password')
-		// 		.populate('myPalettes')
-		// 		.populate('favorites');
-		// },
 		user: async (parent, { username }) => {
 			return User.findOne({ username })
 				.select('-__v -password')
@@ -74,7 +68,7 @@ const resolvers = {
 					username: context.user.username,
                 });
                 console.log("palette below")
-                console.log(palette);
+                console.log(palette._id);
 
 				await User.findByIdAndUpdate(
 					{ _id: context.user._id },
@@ -89,12 +83,12 @@ const resolvers = {
 				'You need to be logged in!'
 			);
         },
-        removePalette: async (parent, args, context) => {
+        removePalette: async (parent, {_id}, context) => {
 			if (context.user) {
 				const deletePalette = await User.findByIdAndUpdate(
 					{ _id: context.user._id },
-					{ $pull: { palettes: palette._id } },
-					{ new: true }
+					{ $pull: { myPalettes: {_id} } },
+					{ new: true, runValidators: true }
 				);
 
 				delete deletePalette;

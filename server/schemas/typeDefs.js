@@ -50,7 +50,7 @@ const typeDefs = gql`
             accent2: String!
             accent3: String!
         ): Palette
-        removePalette(_id: ID!): Palette
+        removePalette(_id: ID!): User
     }
 `;
 
