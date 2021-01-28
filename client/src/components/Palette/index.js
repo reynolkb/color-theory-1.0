@@ -27,7 +27,7 @@ const Palette = ({ palettes }) => {
                             <div>
                                 <Colors palette={palette} />
                             </div>
-                            <SocialButtons upvoteCount={palette.upvoteCount} saves={palette.saves} />
+                            <SocialButtons upvoteCount={palette.upvoteCount} saveCount={palette.saveCount} />
                             <div>
                                 <h5 className='palette-description'>Description:</h5>
                                 <p>
