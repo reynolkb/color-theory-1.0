@@ -6,8 +6,8 @@ import { useQuery } from '@apollo/react-hooks';
 // import queries 
 import { QUERY_PALETTES } from '../utils/queries';
 
-
-import { fakePalettes } from '../const/colors'
+// this is Cat's test data
+// import { fakePalettes } from '../const/colors'
 
 import Palette from '../components/Palette';
 import Sidebar from '../components/Sidebar';
