@@ -1,17 +1,26 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const Nav = () => {
 
     return(
         <header>
-            <h1>Color Theory</h1>
+            <h1>
+                <Link to='/'>Color Theory</Link>
+                </h1>
             <nav>
             <ul>
-                <li>User Page</li>
+                <li>
+                    {/* <Link to=''>User Page</Link> */}
+                </li>
                 <li>Search</li>
                 <li>Create a Palette</li>
-                <li>Login</li>
-                <li>Signup</li>
+                <li>
+                    <Link to='/login'>Login</Link>
+                </li>
+                <li>
+                    <Link to='/signup'>Signup</Link>
+                </li>
             </ul>
             </nav>
         </header>

@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
+const dateFormat = require('../utils/dateFormat');
+
 const paletteSchema = new Schema({
     title: {
       type: String,
@@ -35,16 +37,23 @@ const paletteSchema = new Schema({
         type: String,
         required: true
     },
+    createdAt: {
+        type: Date,
+        default: Date.now,
+        get: timestamp => dateFormat(timestamp)
+    },
     upvotes: [
         {
           type: Schema.Types.ObjectId,
           ref: 'User'
         }
     ],
-    username: {
-        type: String,
-        required: true
-    }
+    saves: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'User'
+        }
+    ],
   },
   {
     toJSON: {
@@ -55,6 +64,10 @@ const paletteSchema = new Schema({
 
 paletteSchema.virtual('upvoteCount').get(function() {
     return this.upvotes.length;
+});
+
+paletteSchema.virtual('saveCount').get(function() {
+    return this.saves.length;
 });
 
 const Palette = mongoose.model('Palette', paletteSchema);

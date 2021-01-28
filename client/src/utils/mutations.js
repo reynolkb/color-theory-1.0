@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 export const LOGIN_USER = gql`
-	mutation login($email: String!, $password: String!) {
-		login(email: $email, password: $password) {
+	mutation login($username: String!, $password: String!) {
+		login(username: $username, password: $password) {
 			token
 			user {
 				_id
@@ -34,6 +34,7 @@ export const ADD_USER = gql`
 
 export const ADD_PALETTE = gql`
 	mutation addPalette(
+        $title: String!
         $description: String!
         $primary: String!
         $secondary: String!
@@ -42,6 +43,7 @@ export const ADD_PALETTE = gql`
         $accent3: String!
         ) {
             addPalette(
+                title: $title
                 description: $description
                 primary: $primary
                 secondary: $secondary
@@ -59,4 +61,14 @@ export const ADD_PALETTE = gql`
                 accent3
 		}
 	}
+`;
+
+export const REMOVE_PALETTE = gql`
+	removePalette(_id: $_id) {
+			_id
+			username
+			myPalettes {
+                _id
+            }
+		}
 `;
