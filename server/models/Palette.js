@@ -41,6 +41,12 @@ const paletteSchema = new Schema({
           ref: 'User'
         }
     ],
+    saves: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'User'
+        }
+    ],
     username: {
         type: String,
         required: true
@@ -55,6 +61,10 @@ const paletteSchema = new Schema({
 
 paletteSchema.virtual('upvoteCount').get(function() {
     return this.upvotes.length;
+});
+
+paletteSchema.virtual('saveCount').get(function() {
+    return this.saves.length;
 });
 
 const Palette = mongoose.model('Palette', paletteSchema);
