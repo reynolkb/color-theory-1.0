@@ -61,3 +61,15 @@ export const QUERY_ME = gql`
 		}
 	}
 `;
+
+export const QUERY_TAG = gql`
+	query tag($name: String!) {
+		tag(name: $name) {
+			_id
+			name
+			taggedPalettes{
+				_id
+			}
+		}
+	}
+`;

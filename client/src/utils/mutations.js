@@ -101,3 +101,27 @@ export const ADD_FAV_PALETTE = gql`
 		}
 	}
 `;
+
+export const CREATE_TAG =gql `
+	mutation createTag($name: String!) {
+		createTag(name: $name) {
+			_id
+			name
+			taggedPalettes{
+				_id
+			}
+		}
+	}
+`;
+
+export const LINK_TAG_TO_PALETTE = gql `
+	mutation linkTagToPalette($paletteId: ID! $tagId: ID!) {
+		linkTagToPalette(paletteId: $paletteId tagId: $tagId) {
+			_id
+			name
+			taggedPalettes {
+				_id
+			}
+		}
+	}
+`;
