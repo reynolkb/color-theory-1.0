@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { SketchPicker } from 'react-color';
 
 
-
 const ColorPicker = () => {
 
     const [ colorState, setColorState ] = useState({
@@ -38,6 +37,10 @@ const ColorPicker = () => {
         }
     }
 
+    function activeSelection(key) {
+        return key === paletteState.workingColor ? 'active-color' : '';
+    }
+
     return(
         <div className='create-palette-wrapper'>
             <SketchPicker 
@@ -49,11 +52,31 @@ const ColorPicker = () => {
             <p>Select each box to add color to it.</p>
             <div className='color-wrapper create-color-div-wrapper'>
                 <div className='color-wrapper-aspect-ratio'>
-                    <div onClick={ generateHandler('primary') } style={{ backgroundColor: colorState.primary, flexGrow: '2.5' }}></div>
-                    <div onClick={ generateHandler('secondary') } style={{ backgroundColor: colorState.secondary, flexGrow: '2' }}></div>
-                    <div onClick={ generateHandler('accent1') } style={{ backgroundColor: colorState.accent1 }}></div>
-                    <div onClick={ generateHandler('accent2') } style={{ backgroundColor: colorState.accent2 }}></div>
-                    <div onClick={ generateHandler('accent3') } style={{ backgroundColor: colorState.accent3 }}></div>
+                    <div
+                        className={activeSelection('primary')}
+                        onClick={ generateHandler('primary') } 
+                        style={{ backgroundColor: colorState.primary, flexGrow: '2.5' }}
+                    />
+                    <div
+                        className={activeSelection('secondary')}
+                        onClick={ generateHandler('secondary') } 
+                        style={{ backgroundColor: colorState.secondary, flexGrow: '2' }}
+                    />
+                    <div
+                        className={activeSelection('accent1')}
+                        onClick={ generateHandler('accent1') } 
+                        style={{ backgroundColor: colorState.accent1 }}
+                    />
+                    <div
+                        className={activeSelection('accent2')}
+                        onClick={ generateHandler('accent2') } 
+                        style={{ backgroundColor: colorState.accent2 }}
+                    />
+                    <div
+                        className={activeSelection('accent3')}
+                        onClick={ generateHandler('accent3') } 
+                        style={{ backgroundColor: colorState.accent3 }}
+                    />
                 </div>
             </div>
         </div>

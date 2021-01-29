@@ -124,6 +124,7 @@ i.far {
 
 input,
 textarea {
+    width: 100%;
     border-radius: 3px;
     border: 1px #a1a1a1 solid;
     margin: 3px 0;
@@ -136,7 +137,6 @@ input {
 
 textarea {
     padding: 5px;
-    width: 250px;
     height: 125px;
 }
 
@@ -393,6 +393,7 @@ footer ul li a:hover {
 
 .create-form-wrapper {
     margin-right: 2em;
+    flex: 1 0 0;
 }
 
 .create-palette-wrapper {
@@ -400,6 +401,7 @@ footer ul li a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 2 0 0;
 }
 
 .create-palette-wrapper p {
@@ -411,6 +413,8 @@ footer ul li a:hover {
     border: 1px solid #f6f6f6;
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
     cursor: pointer;
+    padding-bottom: 45%;
+    width: 80%;
 }
 
 .add-tags-component {
@@ -424,6 +428,8 @@ footer ul li a:hover {
 
 .added-tags {
     margin: 1em 0;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .tag-pill {
@@ -432,11 +438,19 @@ footer ul li a:hover {
     color: #fff;
     padding: 10px 20px;
     display: inline-block;
-    margin: 10px 2px;
+    margin: 10px 2px 0 2px;
     border-radius: 20px;
 }
 
 .tag-pill p {
     letter-spacing: 1px;
     font-size: 12px;
+}
+
+.added-tags h4 {
+    width: 100%;
+}
+
+.active-color {
+    border: solid 1px #fff;
 }
