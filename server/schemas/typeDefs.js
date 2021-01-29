@@ -20,7 +20,10 @@ const typeDefs = gql`
         accent3: String
         username: String
         tags: [String]
+        upvoteCount: Int
         upvotes: [User]
+        createdAt: String
+        saveCount: Int
         saves: [User]
     }
     

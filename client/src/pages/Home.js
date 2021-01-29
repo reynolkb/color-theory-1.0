@@ -30,7 +30,6 @@ const Home = () => {
 
     // console.log(palettes);
 
-
     return (
             <div className='global-wrapper'>
                 <div className='home-palette-wrapper'>
@@ -41,16 +40,20 @@ const Home = () => {
                         ))
                     } */}
 
-                    {/* {loading ? (
+                    {loading ? (
                         <div>Loading...</div>
-                    ) : ( */}
-                            {/* // Once query is complete and loading is undefined, pass palettes array to <Palette> component as props */}
+                    ) : (
+                            /* // Once query is complete and loading is undefined, pass palettes array to <Palette> component as props */
                             <Palette palettes={palettes} />
-                        {/* )} */}
+                        )}
                 </div>
 
                 <div className='sidebar-wrapper'>
-                    <Sidebar />
+                    {loading ? (
+                        <div>Loading...</div>
+                    ) : (
+                        <Sidebar palettes={palettes} />
+                    )}
                 </div>
             </div>
     );
