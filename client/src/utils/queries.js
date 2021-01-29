@@ -10,7 +10,9 @@ export const QUERY_PALETTES = gql`
             secondary
             accent1
             accent2
-            accent3
+			accent3
+			createdAt
+			username
 		}
 	}
 `;

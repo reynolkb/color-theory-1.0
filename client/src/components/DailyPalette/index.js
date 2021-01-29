@@ -17,7 +17,7 @@ const DailyPalette = ({ palette }) => {
 
     return(
         <div className='daily-palette'>
-            <h4>{title}by {username}</h4>
+            <h4>{title} by {username}</h4>
             <div>
                 <Colors palette={palette}/>
             </div>

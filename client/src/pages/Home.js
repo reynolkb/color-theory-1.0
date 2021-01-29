@@ -41,16 +41,16 @@ const Home = () => {
                         ))
                     } */}
 
-                    {/* {loading ? (
+                    {loading ? (
                         <div>Loading...</div>
-                    ) : ( */}
-                            {/* // Once query is complete and loading is undefined, pass palettes array to <Palette> component as props */}
+                    ) : (
+                            /* // Once query is complete and loading is undefined, pass palettes array to <Palette> component as props */
                             <Palette palettes={palettes} />
-                        {/* )} */}
+                        )}
                 </div>
 
                 <div className='sidebar-wrapper'>
-                    <Sidebar />
+                    <Sidebar palettes={palettes} />
                 </div>
             </div>
     );
