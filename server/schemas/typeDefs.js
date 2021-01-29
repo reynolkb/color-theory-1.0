@@ -20,6 +20,7 @@ const typeDefs = gql`
         accent3: String
         username: String
         upvotes: [User]
+        saves: [User]
     }
 
     type Auth {

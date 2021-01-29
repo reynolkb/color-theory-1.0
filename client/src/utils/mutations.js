@@ -90,3 +90,14 @@ export const ADD_UPVOTE = gql`
 		}
 	}
 `;
+
+export const ADD_FAV_PALETTE = gql`
+	addFavPalette(paletteId: $paletteId) {
+		_id
+		username
+		email
+		favorites {
+			_id
+		}
+	}
+`;
