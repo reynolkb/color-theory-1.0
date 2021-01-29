@@ -53,7 +53,6 @@ const Signup = () => {
                         </form>
                     </div>
             </AuthWrapper>
-
     )
 };
 

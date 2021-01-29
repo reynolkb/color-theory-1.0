@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import Create from './pages/Create';
 
 // establish the connection to the back-end server's /graphql endpoint using apollo
 const client = new ApolloClient({
@@ -46,6 +47,7 @@ function App() {
             <Route exact path='/' component={Home} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/signup' component={Signup} />
+            <Route exact path='/create' component={Create} />
           </Switch>
         </main>
         <Footer />
