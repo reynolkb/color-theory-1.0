@@ -1,24 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import apollo libraries for using React Hooks functionality with Apollo queries and mutations
+import { ApolloProvider } from '@apollo/react-hooks';
+// functionality to make requests to the server with helper libraries
+import ApolloClient from 'apollo-boost';
+
+//components
+import Nav from './components/Nav';
+import Footer from './components/Footer';
+//pages
+import Home from './pages/Home';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
+
+// establish the connection to the back-end server's /graphql endpoint using apollo
+const client = new ApolloClient({
+  request: operation => {
+
+    const token = localStorage.getItem('id_token');
+
+    // set the HTTP request headers to include the JWT token
+
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    });
+
+  },
+  // /graphql endpoint
+  // server path defined as "proxy" in package.json 
+  uri: '/graphql'
+
+});
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <Router>
+        <Nav />
+        <main>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/signup' component={Signup} />
+          </Switch>
+        </main>
+        <Footer />
+      </Router>
+    </ApolloProvider>
   );
 }
 

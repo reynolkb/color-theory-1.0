@@ -1,13 +1,357 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+    min-height: 100%;
 }
+
+body {
+    background-color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+    min-height: 100vh;
+}
+
+#root {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+}
+
+.global-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 900px;
+    padding: 4em 0;
+}
+
+h1 {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-weight: bolder;
+    background: -webkit-linear-gradient(
+        5deg,
+        #e73df0,
+        #f03d72,
+        #f08d3d,
+        #ccf03d,
+        #46f03d,
+        #3df0ba,
+        #3d9ff0,
+        #613df0 
+    );
+    background-clip: content-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+i.fas,
+i.far {
+    color: #a1a1a1;
+}
+
+.btn {
+    padding: 8px 20px;
+    border: none;
+    letter-spacing: 0.15em;
+    border-radius: 3px;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.pink-btn {
+    background: linear-gradient(45deg,
+        #e73df0,
+        #f03d72,
+        #f08d3d 
+    );
+    color: #ffffff;
+}
+
+.pink-btn:hover {
+    background: linear-gradient(45deg,
+        #f08d3d,
+        #f03d72,
+        #e73df0 
+    );
+    padding: 8px 30px;
+    transition: padding .35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.blue-btn {
+    background: linear-gradient(45deg,
+        #613df0,
+        #3d9ff0,
+        #3df0ba 
+    );
+    color: #ffffff;
+}
+
+.blue-btn:hover {
+    background: linear-gradient(45deg,
+        #3df0ba ,
+        #3d9ff0,
+        #613df0 
+    );
+    padding: 8px 30px;
+    transition: padding .35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+input {
+    border-radius: 3px;
+    border: 1px #a1a1a1 solid;
+    padding: .5em;
+    margin: 3px 0;
+    transition: box-shadow 1s ease-in, border-color 1s ease-in;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 5px 1px #91ceff;
+    border-color: #91ceff;
+    transition: box-shadow 2s ease-out, border-color 1s ease-out;
+}
+
+
+/* header and footer styling */
+
+header {
+    width: 100%;
+    padding: 1em;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav {
+    padding: 0 1em;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+}
+
+header nav ul li {
+    padding: 0 2em;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #000000;
+}
+
+header nav ul li a:hover {
+    display: inline-block;
+    color: #a1a1a1;
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+    -ms-transform:rotate(180deg);
+    transform:rotate(180deg);
+}
+
+footer {
+    background-color: #ffffff;
+    width: 100%;
+    position:fixed;
+    bottom:0;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+footer  h3 {
+    font-size: 18px;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer ul li {
+    padding: 0 1em;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #000000;
+    
+}
+
+footer ul li a:hover {
+    display: inline-block;
+    color: #a1a1a1;
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+    -ms-transform:rotate(180deg);
+    transform:rotate(180deg);
+}
+
+/* home component styling  */
+
+.home-palette-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 2 0 0;
+    margin: 2em;
+}
+
+/* sidebar styling */
+
+.sidebar-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 5em 0;
+    margin-left: 5em;
+    flex: 1 0 0;
+}
+
+.sidebar-title {
+    font-size: 20px;
+    font-weight: lighter;
+    margin-bottom: 0.50em;
+}
+
+.daily-palette h4,
+.weekly-palette h4 {
+    font-weight: lighter;
+}
+
+.daily-palette {
+    margin-bottom: 2em;
+}
+
+/* palette styling */
+
+.palette-wrapper {
+    border: 1px solid #a1a1a1;
+    border-radius: 5px;
+    padding: 2em;
+    margin: 2em 0;
+}
+
+.palette-wrapper:hover {
+    outline: none;
+    border-color: #a1a1a1;
+    box-shadow: 0 0 10px #a1a1a1;
+    transition: box-shadow 0.5s ease-out;
+    cursor: pointer;
+}
+.palette-title {
+    font-size: 25px;
+}
+
+.palette-description {
+    margin: 5px;
+    font-size: 15px;
+}
+
+.likes-shares {
+    display: flex;
+    justify-content: space-between;
+}
+
+.likes-shares div i {
+    margin: 0 5px;
+}
+
+/* color component  */
+
+.color-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    width: 100%;
+    margin: .5em 0;
+    padding: 0;
+    padding-bottom: 66.666%;
+}
+
+.color-wrapper-aspect-ratio div {
+    flex: 1 0 0;
+}
+
+.color-wrapper-aspect-ratio {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+/* login and signup styling */
+
+.auth-wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-panel {
+    padding: 3em;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 2%;
+}
+
+.auth-panel-contents {
+    background-color: #fff;
+    border-radius: 2%;
+    border: 1px solid #a1a1a1;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    color: #000;
+    padding: 5em;
+}
+
+.pattern-diagonal-stripes-right {
+    background: repeating-linear-gradient(135deg, transparent, transparent 25px, currentColor 25px, currentColor calc(2 * 25px));
+    color: #f6f6f6;
+    background-color: #f1f1f1;
+}
+
+.pattern-diagonal-stripes-left {
+    background: repeating-linear-gradient(45deg, transparent, transparent 25px, currentColor 25px, currentColor calc(2 * 25px));
+    color: #f1f1f1;
+    background-color: #f6f6f6;
+}
+
+.auth-title {
+    font-size: 20px;
+    font-weight: lighter;
+    margin-bottom: 0.50em;
+}
+
+.auth-element {
+    display: flex;
+    flex-direction: column;
+    margin: 0.78em 0;
+}
+
+
