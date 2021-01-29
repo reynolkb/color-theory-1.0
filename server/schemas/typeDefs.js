@@ -19,6 +19,7 @@ const typeDefs = gql`
         accent2: String
         accent3: String
         username: String
+        tags: [String]
         upvotes: [User]
         saves: [User]
     }
@@ -51,6 +52,7 @@ const typeDefs = gql`
             accent1: String!
             accent2: String!
             accent3: String!
+            tags: [String]
         ): Palette
         removePalette(_id: ID!): User
         addUpvote(paletteId: ID!): Palette
