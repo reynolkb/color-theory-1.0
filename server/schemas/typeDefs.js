@@ -53,6 +53,7 @@ const typeDefs = gql`
         ): Palette
         removePalette(_id: ID!): User
         addUpvote(paletteId: ID!): Palette
+        addFavPalette(paletteId: ID!): User
     }
 `;
 
