@@ -72,3 +72,21 @@ export const REMOVE_PALETTE = gql`
             }
 		}
 `;
+
+export const ADD_UPVOTE = gql`
+	mutation addUpvote($paletteId: ID!) {
+		addUpvote(paletteId: $paletteId) {
+				_id
+				title
+				description
+				primary
+				secondary
+				accent1
+				accent2
+				accent3
+				upvotes {
+					_id
+				}
+		}
+	}
+`;
