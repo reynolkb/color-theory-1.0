@@ -12,7 +12,7 @@ const DailyPalette = ({ palette }) => {
         username,
         title,
         upvoteCount,
-        saveCount,
+        saveCount
     } = palette;
 
     return(

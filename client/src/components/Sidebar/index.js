@@ -7,7 +7,7 @@ import WeeklyPalette from '../WeeklyPalette';
 // import { dailyPalette, weeklyPalette } from '../../const/colors';
 
 const Sidebar = ({ palettes }) => {
-
+    console.log(palettes);
     // query for sidebar content - trending today
     // const { loading, data: dailyData } = useQuery(QUERY_DAILY_PALETTE);
     // query for sidebar content - trending this week
@@ -17,6 +17,10 @@ const Sidebar = ({ palettes }) => {
     // const daily = dailyData?.palettes || [];
     // constant for sidebar content - trending this week
     // const weekly = weeklyData?.palettes || [];
+
+    // const daily = dailyPalette;
+    // const weekly = weeklyPalette;
+    
     const daily = palettes[1];
     const weekly = palettes[2];
 

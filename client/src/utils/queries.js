@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 export const QUERY_PALETTES = gql`
-	query palettes {
-		palettes {
+	query palettes($username: String) {
+		palettes(username: $username) {
 			_id
 			title
             description
@@ -11,8 +11,16 @@ export const QUERY_PALETTES = gql`
             accent1
             accent2
 			accent3
+			username
+			upvoteCount
+			upvotes {
+				username
+			}
 			createdAt
-			username	
+			saveCount
+			saves {
+				username
+			}
 		}
 	}
 `;

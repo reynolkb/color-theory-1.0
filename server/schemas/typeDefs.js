@@ -21,8 +21,10 @@ const typeDefs = gql`
         username: String
         tags: [String]
         upvotes: [User]
+        upvoteCount: Int
         createdAt: String
         saves: [User]
+        saveCount: Int
     }
     
     type Tag {
