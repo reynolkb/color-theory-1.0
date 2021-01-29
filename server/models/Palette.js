@@ -42,6 +42,13 @@ const paletteSchema = new Schema({
         default: Date.now,
         get: timestamp => dateFormat(timestamp)
     },
+    tags: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Tag'
+        }
+        
+    ],
     upvotes: [
         {
           type: Schema.Types.ObjectId,

@@ -10,7 +10,7 @@ db.once('open', async () => {
   // create user data
   const userData = [];
 
-  for (let i = 0; i < 50; i += 1) {
+  for (let i = 0; i < 20; i += 1) {
     const username = faker.internet.userName();
     const email = faker.internet.email(username);
     const password = faker.internet.password();
@@ -20,24 +20,11 @@ db.once('open', async () => {
 
   const createdUsers = await User.collection.insertMany(userData);
 
-  // create friends
-  // for (let i = 0; i < 100; i += 1) {
-  //   const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-  //   const { _id: userId } = createdUsers.ops[randomUserIndex];
 
-  //   let friendId = userId;
-
-  //   while (friendId === userId) {
-  //     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-  //     friendId = createdUsers.ops[randomUserIndex];
-  //   }
-
-  //   await User.updateOne({ _id: userId }, { $addToSet: { friends: friendId } });
-  // }
 
   // create thoughts
   let createdPalettes = [];
-  for (let i = 0; i < 100; i += 1) {
+  for (let i = 0; i < 50; i += 1) {
     const title = faker.lorem.word();
 
     const description = faker.lorem.words(Math.round(Math.random() * 20) + 1);
@@ -65,6 +52,74 @@ db.once('open', async () => {
 
     createdPalettes.push(createdPalette);
   }
+
+  // const userIdHistory = [];
+  // const paletteIdHistory = [];
+  // let historyFlag = true;
+    // user favorite a palatte
+     for (let i = 0; i < 150; i += 1) {
+      const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+      const randomPaletteIndex = Math.floor(Math.random() * createdPalettes.length);
+
+      const { _id: userId } = createdUsers.ops[randomUserIndex];
+      const { _id: paletteId } = createdPalettes[randomPaletteIndex];
+
+      // if(i !== 0){
+      //   historyFlag = true;
+      //   while(historyFlag)
+      //   for(let j = 0; i <= userIdHistory.length; i++) {
+      //     if (userIdHistory[j] === userId && paletteIdHistory[j] === paletteId){
+      //       console.log("Been There!");          
+      //       const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+      //       const randomPaletteIndex = Math.floor(Math.random() * createdPalettes.length);
+      //       const { _id: userId } = createdUsers.ops[randomUserIndex];
+      //       const { _id: paletteId } = createdPalettes[randomPaletteIndex];
+      //       historyFlag = true;
+      //     } else {
+      //       historyFlag = false;
+      //     }
+      //   }
+      // }
+      // userIdHistory.push(userId);
+      // paletteIdHistory.push(paletteId);
+      // console.log(userIdHistory);
+
+      await User.updateOne(
+        {_id: userId},
+        {$push: {favorites: paletteId}},
+        {new: true}
+      );
+
+      await Palette.updateOne(
+        {_id: paletteId},
+        {$push: {saves: userId}},
+        {new: true}
+      )
+  
+      // while (friendId === userId) {
+      //   const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+      //   friendId = createdUsers.ops[randomUserIndex];
+     }
+  
+     for (let i = 0; i < 150; i += 1) {
+      const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+      const randomPaletteIndex = Math.floor(Math.random() * createdPalettes.length);
+
+      const { _id: userId } = createdUsers.ops[randomUserIndex];
+      const { _id: paletteId } = createdPalettes[randomPaletteIndex];
+
+      await Palette.updateOne(
+        {_id: paletteId},
+        {$push: {upvotes: userId}},
+        {new: true}
+      )
+  
+      // while (friendId === userId) {
+      //   const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+      //   friendId = createdUsers.ops[randomUserIndex];
+     }
+      // await User.updateOne({ _id: userId }, { $addToSet: { friends: friendId } });
+    // }
 
   // create reactions
   // for (let i = 0; i < 100; i += 1) {

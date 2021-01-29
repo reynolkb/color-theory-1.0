@@ -1,3 +1,7 @@
+:root {
+    --error: rgb(228, 46, 1);
+}
+
 * {
     margin: 0px;
     padding: 0px;
@@ -59,6 +63,10 @@ h1 {
 h3.page-title {
     font-weight: lighter;
     font-size: 25px;
+}
+
+.error-text {
+    color: var(--error);
 }
 
 i.fas,
