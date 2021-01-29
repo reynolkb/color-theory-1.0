@@ -19,8 +19,15 @@ const typeDefs = gql`
         accent2: String
         accent3: String
         username: String
+        tags: [String]
         upvotes: [User]
         saves: [User]
+    }
+    
+    type Tag {
+        _id: ID
+        name: String!
+        taggedPalettes: [Palette]
     }
 
     type Auth {
@@ -34,6 +41,7 @@ const typeDefs = gql`
         user(username: String!): User
         palettes(username: String): [Palette]
         palette(_id: ID!): Palette
+        tag(name: String!): Tag
     }
 
     type Mutation {
@@ -51,10 +59,13 @@ const typeDefs = gql`
             accent1: String!
             accent2: String!
             accent3: String!
+            tags: [String]
         ): Palette
         removePalette(_id: ID!): User
         addUpvote(paletteId: ID!): Palette
         addFavPalette(paletteId: ID!): User
+        createTag(name: String!): Tag
+        linkTagToPalette(paletteId: ID! tagId: ID!): Tag
     }
 `;
 

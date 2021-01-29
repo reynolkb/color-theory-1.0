@@ -1,5 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Palette } = require('../models');
+const Tag = require('../models/Tag');
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
@@ -29,6 +30,9 @@ const resolvers = {
 		palette: async (parent, { _id }) => {
 			return Palette.findOne({ _id });
 		},
+		tag: async (parent, {name}) => {
+			return Tag.findOne({name});
+		}
     },
     Mutation: {
         addUser: async (parent, args) => {
@@ -126,6 +130,30 @@ const resolvers = {
 				  );
 			
 				return updatedUser;
+			  }
+			
+			  throw new AuthenticationError('You need to be logged in!');
+		},
+        createTag: async (parent, args) => {
+			const tag = await Tag.create(args);
+		
+			return tag;
+		},
+		linkTagToPalette: async (parent, {paletteId, tagId}, context) => {
+			if (context.user) {
+				const updatedPalette = await Palette.findOneAndUpdate(
+				  { _id: paletteId },
+				  { $addToSet: { tags: tagId} },
+				  { new: true }
+				);
+
+				const updatedTag = await Tag.findOneAndUpdate(
+					{ _id: tagId  },
+					{ $addToSet: { taggedPalettes: paletteId } },
+					{ new: true }
+				  );
+			
+				return updatedTag;
 			  }
 			
 			  throw new AuthenticationError('You need to be logged in!');
