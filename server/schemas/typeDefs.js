@@ -19,6 +19,7 @@ const typeDefs = gql`
         accent2: String
         accent3: String
         username: String
+        upvotes: [User]
     }
 
     type Auth {
@@ -51,6 +52,7 @@ const typeDefs = gql`
             accent3: String!
         ): Palette
         removePalette(_id: ID!): User
+        addUpvote(paletteId: ID!): Palette
     }
 `;
 

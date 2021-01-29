@@ -97,7 +97,20 @@ const resolvers = {
 
 				return deletePalette;
 			}
-        },
+		},
+		addUpvote: async (parent, {paletteId}, context) => {
+			if (context.user) {
+				const updatedPalette = await Palette.findOneAndUpdate(
+				  { _id: paletteId },
+				  { $addToSet: { upvotes: context.user._id } },
+				  { new: true }
+				);
+			
+				return updatedPalette;
+			  }
+			
+			  throw new AuthenticationError('You need to be logged in!');
+		}
     }
 };
 
