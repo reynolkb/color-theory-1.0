@@ -49,7 +49,11 @@ const Home = () => {
                 </div>
 
                 <div className='sidebar-wrapper'>
-                    <Sidebar palettes={palettes} />
+                    {loading ? (
+                        <div>Loading...</div>
+                    ) : (
+                        <Sidebar palettes={palettes} />
+                    )}
                 </div>
             </div>
     );

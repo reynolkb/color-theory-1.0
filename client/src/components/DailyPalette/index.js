@@ -8,6 +8,8 @@ import Colors from '../Colors';
 
 const DailyPalette = ({ palette }) => {
 
+    console.log(palette);
+
     const {
         username,
         title,
@@ -15,13 +17,13 @@ const DailyPalette = ({ palette }) => {
         saveCount
     } = palette;
 
-    return(
+    return (
         <div className='daily-palette'>
             <h4>{title} by {username}</h4>
             <div>
-                <Colors palette={palette}/>
+                <Colors palette={palette} />
             </div>
-            <SocialButtons upvoteCount={upvoteCount} saveCount={saveCount}/>
+            <SocialButtons upvoteCount={upvoteCount} saveCount={saveCount} />
         </div>
     )
 }

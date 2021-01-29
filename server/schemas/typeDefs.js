@@ -20,11 +20,11 @@ const typeDefs = gql`
         accent3: String
         username: String
         tags: [String]
-        upvotes: [User]
         upvoteCount: Int
+        upvotes: [User]
         createdAt: String
-        saves: [User]
         saveCount: Int
+        saves: [User]
     }
     
     type Tag {

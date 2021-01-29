@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { useQuery } from '@apollo/react-hooks';
+import { QUERY_PALETTES } from '../../utils/queries';
+
 import DailyPalette from '../DailyPalette';
 import WeeklyPalette from '../WeeklyPalette';
 
@@ -7,6 +10,7 @@ import WeeklyPalette from '../WeeklyPalette';
 // import { dailyPalette, weeklyPalette } from '../../const/colors';
 
 const Sidebar = ({ palettes }) => {
+
     console.log(palettes);
     // query for sidebar content - trending today
     // const { loading, data: dailyData } = useQuery(QUERY_DAILY_PALETTE);
