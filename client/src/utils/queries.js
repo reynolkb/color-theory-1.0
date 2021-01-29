@@ -12,7 +12,7 @@ export const QUERY_PALETTES = gql`
             accent2
 			accent3
 			createdAt
-			username
+			username	
 		}
 	}
 `;

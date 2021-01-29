@@ -4,10 +4,7 @@ import DailyPalette from '../DailyPalette';
 import WeeklyPalette from '../WeeklyPalette';
 
 // this is Cat's test data
-import { dailyPalette, weeklyPalette } from '../../const/colors';
-// import dateFormat from '../../utils/dateFormat';
-
-
+// import { dailyPalette, weeklyPalette } from '../../const/colors';
 
 const Sidebar = ({ palettes }) => {
 
@@ -20,12 +17,12 @@ const Sidebar = ({ palettes }) => {
     // const daily = dailyData?.palettes || [];
     // constant for sidebar content - trending this week
     // const weekly = weeklyData?.palettes || [];
-    const daily = palettes[10];
-    const weekly = palettes[40];
+    const daily = palettes[1];
+    const weekly = palettes[2];
 
-    console.log(palettes);
-    console.log(palettes[0].title);
-    console.log(palettes[0].createdAt);
+    // console.log(palettes);
+    // console.log(palettes[0].title);
+    // console.log(palettes[0].createdAt);
 
     // const dateToString = Date(palettes[0].createdAt);
     // console.log(dateToString);

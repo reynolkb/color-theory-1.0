@@ -28,7 +28,7 @@ const Home = () => {
     const palettes = data?.palettes || [];
     // const palettes = fakePalettes;
 
-    // console.log(palettes);
+    console.log(palettes);
 
 
     return (
