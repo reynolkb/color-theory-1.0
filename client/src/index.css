@@ -1,3 +1,7 @@
+:root {
+    --error: rgb(228, 46, 1);
+}
+
 * {
     margin: 0px;
     padding: 0px;
@@ -54,6 +58,10 @@ h1 {
     background-clip: content-box;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.error-text {
+    color: var(--error);
 }
 
 i.fas,
@@ -353,5 +361,3 @@ footer ul li a:hover {
     flex-direction: column;
     margin: 0.78em 0;
 }
-
-
