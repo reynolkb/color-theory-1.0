@@ -110,6 +110,25 @@ const resolvers = {
 			  }
 			
 			  throw new AuthenticationError('You need to be logged in!');
+		},
+		addFavPalette: async (parent, {paletteId}, context) => {
+			if (context.user) {
+				const updatedPalette = await Palette.findOneAndUpdate(
+				  { _id: paletteId },
+				  { $addToSet: { saves: context.user._id } },
+				  { new: true }
+				);
+
+				const updatedUser = await User.findByIdAndUpdate(
+					{ _id: context.user._id  },
+					{ $addToSet: { favorites: paletteId } },
+					{ new: true }
+				  );
+			
+				return updatedUser;
+			  }
+			
+			  throw new AuthenticationError('You need to be logged in!');
 		}
     }
 };
