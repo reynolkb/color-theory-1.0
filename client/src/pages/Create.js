@@ -2,9 +2,8 @@ import React from 'react';
 
 //components
 import AddTags from '../components/CreateParts/AddTags';
-import PaletteDescription from '../components/CreateParts/PaletteDescription';
-import PalettePicker from '../components/CreateParts/PalettePicker';
 import ColorPicker from '../components/CreateParts/ColorPicker';
+import PaletteDescription from '../components/CreateParts/PaletteDescription';
 
 const Create = () => {
 
@@ -18,10 +17,7 @@ const Create = () => {
                     <AddTags />
                 </div>
                 {/* right side */}
-                <div>
-                    <ColorPicker />
-                    <PalettePicker />
-                </div>
+                <ColorPicker />
             </div>
         </div>
     )
