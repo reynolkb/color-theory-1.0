@@ -28,6 +28,7 @@ const ColorPicker = () => {
         setColorState( newState );
     }
 
+    // this is a helper function to help dry our code
     function generateHandler(key) {
         return () => {
             setPaletteState({
@@ -40,16 +41,19 @@ const ColorPicker = () => {
     return(
         <div className='create-palette-wrapper'>
             <SketchPicker 
+                disableAlpha={true}
+                width={ 250 }
                 color={ paletteState.current }
                 onChange={ handleChange }
             />
-            <div className='color-wrapper'>
+            <p>Select each box to add color to it.</p>
+            <div className='color-wrapper create-color-div-wrapper'>
                 <div className='color-wrapper-aspect-ratio'>
-                    <div onClick={ generateHandler('primary') } style={{ backgroundColor: colorState.primary, flexGrow: '2.5' }}>primary</div>
-                    <div onClick={ generateHandler('secondary') } style={{ backgroundColor: colorState.secondary, flexGrow: '2' }}>secondary</div>
-                    <div onClick={ generateHandler('accent1') } style={{ backgroundColor: colorState.accent1 }}>acc1</div>
-                    <div onClick={ generateHandler('accent2') } style={{ backgroundColor: colorState.accent2 }}>acc2</div>
-                    <div onClick={ generateHandler('accent3') } style={{ backgroundColor: colorState.accent3 }}>acc3</div>
+                    <div onClick={ generateHandler('primary') } style={{ backgroundColor: colorState.primary, flexGrow: '2.5' }}></div>
+                    <div onClick={ generateHandler('secondary') } style={{ backgroundColor: colorState.secondary, flexGrow: '2' }}></div>
+                    <div onClick={ generateHandler('accent1') } style={{ backgroundColor: colorState.accent1 }}></div>
+                    <div onClick={ generateHandler('accent2') } style={{ backgroundColor: colorState.accent2 }}></div>
+                    <div onClick={ generateHandler('accent3') } style={{ backgroundColor: colorState.accent3 }}></div>
                 </div>
             </div>
         </div>

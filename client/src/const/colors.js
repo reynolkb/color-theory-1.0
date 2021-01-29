@@ -36,6 +36,8 @@ export const palette = {
     saveCount: 404,
 }
 
+// jane will you keep these palettes for me to enter into the site once it's live? 
+
 export const fakePalettes = [palette, palette, palette, palette, palette];
 
 export const dailyPalette = {

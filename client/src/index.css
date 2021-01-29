@@ -56,6 +56,11 @@ h1 {
     -webkit-text-fill-color: transparent;
 }
 
+h3.page-title {
+    font-weight: lighter;
+    font-size: 25px;
+}
+
 i.fas,
 i.far {
     color: #a1a1a1;
@@ -64,13 +69,20 @@ i.far {
 .btn {
     padding: 8px 20px;
     border: none;
+    background-color: #bebebe;
     letter-spacing: 0.15em;
     border-radius: 3px;
+    margin: 5px;
+    outline: none;
 }
 
 .btn:hover {
     cursor: pointer;
+    background-color: #a1a1a1;
+    box-shadow: 0 0 5px 1px #bebebe;
+    transition: background-color .35s ease-in, box-shadow .35s ease-in;
 }
+
 
 .pink-btn {
     background: linear-gradient(45deg,
@@ -110,15 +122,26 @@ i.far {
     transition: padding .35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-input {
+input,
+textarea {
     border-radius: 3px;
     border: 1px #a1a1a1 solid;
-    padding: .5em;
     margin: 3px 0;
     transition: box-shadow 1s ease-in, border-color 1s ease-in;
 }
 
-input:focus {
+input {
+    padding: .5em;
+}
+
+textarea {
+    padding: 5px;
+    width: 250px;
+    height: 125px;
+}
+
+input:focus,
+textarea:focus {
     outline: none;
     box-shadow: 0 0 5px 1px #91ceff;
     border-color: #91ceff;
@@ -239,7 +262,8 @@ footer ul li a:hover {
 }
 
 .daily-palette h4,
-.weekly-palette h4 {
+.weekly-palette h4,
+.added-tags h4 {
     font-weight: lighter;
 }
 
@@ -357,19 +381,62 @@ footer ul li a:hover {
 /* create page styling  */
 
 .create-pg-wrapper {
-    width: 100%;
-    height: 100vh;
-    display: flex;
+    margin-top: 3em;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    
 }
 
 .create-wrapper {
     display: flex;
+    margin-top: 1em;
 }
 
-/* .create-form-wrapper {
+.create-form-wrapper {
+    margin-right: 2em;
+}
 
-} */
+.create-palette-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-palette-wrapper p {
+    margin-top: 1.25em;
+}
+
+.create-color-div-wrapper {
+    margin-top: 0.75em;
+    border: 1px solid #f6f6f6;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.add-tags-component {
+    margin-top: 2em;
+}
+
+.add-tags-component form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.added-tags {
+    margin: 1em 0;
+}
+
+.tag-pill {
+    background-color: #a1a1a1;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    display: inline-block;
+    margin: 10px 2px;
+    border-radius: 20px;
+}
+
+.tag-pill p {
+    letter-spacing: 1px;
+    font-size: 12px;
+}
