@@ -15,10 +15,10 @@ const Palette = ({ palettes }) => {
                 palettes.map(palette => (
                     <div key={palette._id}>
                         <div className='palette-wrapper'>
-                            {/* <Link to={`/palette/${palette._id}`}> */}
                                 <h3 className='palette-title'>{palette.title}</h3>
                                 <p>by {palette.username} on {palette.createdAt}</p>
                                 <div>
+                                    {/* <Link to={`/palette/${palette._id}`}> this is where it should go :) */} 
                                     <Colors palette={palette} />
                                 </div>
                                 <SocialButtons upvoteCount={palette.upvoteCount} saveCount={palette.saveCount} />

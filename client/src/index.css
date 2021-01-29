@@ -66,6 +66,18 @@ i.far {
     color: #a1a1a1;
 }
 
+i.fa-heart:hover,
+i.fa-heart:active {
+    color: #e42e01;
+}
+
+i.fa-bookmark:hover,
+i.fa-share-square:hover,
+i.fa-bookmark:active,
+i.fa-share-square:active {
+    color: #91ceff;
+}
+
 .btn {
     padding: 8px 20px;
     border: none;
@@ -243,6 +255,22 @@ footer ul li a:hover {
     flex-direction: column;
     flex: 2 0 0;
     margin: 2em;
+}
+
+.filter-selection {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.filter {
+    padding: 2px 5px;
+    border: #a1a1a1 solid 1px;
+    border-radius: 3px;
+    outline: none;
+}
+
+.filter:hover {
+    box-shadow: 0 0 5px 1px #91ceff;
 }
 
 /* sidebar styling */

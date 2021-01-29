@@ -7,9 +7,6 @@ import { useQuery } from '@apollo/react-hooks';
 // import { QUERY_FILTERED_PALETTES } from '../utils/queries';
 import { QUERY_PALETTES } from '../utils/queries';
 
-// this is Cat's test data
-// import { fakePalettes } from '../const/colors'
-
 import Palette from '../components/Palette';
 import Sidebar from '../components/Sidebar';
 
@@ -34,6 +31,15 @@ const Home = () => {
     return (
             <div className='global-wrapper'>
                 <div className='home-palette-wrapper'>
+                    <div className='filter-selection'>
+                        <form>
+                            <select className='filter' name='filter'>
+                                <option value=''>Filter ↓</option>
+                                <option value='most-liked'>Most Liked</option>
+                                <option value='recent'>Recent</option>
+                            </select>
+                        </form>
+                    </div>
                     {/* cat's styling palettes */}
                     {/* {
                         fakePalettes.map((palette, i) => (
