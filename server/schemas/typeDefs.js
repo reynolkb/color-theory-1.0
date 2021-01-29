@@ -23,6 +23,12 @@ const typeDefs = gql`
         upvotes: [User]
         saves: [User]
     }
+    
+    type Tag {
+        _id: ID
+        name: String!
+        taggedPalettes: [Palette]
+    }
 
     type Auth {
         token: ID!
@@ -35,6 +41,7 @@ const typeDefs = gql`
         user(username: String!): User
         palettes(username: String): [Palette]
         palette(_id: ID!): Palette
+        tag(name: String!): Tag
     }
 
     type Mutation {
@@ -57,6 +64,8 @@ const typeDefs = gql`
         removePalette(_id: ID!): User
         addUpvote(paletteId: ID!): Palette
         addFavPalette(paletteId: ID!): User
+        createTag(name: String!): Tag
+        linkTagToPalette(paletteId: ID! tagId: ID!): Tag
     }
 `;
 
