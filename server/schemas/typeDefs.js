@@ -51,6 +51,7 @@ const typeDefs = gql`
             accent3: String!
         ): Palette
         removePalette(_id: ID!): User
+        addUpvote(paletteId: ID!): Palette
     }
 `;
 
