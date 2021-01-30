@@ -103,6 +103,7 @@ const resolvers = {
 			}
 		},
 		addUpvote: async (parent, {paletteId}, context) => {
+			console.log(paletteId);
 			if (context.user) {
 				const updatedPalette = await Palette.findOneAndUpdate(
 				  { _id: paletteId },

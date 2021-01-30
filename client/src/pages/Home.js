@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 // import functionality to make requests to GraphQL server 
 import { useQuery } from '@apollo/react-hooks';
@@ -25,7 +25,7 @@ const Home = () => {
     const palettes = data?.palettes || [];
     // const palettes = fakePalettes;
 
-    // console.log(palettes);
+    palettes.length && console.log(typeof palettes[0]._id);
 
     return (
             <div className='global-wrapper'>
@@ -50,17 +50,16 @@ const Home = () => {
                         <div>Loading...</div>
                     ) : (
                             /* // Once query is complete and loading is undefined, pass palettes array to <Palette> component as props */
-                            <Palette palettes={palettes} />
+                            <Palette palettes={palettes}/>
                         )}
                 </div>
-
-                <div className='sidebar-wrapper'>
+                {/* <div className='sidebar-wrapper'>
                     {loading ? (
                         <div>Loading...</div>
                     ) : (
                         <Sidebar palettes={palettes} />
                     )}
-                </div>
+                </div> */}
             </div>
     );
 };

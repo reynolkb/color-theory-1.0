@@ -6,8 +6,7 @@ import React from 'react';
 import Colors from '../../components/Colors';
 import SocialButtons from '../SocialButtons';
 
-const Palette = ({ palettes }) => {
-
+const Palette = ({ palettes}) => {
     return (
         // will need link to by react to link to details page 
         <div>
@@ -21,7 +20,7 @@ const Palette = ({ palettes }) => {
                                     {/* <Link to={`/palette/${palette._id}`}> this is where it should go :) */} 
                                     <Colors palette={palette} />
                                 </div>
-                                <SocialButtons upvoteCount={palette.upvoteCount} saveCount={palette.saveCount} paletteId={palette._id}/>
+                                <SocialButtons upvoteCount={palette.upvoteCount} saveCount={palette.saveCount} paletteId={palette._id} />
                                 <div>
                                     <h5 className='palette-description'>Description:</h5>
                                     <p>
