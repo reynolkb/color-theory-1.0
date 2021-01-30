@@ -1,44 +1,33 @@
 //libraries
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { SketchPicker } from 'react-color';
 
+import { paletteCreatorContext } from '../CreateProvider';
 
 const ColorPicker = () => {
 
-    const [ colorState, setColorState ] = useState({
-        primary: '#f6f6f6',
-        secondary: '#f1f1f1',
-        accent1: '#f6f6f6',
-        accent2: '#f1f1f1',
-        accent3: '#f6f6f6',
-    });
-    const [ paletteState, setPaletteState ] = useState({
-        current: colorState.primary,
-        workingColor: 'primary'
-    });
+    const { state, handleChange } = useContext(paletteCreatorContext);
 
-    function handleChange(color) {
-        setPaletteState({ 
+    function handleColorPicker(color) {
+        handleChange({ 
             current: color.hex,
-            workingColor: paletteState.workingColor
+            workingColor: state.workingColor,
+            [state.workingColor]: color.hex
         });
-        const newState = colorState;
-        newState[ paletteState.workingColor ] = color.hex;
-        setColorState( newState );
     }
 
     // this is a helper function to help dry our code
     function generateHandler(key) {
         return () => {
-            setPaletteState({
+            handleChange({
                 workingColor: key,
-                current: colorState[key]
+                current: state[key]
             });
         }
     }
 
     function activeSelection(key) {
-        return key === paletteState.workingColor ? 'active-color' : '';
+        return key === state.workingColor ? 'active-color' : '';
     }
 
     return(
@@ -46,8 +35,8 @@ const ColorPicker = () => {
             <SketchPicker 
                 disableAlpha={true}
                 width={ 250 }
-                color={ paletteState.current }
-                onChange={ handleChange }
+                color={ state.current }
+                onChange={ handleColorPicker }
             />
             <p>Select each box to add color to it.</p>
             <div className='color-wrapper create-color-div-wrapper'>
@@ -55,27 +44,27 @@ const ColorPicker = () => {
                     <div
                         className={activeSelection('primary')}
                         onClick={ generateHandler('primary') } 
-                        style={{ backgroundColor: colorState.primary, flexGrow: '2.5' }}
+                        style={{ backgroundColor: state.primary, flexGrow: '2.5' }}
                     />
                     <div
                         className={activeSelection('secondary')}
                         onClick={ generateHandler('secondary') } 
-                        style={{ backgroundColor: colorState.secondary, flexGrow: '2' }}
+                        style={{ backgroundColor: state.secondary, flexGrow: '2' }}
                     />
                     <div
                         className={activeSelection('accent1')}
                         onClick={ generateHandler('accent1') } 
-                        style={{ backgroundColor: colorState.accent1 }}
+                        style={{ backgroundColor: state.accent1 }}
                     />
                     <div
                         className={activeSelection('accent2')}
                         onClick={ generateHandler('accent2') } 
-                        style={{ backgroundColor: colorState.accent2 }}
+                        style={{ backgroundColor: state.accent2 }}
                     />
                     <div
                         className={activeSelection('accent3')}
                         onClick={ generateHandler('accent3') } 
-                        style={{ backgroundColor: colorState.accent3 }}
+                        style={{ backgroundColor: state.accent3 }}
                     />
                 </div>
             </div>
