@@ -1,6 +1,7 @@
 //libraries
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { dateFormat }  from '../../utils/dateFormat';
 
 //components
 import Colors from '../../components/Colors';
@@ -10,6 +11,7 @@ import SocialButtons from '../SocialButtons';
 const Palette = ({ palettes }) => {
     console.log(palettes);
     console.log(palettes[21].tags[0].name);
+
     return (
         // will need link to by react to link to details page 
         <div>
@@ -18,7 +20,7 @@ const Palette = ({ palettes }) => {
                     <div key={palette._id}>
                         <div className='palette-wrapper'>
                                 <h3 className='palette-title'>{palette.title}</h3>
-                                <p>by {palette.username} on {palette.createdAt}</p>
+                                <p>by {palette.username} on {dateFormat(palette.createdAt)}</p>
                                 <div>
                                     {/* to palette details page */}
                                     <Link to={`/details/${palette._id}`}>
