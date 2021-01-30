@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { ADD_UPVOTE } from '../../utils/mutations';
+import { ADD_UPVOTE, ADD_FAV_PALETTE } from '../../utils/mutations';
 
 const SocialButtons = ({ upvoteCount, saveCount, paletteId}) => {
     const [addUpvote] = useMutation(ADD_UPVOTE);
     const [upvote, setUpvote] = useState(upvoteCount);
+
+    const [addFavPalette] = useMutation(ADD_FAV_PALETTE);
+    const [favorite, setFavorite] = useState(saveCount);
 
     async function upvoteClick(paletteId) {
         try {
@@ -18,13 +21,27 @@ const SocialButtons = ({ upvoteCount, saveCount, paletteId}) => {
 		}
     };
 
+    async function saveClick(paletteId) {
+        try {
+            const {data} = await addFavPalette({
+                variables: {paletteId}
+            });
+            console.log(data);
+            setFavorite(data.addFavPalette.favorites.length);
+        } catch (err) {
+			console.error(err);
+		}
+    };
+
     return(
         <div className='likes-shares'>
         <div>
             <i className="fas fa-heart" onClick={() =>
                 upvoteClick(paletteId)
             }></i>{upvote}
-            <i className="far fa-bookmark"></i>{saveCount} 
+            <i className="far fa-bookmark" onClick={() => {
+                saveClick(paletteId)
+            }}></i>{favorite} 
         </div>
         <div>
         <a href="http://www.facebook.com/sharer.php?u=https://color-theory.herokuapp.com/"
