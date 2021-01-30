@@ -10,7 +10,7 @@ import SocialButtons from '../SocialButtons';
 
 const Palette = ({ palettes }) => {
     console.log(palettes);
-    console.log(palettes[21].tags[0].name);
+    // console.log(palettes[21].tags[0].name);
 
     return (
         // will need link to by react to link to details page 
