@@ -14,34 +14,49 @@ const Sidebar = ({ palettes }) => {
 
     // get today's date
     const today = new Date();
-    console.log(today);
-    console.log(typeof today);
-    console.log("This is today's date: " + today.toDateString());
+    // console.log(today);
+    // console.log(typeof today);
+    // console.log("This is today's date: " + today.toDateString());
 
     // create yesterday's date
     const todayMinusOne = today.getDate() - 1;
     const yesterday = today.setDate(todayMinusOne);
-    console.log(yesterday);
-    console.log(typeof yesterday);
+    // console.log(yesterday);
+    // console.log(typeof yesterday);
+    const yesterdayObject = new Date(yesterday);
+    // console.log(typeof yesterdayObject);
+    // console.log(yesterdayObject);
+    const yesterdayToString = yesterdayObject.toDateString();
+    // console.log(yesterdayToString);
+    // console.log(typeof yesterdayToString);
     // console.log("This is yesterday's date: " + yesterday.toDateString());
     // const yesterdayInMilli = yesterday.getTime();
     // console.log("This is yesterday's date: " + yesterdayInMilli);
     
     // for palette-of-the-day
     // loop over palette array starting at the beginning since array is in descending order
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 4; i++) {
     // for (let i = 0; i < palettes.length; i++) {
 
-        let palettesToday = [];
+        // let recent = palettes[0].createdAt;
+        // let prior = palettes[i].createdAt;
+
+        // let palettesToday = [palettes[0]];
+
+        // if (recent === )
 
         // const date = dateCompareFormat(palettes[i].createdAt);
         const createdAt = palettes[i].createdAt;
-        console.log(typeof createdAt);
+        // console.log(typeof createdAt);
+        // console.log(createdAt);
         const date = convertToInt(createdAt);
-        console.log(typeof date);
-        console.log("This is palette " + i + " with a date of: " + date);
+        // console.log(typeof date);
+        // console.log("This is palette " + i + " with a date of: " + date);
+        const dateToString = date.toDateString();
+        console.log(dateToString);
+        console.log(typeof dateToString);
 
-        if (date > yesterday) {
+        if (dateToString === yesterdayToString) {
             console.log("this was not created today.");
         } else {
             console.log("this was created today");
