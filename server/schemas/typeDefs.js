@@ -19,7 +19,7 @@ const typeDefs = gql`
         accent2: String
         accent3: String
         username: String
-        tags: [String]
+        tags: [Tag]
         upvoteCount: Int
         upvotes: [User]
         createdAt: String

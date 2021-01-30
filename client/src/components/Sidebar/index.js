@@ -1,10 +1,9 @@
 import React from 'react';
 
-import { useQuery } from '@apollo/react-hooks';
-import { QUERY_PALETTES } from '../../utils/queries';
-
 import DailyPalette from '../DailyPalette';
 import WeeklyPalette from '../WeeklyPalette';
+
+import { dateFormat, convertToInt } from '../../utils/dateFormat';
 
 // this is Cat's test data
 // import { dailyPalette, weeklyPalette } from '../../const/colors';
@@ -12,42 +11,77 @@ import WeeklyPalette from '../WeeklyPalette';
 const Sidebar = ({ palettes }) => {
 
     console.log(palettes);
-    // query for sidebar content - trending today
-    // const { loading, data: dailyData } = useQuery(QUERY_DAILY_PALETTE);
-    // query for sidebar content - trending this week
-    // const { loading, data: weeklyData } = useQuery(QUERY_WEEKLY_PALETTE);
 
-    // constant for sidebar content - trending today
-    // const daily = dailyData?.palettes || [];
-    // constant for sidebar content - trending this week
-    // const weekly = weeklyData?.palettes || [];
+    // get today's date
+    const today = new Date();
+    // console.log(today);
+    // console.log(typeof today);
+    // console.log("This is today's date: " + today.toDateString());
 
-    // const daily = dailyPalette;
-    // const weekly = weeklyPalette;
+    // create yesterday's date
+    const todayMinusOne = today.getDate() - 1;
+    const yesterday = today.setDate(todayMinusOne);
+    // console.log(yesterday);
+    // console.log(typeof yesterday);
+    const yesterdayObject = new Date(yesterday);
+    // console.log(typeof yesterdayObject);
+    // console.log(yesterdayObject);
+    const yesterdayToString = yesterdayObject.toDateString();
+    // console.log(yesterdayToString);
+    // console.log(typeof yesterdayToString);
+    // console.log("This is yesterday's date: " + yesterday.toDateString());
+    // const yesterdayInMilli = yesterday.getTime();
+    // console.log("This is yesterday's date: " + yesterdayInMilli);
     
+    // for palette-of-the-day
+    // loop over palette array starting at the beginning since array is in descending order
+    for (let i = 0; i < 4; i++) {
+    // for (let i = 0; i < palettes.length; i++) {
+
+        // let recent = palettes[0].createdAt;
+        // let prior = palettes[i].createdAt;
+
+        // let palettesToday = [palettes[0]];
+
+        // if (recent === )
+
+        // const date = dateCompareFormat(palettes[i].createdAt);
+        const createdAt = palettes[i].createdAt;
+        // console.log(typeof createdAt);
+        // console.log(createdAt);
+        const date = convertToInt(createdAt);
+        // console.log(typeof date);
+        // console.log("This is palette " + i + " with a date of: " + date);
+        const dateToString = date.toDateString();
+        console.log(dateToString);
+        console.log(typeof dateToString);
+
+        if (dateToString === yesterdayToString) {
+            console.log("this was not created today.");
+        } else {
+            console.log("this was created today");
+        }
+
+
+
+
+    // if (palettes[i].createdAt
+    }
+
+
+    // stop once it hits a date from yesterday
+
     const daily = palettes[1];
+
+
+
     const weekly = palettes[2];
 
-    // console.log(palettes);
-    // console.log(palettes[0].title);
-    // console.log(palettes[0].createdAt);
 
-    // const dateToString = Date(palettes[0].createdAt);
-    // console.log(dateToString);
-    // const convertedDate = new Date(palettes[0].createdAt);
-    // console.log(convertedDate);
-    // const today = new Date();
-    // console.log(today);
 
-    // const todayFormatted = dateFormat(today);
 
     // console.log(todayFormatted);
 
-    // if (palettes[0].createdAt === today) {
-    //     console.log("we are equal");
-    // } else {
-    //     console.log("we are not equal");
-    // }
 
 
     // const dailyFilter = () => {
@@ -55,21 +89,17 @@ const Sidebar = ({ palettes }) => {
     //     const today = Date();
     //     console.log(today);
 
-    //     for (let i = 0; i < palettes.length; i++) {
-    //         let dailyPal = {};
-    //         if (palettes[i].createdAt
-    //     }
     // }
 
     return (
         <div>
             <h3 className='sidebar-title'>Trending Today</h3>
             {/* palette of the day  */}
-            <DailyPalette palette={daily}/>
+            <DailyPalette palette={daily} />
 
             <h3 className='sidebar-title'>Trending this Week</h3>
             {/* palette of the week  */}
-            <WeeklyPalette palette={weekly}/>
+            <WeeklyPalette palette={weekly} />
         </div>
     )
 };

@@ -25,10 +25,12 @@ const resolvers = {
         },
         palettes: async (parent, { username }) => {
 			const params = username ? { username } : {};
-			return Palette.find(params).sort({ createdAt: -1 });
+			return Palette.find(params).sort({ createdAt: -1 })
+				.populate('tags');
 		},
 		palette: async (parent, { _id }) => {
-			return Palette.findOne({ _id });
+			return Palette.findOne({ _id })
+				.populate('tags');
 		},
 		tag: async (parent, {name}) => {
 			return Tag.findOne({name});
