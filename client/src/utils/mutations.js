@@ -96,12 +96,20 @@ export const ADD_UPVOTE = gql`
 export const ADD_FAV_PALETTE = gql`
 	mutation addFavPalette($paletteId: ID!) {
 		addFavPalette(paletteId: $paletteId) {
-			_id
-			username
-			email
-			favorites {
 				_id
-			}
+				title
+				description
+				primary
+				secondary
+				accent1
+				accent2
+				accent3
+				upvotes {
+					_id
+				}
+				saves {
+					_id
+				}
 		}
 	}
 `;

@@ -130,7 +130,7 @@ const resolvers = {
 					{ new: true }
 				  );
 			
-				return updatedUser;
+				return updatedPalette;
 			  }
 			
 			  throw new AuthenticationError('You need to be logged in!');
