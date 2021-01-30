@@ -1,8 +1,5 @@
 import React from 'react';
 
-import { useQuery } from '@apollo/react-hooks';
-import { QUERY_PALETTES } from '../../utils/queries';
-
 import DailyPalette from '../DailyPalette';
 import WeeklyPalette from '../WeeklyPalette';
 
@@ -12,32 +9,30 @@ import WeeklyPalette from '../WeeklyPalette';
 const Sidebar = ({ palettes }) => {
 
     console.log(palettes);
-    // query for sidebar content - trending today
-    // const { loading, data: dailyData } = useQuery(QUERY_DAILY_PALETTE);
-    // query for sidebar content - trending this week
-    // const { loading, data: weeklyData } = useQuery(QUERY_WEEKLY_PALETTE);
-
-    // constant for sidebar content - trending today
-    // const daily = dailyData?.palettes || [];
-    // constant for sidebar content - trending this week
-    // const weekly = weeklyData?.palettes || [];
-
+    // for dummy data
     // const daily = dailyPalette;
     // const weekly = weeklyPalette;
     
     const daily = palettes[1];
     const weekly = palettes[2];
 
-    // console.log(palettes);
-    // console.log(palettes[0].title);
-    // console.log(palettes[0].createdAt);
+    const createdDate = palettes[1].createdAt;
+    console.log("number of milliseconds: " + createdDate);
+    console.log(typeof createdDate);
 
-    // const dateToString = Date(palettes[0].createdAt);
+    const milliseconds = parseInt(createdDate);
+    console.log(milliseconds);
+
+    const convert = new Date(milliseconds);
+    console.log(convert);
+
+
+    // convert received date to string
+    // const dateToString = Date(createdDate);
     // console.log(dateToString);
-    // const convertedDate = new Date(palettes[0].createdAt);
-    // console.log(convertedDate);
-    // const today = new Date();
-    // console.log(today);
+    // change received date to Date object
+    // const dateObject = new Date(dateToString);
+    // console.log(dateObject);
 
     // const todayFormatted = dateFormat(today);
 
