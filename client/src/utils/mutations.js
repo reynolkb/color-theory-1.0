@@ -95,7 +95,7 @@ export const ADD_UPVOTE = gql`
 
 export const ADD_FAV_PALETTE = gql`
 	mutation addFavPalette($paletteId: ID!) {
-		addUpvote(paletteId: $paletteId) {
+		addFavPalette(paletteId: $paletteId) {
 			_id
 			username
 			email

@@ -27,7 +27,7 @@ const SocialButtons = ({ upvoteCount, saveCount, paletteId}) => {
                 variables: {paletteId}
             });
             console.log(data);
-            setFavorite(data.addFavPalette.favorites.length);
+            // setFavorite(data.addFavPalette.favorites.length);
         } catch (err) {
 			console.error(err);
 		}
