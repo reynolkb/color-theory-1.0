@@ -21,7 +21,7 @@ const Palette = ({ palettes }) => {
                                     {/* <Link to={`/palette/${palette._id}`}> this is where it should go :) */} 
                                     <Colors palette={palette} />
                                 </div>
-                                <SocialButtons upvoteCount={palette.upvoteCount} saveCount={palette.saveCount} />
+                                <SocialButtons upvoteCount={palette.upvoteCount} saveCount={palette.saveCount} paletteId={palette._id}/>
                                 <div>
                                     <h5 className='palette-description'>Description:</h5>
                                     <p>

@@ -1,21 +1,26 @@
 import React from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { ADD_UPVOTE } from '../utils/mutations';
+import { ADD_UPVOTE } from '../../utils/mutations';
 
-const SocialButtons = ({ upvoteCount, saveCount }) => {
+const SocialButtons = ({ upvoteCount, saveCount, paletteId }) => {
     const [addUpvote] = useMutation(ADD_UPVOTE);
     
-    // const upvoteClick = () => {
-    //     try {
-
-    //     }
-    // };
+    async function upvoteClick(paletteId) {
+        try {
+            const {data} = await addUpvote({
+                variables: paletteId
+            });
+            console.log(data);
+        } catch (err) {
+			console.error(err);
+		}
+    };
 
     return(
         <div className='likes-shares'>
         <div>
             <i className="fas fa-heart" onClick={() =>
-                upvoteClick()
+                upvoteClick(paletteId)
             }></i>{upvoteCount}
             <i className="far fa-bookmark"></i>{saveCount} 
         </div>
