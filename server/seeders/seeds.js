@@ -1,11 +1,14 @@
 const faker = require('faker');
 
 const db = require('../config/connection');
-const { Palette, User } = require('../models');
+const { Palette, User} = require('../models');
+const Tag = require('../models/Tag');
+
 
 db.once('open', async () => {
   await Palette.deleteMany({});
   await User.deleteMany({});
+  await Tag.deleteMany({});
 
   // create user data
   const userData = [];
@@ -20,10 +23,10 @@ db.once('open', async () => {
 
   const createdUsers = await User.collection.insertMany(userData);
 
-
-
   // create thoughts
   let createdPalettes = [];
+  let name;
+  let createdTag;
   for (let i = 0; i < 50; i += 1) {
     const title = faker.lorem.word();
 
@@ -35,16 +38,35 @@ db.once('open', async () => {
     const accent2 = faker.internet.color();
     const accent3 = faker.internet.color();
 
+    const createdAt = faker.date.between('2021-01-24', '2021-01-30' );
+
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username, _id: userId } = createdUsers.ops[randomUserIndex];
+
+
 
     // const createdAt = faker.date.past();
     // const upvotes = faker.random.number();
     // const saves = faker.random.number();
 
     // const createdPalette = await Palette.create({ title, description, primary, secondary, accent1, accent2, accent3, username, createdAt, upvotes, saves });
-    const createdPalette = await Palette.create({ title, description, primary, secondary, accent1, accent2, accent3, username });
+    const createdPalette = await Palette.create({ title, description, primary, secondary, accent1, accent2, accent3, username, createdAt });
     
+    // link tags
+    if (i === 0 || i == 10 || i === 15 || i ===20 || i === 25 || i === 40 || i === 45){
+      name = faker.random.word();
+      createdTag = await Tag.create({name});
+      console.log(name);
+    }
+    await Tag.updateOne(
+      {_id: createdTag._id},
+      {$push: {taggedPalettes: createdPalette._id}}
+    );
+    await Palette.updateOne(
+      {_id: createdPalette._id},
+      {$push: {tags: createdTag._id}}
+    );
+   
     const updatedUser = await User.updateOne(
       { _id: userId },
       { $push: { myPalettes: createdPalette._id } }
