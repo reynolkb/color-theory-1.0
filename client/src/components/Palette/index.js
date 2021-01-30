@@ -4,9 +4,12 @@ import { Link } from 'react-router-dom';
 
 //components
 import Colors from '../../components/Colors';
+import { palette } from '../../const/colors';
 import SocialButtons from '../SocialButtons';
 
-const Palette = ({ palettes}) => {
+const Palette = ({ palettes }) => {
+    console.log(palettes);
+    console.log(palettes[21].tags[0].name);
     return (
         // will need link to by react to link to details page 
         <div>
@@ -22,7 +25,7 @@ const Palette = ({ palettes}) => {
                                         <Colors palette={palette} />
                                     </Link>
                                 </div>
-                                <SocialButtons upvoteCount={palette.upvoteCount} saveCount={palette.saveCount} paletteId={palette._id} />
+                                <SocialButtons upvoteCount={palette.upvoteCount} saveCount={palette.saveCount} />
                                 <div>
                                     <h5 className='palette-description'>Description:</h5>
                                     <p>

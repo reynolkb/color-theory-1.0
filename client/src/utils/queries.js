@@ -13,7 +13,10 @@ export const QUERY_PALETTES = gql`
 			accent3
 			username
 			upvoteCount
-			tags
+			tags {
+				_id
+				name
+			}
 			upvotes {
 				username
 			}
@@ -39,7 +42,10 @@ export const QUERY_PALETTE = gql`
 			accent3
 			username
 			upvoteCount
-			tags
+			tags {
+				_id
+				name
+			}
 			upvotes {
 				username
 			}
