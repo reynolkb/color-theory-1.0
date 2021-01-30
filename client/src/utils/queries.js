@@ -13,6 +13,10 @@ export const QUERY_PALETTES = gql`
 			accent3
 			username
 			upvoteCount
+			tags {
+				_id
+				name
+			}
 			upvotes {
 				username
 			}
@@ -35,7 +39,21 @@ export const QUERY_PALETTE = gql`
             secondary
             accent1
             accent2
-            accent3
+			accent3
+			username
+			upvoteCount
+			tags {
+				_id
+				name
+			}
+			upvotes {
+				username
+			}
+			createdAt
+			saveCount
+			saves {
+				username
+			}
 		}
 	}
 `;
