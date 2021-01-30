@@ -25,10 +25,12 @@ const resolvers = {
         },
         palettes: async (parent, { username }) => {
 			const params = username ? { username } : {};
-			return Palette.find(params).sort({ createdAt: -1 });
+			return Palette.find(params).sort({ createdAt: -1 })
+				.populate('tags');
 		},
 		palette: async (parent, { _id }) => {
-			return Palette.findOne({ _id });
+			return Palette.findOne({ _id })
+				.populate('tags');
 		},
 		tag: async (parent, {name}) => {
 			return Tag.findOne({name});
@@ -103,6 +105,7 @@ const resolvers = {
 			}
 		},
 		addUpvote: async (parent, {paletteId}, context) => {
+			console.log(paletteId);
 			if (context.user) {
 				const updatedPalette = await Palette.findOneAndUpdate(
 				  { _id: paletteId },
@@ -129,7 +132,7 @@ const resolvers = {
 					{ new: true }
 				  );
 			
-				return updatedUser;
+				return updatedPalette;
 			  }
 			
 			  throw new AuthenticationError('You need to be logged in!');

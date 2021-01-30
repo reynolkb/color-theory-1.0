@@ -11,8 +11,10 @@ const Nav = () => {
                     <li>
                         {/* <Link to=''>User Page</Link> */}
                     </li>
-                    <li>Search</li>
-                    <li>Create a Palette</li>
+                    <li>
+                        <Link to='/search'>Search</Link>
+                    </li>
+                    <li><Link to='/create'>Create a Palette</Link></li>
                     <li>
                         <Link to='/' onClick={() => Auth.logout()}>Logout</Link>
                     </li>
@@ -21,11 +23,6 @@ const Nav = () => {
         } else {
             return (
                 <ul>
-                    <li>
-                        {/* <Link to=''>User Page</Link> */}
-                    </li>
-                    <li>Search</li>
-                    <li>Create a Palette</li>
                     <li>
                         <Link to='/login'>Login</Link>
                     </li>

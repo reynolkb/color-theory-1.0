@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 // import functionality to make requests to GraphQL server 
 import { useQuery } from '@apollo/react-hooks';
@@ -6,9 +6,6 @@ import { useQuery } from '@apollo/react-hooks';
 // import queries 
 // import { QUERY_FILTERED_PALETTES } from '../utils/queries';
 import { QUERY_PALETTES } from '../utils/queries';
-
-// this is Cat's test data
-// import { fakePalettes } from '../const/colors'
 
 import Palette from '../components/Palette';
 import Sidebar from '../components/Sidebar';
@@ -28,12 +25,20 @@ const Home = () => {
     const palettes = data?.palettes || [];
     // const palettes = fakePalettes;
 
-    // console.log(palettes);
-
+    palettes.length && console.log(typeof palettes[0]._id);
 
     return (
             <div className='global-wrapper'>
                 <div className='home-palette-wrapper'>
+                    <div className='filter-selection'>
+                        <form>
+                            <select className='filter' name='filter'>
+                                <option value=''>Filter ↓</option>
+                                <option value='most-liked'>Most Liked</option>
+                                <option value='recent'>Recent</option>
+                            </select>
+                        </form>
+                    </div>
                     {/* cat's styling palettes */}
                     {/* {
                         fakePalettes.map((palette, i) => (
@@ -41,16 +46,19 @@ const Home = () => {
                         ))
                     } */}
 
-                    {/* {loading ? (
+                    {loading ? (
                         <div>Loading...</div>
-                    ) : ( */}
-                            {/* // Once query is complete and loading is undefined, pass palettes array to <Palette> component as props */}
-                            <Palette palettes={palettes} />
-                        {/* )} */}
+                    ) : (
+                            /* // Once query is complete and loading is undefined, pass palettes array to <Palette> component as props */
+                            <Palette palettes={palettes}/>
+                        )}
                 </div>
-
                 <div className='sidebar-wrapper'>
-                    <Sidebar />
+                    {loading ? (
+                        <div>Loading...</div>
+                    ) : (
+                        <Sidebar palettes={palettes} />
+                    )}
                 </div>
             </div>
     );

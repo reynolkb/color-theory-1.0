@@ -4,7 +4,7 @@ import React from 'react';
 import SocialButtons from '../SocialButtons';
 import Colors from '../Colors';
 
-// import { palette } from '../../const/colors';
+import { palette } from '../../const/colors';
 
 const WeeklyPalette = ({ palette }) => {
 
@@ -21,7 +21,7 @@ const WeeklyPalette = ({ palette }) => {
             <div>
                 <Colors palette={palette} />
             </div>
-            <SocialButtons upvoteCount={upvoteCount} saveCount={saveCount} />
+            <SocialButtons upvoteCount={upvoteCount} saveCount={saveCount} paletteId={palette._id}/>
         </div>
     )
 }

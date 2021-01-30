@@ -7,7 +7,7 @@ const flavorText = [
     "Pantone deaf",
     "I am only hue man.",
     "Colors laugh by saying, 'Hue Hue Hue.'",
-
+    "Color me impressed.",
 ];
 
 const Footer = () => {
@@ -16,13 +16,13 @@ const Footer = () => {
 
     return(
         <footer>
-            <h3>{randomFlavor}</h3>
+            <h2>{randomFlavor}</h2>
             <ul>
                 <li>
                     <a href='#'>About The Creators</a>
                 </li>
                 <li>
-                <a href='https://github.com/reynolkb/color-theory-1.0'>Github Repo</a>
+                <a href='https://github.com/reynolkb/color-theory-1.0' target='_blank' rel='noreferrer'>Github Repo</a>
                 </li>
                 <li>
                     <a href='mailto:colortheory@gmail.com'>Contact Us</a>
