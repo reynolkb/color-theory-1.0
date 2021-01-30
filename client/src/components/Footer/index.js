@@ -22,7 +22,7 @@ const Footer = () => {
                     <a href='#'>About The Creators</a>
                 </li>
                 <li>
-                <a href='https://github.com/reynolkb/color-theory-1.0'>Github Repo</a>
+                <a href='https://github.com/reynolkb/color-theory-1.0' target='_blank' rel='noreferrer'>Github Repo</a>
                 </li>
                 <li>
                     <a href='mailto:colortheory@gmail.com'>Contact Us</a>

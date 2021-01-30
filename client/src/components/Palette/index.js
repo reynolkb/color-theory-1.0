@@ -1,6 +1,6 @@
 //libraries
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 //components
 import Colors from '../../components/Colors';
@@ -17,8 +17,10 @@ const Palette = ({ palettes}) => {
                                 <h3 className='palette-title'>{palette.title}</h3>
                                 <p>by {palette.username} on {palette.createdAt}</p>
                                 <div>
-                                    {/* <Link to={`/palette/${palette._id}`}> this is where it should go :) */} 
-                                    <Colors palette={palette} />
+                                    {/* to palette details page */}
+                                    <Link to={`/details/${palette._id}`}>
+                                        <Colors palette={palette} />
+                                    </Link>
                                 </div>
                                 <SocialButtons upvoteCount={palette.upvoteCount} saveCount={palette.saveCount} paletteId={palette._id} />
                                 <div>

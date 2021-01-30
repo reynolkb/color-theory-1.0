@@ -1,5 +1,5 @@
 :root {
-    --error: rgb(228, 46, 1);
+    --error: #FF0000;
 }
 
 * {
@@ -76,7 +76,7 @@ i.far {
 
 i.fa-heart:hover,
 i.fa-heart:active {
-    color: #e42e01;
+    color: #FF0000;
 }
 
 i.fa-bookmark:hover,
@@ -418,18 +418,28 @@ footer ul li a:hover {
 
 .create-pg-wrapper {
     margin-top: 3em;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 700px;
+}
+
+.create-palette-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .create-wrapper {
+    
+    width: 100%;
     display: flex;
     margin-top: 1em;
 }
 
 .create-form-wrapper {
     margin-right: 2em;
-    flex: 1 0 0;
+    flex: 0 0 300px;
 }
 
 .create-palette-wrapper {
@@ -472,15 +482,35 @@ footer ul li a:hover {
     background-color: #a1a1a1;
     border: none;
     color: #fff;
-    padding: 10px 20px;
-    display: inline-block;
+    padding: 5px 12px;
     margin: 10px 2px 0 2px;
     border-radius: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .tag-pill p {
     letter-spacing: 1px;
     font-size: 12px;
+}
+
+.tag-pill-delete {
+    outline: none;
+    background-color: transparent;
+    color: #000;
+    border: none;
+    margin: 0px 4px;
+    font-size: 20px;
+}
+
+.tag-pill-delete:hover {
+    color: #FF0000;
+    cursor: pointer;
+}
+
+.error-header {
+    display: flex;
+    align-items: center;
 }
 
 .added-tags h4 {
