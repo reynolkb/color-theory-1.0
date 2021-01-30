@@ -1,11 +1,22 @@
 import React from 'react';
+import { useMutation } from '@apollo/react-hooks';
+import { ADD_UPVOTE } from '../utils/mutations';
 
 const SocialButtons = ({ upvoteCount, saveCount }) => {
+    const [addUpvote] = useMutation(ADD_UPVOTE);
+    
+    // const upvoteClick = () => {
+    //     try {
+
+    //     }
+    // };
 
     return(
         <div className='likes-shares'>
         <div>
-            <i className="fas fa-heart"></i>{upvoteCount}
+            <i className="fas fa-heart" onClick={() =>
+                upvoteClick()
+            }></i>{upvoteCount}
             <i className="far fa-bookmark"></i>{saveCount} 
         </div>
         <div>
