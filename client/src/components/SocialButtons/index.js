@@ -9,7 +9,8 @@ const SocialButtons = ({ upvoteCount, saveCount }) => {
             <i className="far fa-bookmark"></i>{saveCount} 
         </div>
         <div>
-            <i className="fas fa-share-square"></i> Share
+        <a href="http://www.facebook.com/sharer.php?u=https://color-theory.herokuapp.com/"
+            target="_blank"><i className="fas fa-share-square"></i></a> Share
         </div>
     </div>
     )
