@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Colors from '../../components/Colors';
 import SocialButtons from '../SocialButtons';
 
-const Palette = ({ palettes}) => {
+const Palette = ({palettes}) => {
     return (
         // will need link to by react to link to details page 
         <div>

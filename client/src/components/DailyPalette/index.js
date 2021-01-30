@@ -8,7 +8,7 @@ import { palette } from '../../const/colors';
 
 const DailyPalette = ({ palette }) => {
 
-    console.log(palette);
+    // console.log(palette);
 
     const {
         username,
