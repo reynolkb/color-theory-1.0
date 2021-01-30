@@ -21,7 +21,7 @@ const WeeklyPalette = ({ palette }) => {
             <div>
                 <Colors palette={palette} />
             </div>
-            <SocialButtons upvoteCount={upvoteCount} saveCount={saveCount} />
+            <SocialButtons upvoteCount={upvoteCount} saveCount={saveCount} paletteId={palette._id}/>
         </div>
     )
 }
