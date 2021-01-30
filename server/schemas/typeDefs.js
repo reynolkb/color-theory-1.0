@@ -66,7 +66,7 @@ const typeDefs = gql`
         ): Palette
         removePalette(_id: ID!): User
         addUpvote(paletteId: ID!): Palette
-        addFavPalette(paletteId: ID!): User
+        addFavPalette(paletteId: ID!): Palette
         createTag(name: String!): Tag
         linkTagToPalette(paletteId: ID! tagId: ID!): Tag
     }
