@@ -4,15 +4,18 @@ import { paletteCreatorContext } from '../CreateProvider';
 
 
 const CreateButton = () => {
-    const { handleSubmit, loading } = useContext(paletteCreatorContext);
+    const { handleSubmit, loading, error } = useContext(paletteCreatorContext);
     return (
-        <button 
-            className='btn'
-            onClick={handleSubmit}
-            disabled={loading}
-        >
-            { loading ? 'Loading' : 'Create' }
-        </button>
+        <div className='error-header'>
+            { error ? <p className='error-text'>Must complete all fields.</p> : null }
+            <button 
+                className='btn'
+                onClick={handleSubmit}
+                disabled={loading}
+            >
+                { loading ? 'Loading' : 'Create' }
+            </button>
+        </div>
     )
 }
 

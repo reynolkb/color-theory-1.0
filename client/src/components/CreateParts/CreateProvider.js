@@ -54,16 +54,20 @@ const CreateProvider = ({ children }) => {
             tags: state.tags,
         };
         // console.log(palette);
-
-        const mutationResponse = await addPalette({
-            variables: palette,
-        })
-        if (mutationResponse.data.addPalette) {
-            window.location.assign('/');
-        } else {
+        try {
+            // console.log(mutationResponse);
+            const mutationResponse = await addPalette({
+                variables: palette,
+            })
+            if (mutationResponse.data.addPalette) {
+                window.location.assign('/');
+            } else {
+                setLoading(false);
+            }
+        } catch (e) {
+            console.log(e);
             setLoading(false);
         }
-        // console.log(mutationResponse);
     }
 
     return (

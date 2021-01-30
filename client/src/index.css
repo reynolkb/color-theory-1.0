@@ -1,5 +1,5 @@
 :root {
-    --error: rgb(228, 46, 1);
+    --error: #FF0000;
 }
 
 * {
@@ -76,7 +76,7 @@ i.far {
 
 i.fa-heart:hover,
 i.fa-heart:active {
-    color: #e42e01;
+    color: #FF0000;
 }
 
 i.fa-bookmark:hover,
@@ -482,7 +482,7 @@ footer ul li a:hover {
     background-color: #a1a1a1;
     border: none;
     color: #fff;
-    padding: 10px 20px;
+    padding: 5px 12px;
     margin: 10px 2px 0 2px;
     border-radius: 20px;
     display: flex;
@@ -499,6 +499,18 @@ footer ul li a:hover {
     background-color: transparent;
     color: #000;
     border: none;
+    margin: 0px 4px;
+    font-size: 20px;
+}
+
+.tag-pill-delete:hover {
+    color: #FF0000;
+    cursor: pointer;
+}
+
+.error-header {
+    display: flex;
+    align-items: center;
 }
 
 .added-tags h4 {
