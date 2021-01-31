@@ -25,7 +25,7 @@ const Home = () => {
     const palettes = data?.palettes || [];
     // const palettes = fakePalettes;
 
-    palettes.length && console.log(typeof palettes[0]._id);
+    // palettes.length && console.log(typeof palettes[0]._id);
 
     return (
             <div className='global-wrapper'>
@@ -53,13 +53,13 @@ const Home = () => {
                             <Palette palettes={palettes}/>
                         )}
                 </div>
-                {/* <div className='sidebar-wrapper'>
+                <div className='sidebar-wrapper'>
                     {loading ? (
                         <div>Loading...</div>
                     ) : (
                         <Sidebar palettes={palettes} />
                     )}
-                </div> */}
+                </div>
             </div>
     );
 };
