@@ -8,6 +8,7 @@ const ColorPicker = () => {
 
     const { state, handleChange } = useContext(paletteCreatorContext);
 
+    //this function handles the color picker
     function handleColorPicker(color) {
         handleChange({ 
             current: color.hex,

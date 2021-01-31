@@ -104,7 +104,6 @@ i.fa-share-square:active {
     transition: background-color .35s ease-in, box-shadow .35s ease-in;
 }
 
-
 .pink-btn {
     background: linear-gradient(45deg,
         #e73df0,
@@ -306,6 +305,10 @@ footer ul li a:hover {
 
 .daily-palette {
     margin-bottom: 2em;
+}
+
+.searchbar-wrapper {
+    margin-bottom: 1em;
 }
 
 /* palette styling */
@@ -561,4 +564,30 @@ footer ul li a:hover {
 .preview-ul li {
     padding-left: 5px;
     font-size: 12px;
+}
+
+/* search bar component */
+
+.search-container {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.search-btn {
+    width: 20%;
+}
+
+.search-btn:hover i {
+    color: #fff;
+    transition: color .35s ease-in;
+}
+
+.search-btn i {
+    color: #000;
+}
+
+input.search-input {
+    float: left;
+    width: 80%;
 }
