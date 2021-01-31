@@ -1,75 +1,117 @@
-import React from 'react';
-
-import { useQuery } from '@apollo/react-hooks';
-import { QUERY_PALETTES } from '../../utils/queries';
+import React, { useState } from 'react';
 
 import DailyPalette from '../DailyPalette';
 import WeeklyPalette from '../WeeklyPalette';
+
+import { convertToObj } from '../../utils/dateFormat';
+// import { palette } from '../../const/colors';
 
 // this is Cat's test data
 // import { dailyPalette, weeklyPalette } from '../../const/colors';
 
 const Sidebar = ({ palettes }) => {
 
-    console.log(palettes);
-    // query for sidebar content - trending today
-    // const { loading, data: dailyData } = useQuery(QUERY_DAILY_PALETTE);
-    // query for sidebar content - trending this week
-    // const { loading, data: weeklyData } = useQuery(QUERY_WEEKLY_PALETTE);
+    // get today's date and get the date portion of the Date object in English 
+    const today = new Date();
+    const todayToString = today.toDateString();
 
-    // constant for sidebar content - trending today
-    // const daily = dailyData?.palettes || [];
-    // constant for sidebar content - trending this week
-    // const weekly = weeklyData?.palettes || [];
+    // create date for 7 days ago and get the date portion of the Date object in English
+    const todayMinusSix = today.getDate() - 6;
+    const pastWeek = today.setDate(todayMinusSix);
+    const weeklyObject = new Date(pastWeek);
+    // console.log(weeklyObject);
+    // console.log("Week Trend is an " + typeof weeklyObject);
+    const weeklyToString = weeklyObject.toDateString();
 
-    // const daily = dailyPalette;
-    // const weekly = weeklyPalette;
-    
-    const daily = palettes[1];
-    const weekly = palettes[2];
+    function generateDaily() {
 
-    // console.log(palettes);
-    // console.log(palettes[0].title);
-    // console.log(palettes[0].createdAt);
+        // for palette-of-the-day
+        // create an Array to hold all palettes created today
+        const dailyArray = [];
+        // data is received in descending order, so push the most recent palette in case no palettes have been created today
+        dailyArray.push(palettes[0]);
+        // loop over daily palette array to add palettes created today and stop once it reaches the first palette from yesterday
+        for (let i = 1; i < palettes.length; i++) {
 
-    // const dateToString = Date(palettes[0].createdAt);
-    // console.log(dateToString);
-    // const convertedDate = new Date(palettes[0].createdAt);
-    // console.log(convertedDate);
-    // const today = new Date();
-    // console.log(today);
+            // convert date from createdAt property of palette[i]
+            const createdAt = palettes[i].createdAt;
+            const date = convertToObj(createdAt);
+            const dateToString = date.toDateString();
 
-    // const todayFormatted = dateFormat(today);
+            if (dateToString === todayToString) {
+                // console.log("this was created today.");
+                dailyArray.push(palettes[i]);
+                // console.log(dailyArray);
 
-    // console.log(todayFormatted);
+            } else {
+                // console.log("this was not created today.");
+                // console.log(palettes[i]);
+                break;
+            }
 
-    // if (palettes[0].createdAt === today) {
-    //     console.log("we are equal");
-    // } else {
-    //     console.log("we are not equal");
-    // }
+        }
 
+        // sort the dailyArray by most upvotes and return in descending order
+        let sortedDaily = dailyArray.sort((a, b) => b.upvoteCount - a.upvoteCount);
+        // console.log(sortedDaily);
+        // return the 0th index since it has the most upvotes
+        return sortedDaily[0];
 
-    // const dailyFilter = () => {
+    }
 
-    //     const today = Date();
-    //     console.log(today);
+    function generateWeekly() {
+        // console.log(palettes);
+        // for palette-of-the-day
+        // create an Array to hold all palettes created today
+        const weeklyArray = [];
+        // data is received in descending order, so push the most recent palette in case no palettes have been created today
+        weeklyArray.push(palettes[0]);
+        // loop over daily palette array to add palettes created today and stop once it reaches the first palette from yesterday
+        for (let i = 1; i < palettes.length; i++) {
 
-    //     for (let i = 0; i < palettes.length; i++) {
-    //         let dailyPal = {};
-    //         if (palettes[i].createdAt
-    //     }
-    // }
+            // convert date from createdAt property of palette[i]
+            const createdAt = palettes[i].createdAt;
+            const date = convertToObj(createdAt);
+            // console.log(date);
+            // console.log("Date is an: " + typeof date);
+            const dateToString = date.toDateString();
+            // console.log("This is the palette at index " + i);
+            // console.log(dateToString);
+
+            if (date >= weeklyObject) {
+                // console.log("this was created in the last week.");
+                // console.log(palette[i]);
+                weeklyArray.push(palettes[i]);
+                // console.log(weeklyArray);
+
+            } else {
+                // console.log("this was not created over the last week.");
+                // console.log(palettes[i]);
+                break;
+            }
+
+        }
+
+        // sort the dailyArray by most upvotes and return in descending order
+        let sortedWeekly = weeklyArray.sort((a, b) => b.upvoteCount - a.upvoteCount);
+        // console.log(sortedWeekly);
+        // return the 0th index since it has the most upvotes
+        return sortedWeekly[0];
+
+    }
+
+    const daily = generateDaily();
+    const weekly = generateWeekly();
 
     return (
         <div>
             <h3 className='sidebar-title'>Trending Today</h3>
             {/* palette of the day  */}
-            <DailyPalette palette={daily}/>
+            <DailyPalette palette={daily} />
 
             <h3 className='sidebar-title'>Trending this Week</h3>
             {/* palette of the week  */}
-            <WeeklyPalette palette={weekly}/>
+            <WeeklyPalette palette={weekly} />
         </div>
     )
 };
