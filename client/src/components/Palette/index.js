@@ -5,7 +5,7 @@ import { dateFormat }  from '../../utils/dateFormat';
 
 //components
 import Colors from '../../components/Colors';
-import { palette } from '../../const/colors';
+// import { palette } from '../../const/colors';
 import SocialButtons from '../SocialButtons';
 
 const Palette = ({ palettes }) => {
