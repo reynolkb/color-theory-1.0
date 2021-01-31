@@ -27,6 +27,10 @@ const Home = () => {
 
     // palettes.length && console.log(typeof palettes[0]._id);
 
+    function generateMostLiked() {
+        
+    }
+
     return (
             <div className='global-wrapper'>
                 <div className='home-palette-wrapper'>

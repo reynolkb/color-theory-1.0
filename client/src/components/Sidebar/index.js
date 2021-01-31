@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import DailyPalette from '../DailyPalette';
 import WeeklyPalette from '../WeeklyPalette';
@@ -21,7 +21,7 @@ const Sidebar = ({ palettes }) => {
     const weeklyObject = new Date(pastWeek);
     // console.log(weeklyObject);
     // console.log("Week Trend is an " + typeof weeklyObject);
-    const weeklyToString = weeklyObject.toDateString();
+    // const weeklyToString = weeklyObject.toDateString();
 
     function generateDaily() {
 
@@ -74,7 +74,7 @@ const Sidebar = ({ palettes }) => {
             const date = convertToObj(createdAt);
             // console.log(date);
             // console.log("Date is an: " + typeof date);
-            const dateToString = date.toDateString();
+            // const dateToString = date.toDateString();
             // console.log("This is the palette at index " + i);
             // console.log(dateToString);
 
