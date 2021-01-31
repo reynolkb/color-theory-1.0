@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 
+//components
 import DailyPalette from '../DailyPalette';
 import WeeklyPalette from '../WeeklyPalette';
+import SearchBar from '../SearchBar';
 
 import { convertToObj } from '../../utils/dateFormat';
 // import { palette } from '../../const/colors';
-
-// this is Cat's test data
-// import { dailyPalette, weeklyPalette } from '../../const/colors';
 
 const Sidebar = ({ palettes }) => {
 
@@ -105,6 +104,8 @@ const Sidebar = ({ palettes }) => {
 
     return (
         <div>
+            {/* search component */}
+            <SearchBar />
             <h3 className='sidebar-title'>Trending Today</h3>
             {/* palette of the day  */}
             <DailyPalette palette={daily} />
