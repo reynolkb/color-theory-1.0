@@ -11,11 +11,6 @@ const Preview = ({ palette }) => {
         backgroundColor: palette.primary,
     }
 
-    const previewH1 = {
-        fontSize: '20px',
-        fontWeight: 'bolder',
-    }
-
     const previewH2 = {
         fontWeight: 'bolder'
     }
@@ -27,20 +22,6 @@ const Preview = ({ palette }) => {
         justifyContent: 'space-between',
         alignItems: 'center',
 
-    }
-
-    const previewNav = {
-        //leave for later use
-    }
-
-    const previewUl = {
-        listStyle: 'none',
-        display: 'flex',
-    }
-
-    const previewLi = {
-        paddingLeft: '5px',
-        fontSize: '12px',
     }
 
     const previewMain = {
@@ -84,16 +65,13 @@ const Preview = ({ palette }) => {
 
 
     return(
-        <div style={previewBody}>
+        <div className='preview-wrapper'>
             <div style={previewHeader} className='preview-header'>
-                <p style={previewH1}>Color Theory</p>
-                <div style={previewNav}>
-                    <ul style={previewUl}>
-                        <li style={previewLi}>User</li>
-                        <li style={previewLi}>Search</li>
-                        <li style={previewLi}>Logout</li>
-                    </ul>
-                </div>
+                <ul className='preview-ul'>
+                    <li>User</li>
+                    <li>Search</li>
+                    <li>Logout</li>
+                </ul>
             </div>
 
             <div className='preview-body'>
@@ -113,10 +91,10 @@ const Preview = ({ palette }) => {
 
             <div style={previewFooter}>
                 <p style={previewH2}>That's all folks!</p>
-                <ul style={previewUl}>
-                    <li style={previewLi}>Link 1</li>
-                    <li style={previewLi}>Link 2</li>
-                    <li style={previewLi}>Link 3</li>
+                <ul className='preview-ul'>
+                    <li>Link 1</li>
+                    <li>Link 2</li>
+                    <li>Link 3</li>
                 </ul>
             </div>
         </div>
