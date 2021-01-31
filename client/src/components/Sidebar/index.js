@@ -19,6 +19,8 @@ const Sidebar = ({ palettes }) => {
     const todayMinusSix = today.getDate() - 6;
     const pastWeek = today.setDate(todayMinusSix);
     const weeklyObject = new Date(pastWeek);
+    // console.log(weeklyObject);
+    // console.log("Week Trend is an " + typeof weeklyObject);
     const weeklyToString = weeklyObject.toDateString();
 
     function generateDaily() {
@@ -37,13 +39,13 @@ const Sidebar = ({ palettes }) => {
             const dateToString = date.toDateString();
 
             if (dateToString === todayToString) {
-                console.log("this was created today.");
+                // console.log("this was created today.");
                 dailyArray.push(palettes[i]);
-                console.log(dailyArray);
+                // console.log(dailyArray);
 
             } else {
-                console.log("this was not created today");
-                console.log(palettes[i]);
+                // console.log("this was not created today.");
+                // console.log(palettes[i]);
                 break;
             }
 
@@ -51,15 +53,14 @@ const Sidebar = ({ palettes }) => {
 
         // sort the dailyArray by most upvotes and return in descending order
         let sortedDaily = dailyArray.sort((a, b) => b.upvoteCount - a.upvoteCount);
-        console.log(sortedDaily);
+        // console.log(sortedDaily);
         // return the 0th index since it has the most upvotes
-        // const daily = sortedDaily[0];
         return sortedDaily[0];
 
     }
 
     function generateWeekly() {
-        console.log(palettes);
+        // console.log(palettes);
         // for palette-of-the-day
         // create an Array to hold all palettes created today
         const weeklyArray = [];
@@ -71,17 +72,21 @@ const Sidebar = ({ palettes }) => {
             // convert date from createdAt property of palette[i]
             const createdAt = palettes[i].createdAt;
             const date = convertToObj(createdAt);
+            // console.log(date);
+            // console.log("Date is an: " + typeof date);
             const dateToString = date.toDateString();
+            // console.log("This is the palette at index " + i);
+            // console.log(dateToString);
 
-            if (dateToString > weeklyToString) {
-                console.log("this was created in the last week.");
-                console.log(palette[i]);
+            if (date >= weeklyObject) {
+                // console.log("this was created in the last week.");
+                // console.log(palette[i]);
                 weeklyArray.push(palettes[i]);
-                console.log(weeklyArray);
+                // console.log(weeklyArray);
 
             } else {
-                console.log("this was not created over the last week");
-                console.log(palettes[i]);
+                // console.log("this was not created over the last week.");
+                // console.log(palettes[i]);
                 break;
             }
 
@@ -89,13 +94,11 @@ const Sidebar = ({ palettes }) => {
 
         // sort the dailyArray by most upvotes and return in descending order
         let sortedWeekly = weeklyArray.sort((a, b) => b.upvoteCount - a.upvoteCount);
-        console.log(sortedWeekly);
+        // console.log(sortedWeekly);
         // return the 0th index since it has the most upvotes
-        // const daily = sortedDaily[0];
         return sortedWeekly[0];
 
     }
-
 
     const daily = generateDaily();
     const weekly = generateWeekly();
