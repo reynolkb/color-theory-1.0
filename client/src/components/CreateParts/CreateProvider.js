@@ -18,7 +18,7 @@ const formState = {
     workingColor: 'primary'
 };
 
-//these are our intial state for provider
+//these are our states for provider
 const contextState = {
     state: formState,
     handleChange: () => {},
@@ -28,7 +28,6 @@ const contextState = {
     linkError: null,
     loading: false
 }
-
 
 export const paletteCreatorContext = createContext(contextState);
 

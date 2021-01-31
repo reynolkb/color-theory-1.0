@@ -77,6 +77,7 @@ i.far {
 i.fa-heart:hover,
 i.fa-heart:active {
     color: #FF0000;
+    cursor: pointer;
 }
 
 i.fa-bookmark:hover,
@@ -519,4 +520,45 @@ footer ul li a:hover {
 
 .active-color {
     border: solid 1px #fff;
+}
+
+
+/* detail palette page  */
+
+.details-palette {
+    flex: 1 0 0;
+}
+
+.details-preview {
+    margin: 3em;
+    margin-top: 2em;
+    flex: 1 0 0;
+}
+
+/* preview styling */
+
+.preview-wrapper {
+    border: #a1a1a1 solid 1px;
+    box-shadow: 0 0 5px 1px #a1a1a1;
+    border-radius: 5px;
+    padding: 1em;
+    width: 100%;
+}
+
+.preview-header {
+    color: #000;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview-ul {
+    list-style: none;
+    display: flex;
+}
+
+.preview-ul li {
+    padding-left: 5px;
+    font-size: 12px;
 }

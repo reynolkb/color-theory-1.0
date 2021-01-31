@@ -33,19 +33,12 @@ const Home = () => {
                     <div className='filter-selection'>
                         <form>
                             <select className='filter' name='filter'>
-                                <option value=''>Filter ↓</option>
+                                <option value=''>Filter</option>
                                 <option value='most-liked'>Most Liked</option>
                                 <option value='recent'>Recent</option>
                             </select>
                         </form>
                     </div>
-                    {/* cat's styling palettes */}
-                    {/* {
-                        fakePalettes.map((palette, i) => (
-                            <Palette key={i} palette={palette} />
-                        ))
-                    } */}
-
                     {loading ? (
                         <div>Loading...</div>
                     ) : (
