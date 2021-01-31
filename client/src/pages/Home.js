@@ -53,13 +53,13 @@ const Home = () => {
                             <Palette palettes={palettes}/>
                         )}
                 </div>
-                {/* <div className='sidebar-wrapper'>
+                <div className='sidebar-wrapper'>
                     {loading ? (
                         <div>Loading...</div>
                     ) : (
                         <Sidebar palettes={palettes} />
                     )}
-                </div> */}
+                </div>
             </div>
     );
 };

@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import DailyPalette from '../DailyPalette';
 import WeeklyPalette from '../WeeklyPalette';
 
-import { dateFormat, convertToObj } from '../../utils/dateFormat';
-import { palette } from '../../const/colors';
+import { convertToObj } from '../../utils/dateFormat';
+// import { palette } from '../../const/colors';
 
 // this is Cat's test data
 // import { dailyPalette, weeklyPalette } from '../../const/colors';
