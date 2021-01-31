@@ -11,7 +11,7 @@ export function dateFormat(milliseconds) {
 
 }
 
-export function convertToInt(milliseconds) {
+export function convertToObj(milliseconds) {
 
     const stringToInt = parseInt(milliseconds);
 

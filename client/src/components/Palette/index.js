@@ -5,11 +5,11 @@ import { dateFormat }  from '../../utils/dateFormat';
 
 //components
 import Colors from '../../components/Colors';
-import { palette } from '../../const/colors';
+// import { palette } from '../../const/colors';
 import SocialButtons from '../SocialButtons';
 
 const Palette = ({ palettes }) => {
-    console.log(palettes);
+    // console.log(palettes);
     // console.log(palettes[21].tags[0].name);
 
     return (
