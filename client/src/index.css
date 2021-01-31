@@ -591,3 +591,24 @@ input.search-input {
     float: left;
     width: 80%;
 }
+
+/* search gallery component */
+
+.sg-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+}
+
+.sg-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.gallery-description {
+    background-color: #f6f6f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+}

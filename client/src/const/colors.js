@@ -38,7 +38,7 @@ export const palette = {
 
 // jane will you keep these palettes for me to enter into the site once it's live? 
 
-export const fakePalettes = [palette, palette, palette, palette, palette];
+export const palettes = [palette, palette, palette, palette, palette];
 
 export const dailyPalette = {
     title: 'Skittles',

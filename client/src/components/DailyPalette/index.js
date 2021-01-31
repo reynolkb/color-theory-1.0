@@ -4,8 +4,6 @@ import React from 'react';
 import SocialButtons from '../SocialButtons';
 import Colors from '../Colors';
 
-// import { palette } from '../../const/colors';
-
 const DailyPalette = ({ palette }) => {
 
     // console.log(palette);

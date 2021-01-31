@@ -8,8 +8,8 @@ const SearchBar = () => {
     //if it reloads on failure and not success the user will be confused why they weren't redirected
 
     function handleSearch() {
-        console.log('i am the search button')
-        // locaton.assign('/')
+        console.log('i am the search button');
+        window.location.assign('/search');
     }
     
     return(
@@ -25,7 +25,7 @@ const SearchBar = () => {
                     <button 
                         onClick={handleSearch}
                         type='button' 
-                        className='btn search-btn'><i class="fas fa-search"></i></button>
+                        className='btn search-btn'><i className="fas fa-search"></i></button>
                 </div>
                 <small>Try searching for red, winter, or natural.</small> {/* we might want to remove the prompt */}
             </form>
