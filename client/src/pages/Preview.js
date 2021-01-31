@@ -73,6 +73,7 @@ const Preview = ({ palette }) => {
                     <li>Logout</li>
                 </ul>
             </div>
+            <p>Primary: {palette.primary}</p>
 
             <div className='preview-body'>
                 <div style={previewCTA}>
