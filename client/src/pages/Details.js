@@ -7,6 +7,7 @@ import { QUERY_PALETTE } from '../utils/queries';
 
 //component
 import Palette from '../components/Palette';
+import Preview from '../pages/Preview';
 
 const Details = () => {
 
@@ -25,8 +26,16 @@ const Details = () => {
 
     return(
         <div className='global-wrapper'>
-            <div>
+            {/* left side */}
+            <div className='details-palette'>
                 <Palette key={ paletteId } palettes={ palettes }/>
+                <div className='detail-tags'>
+                    tags will render here
+                </div>
+            </div>
+            {/* right side */}
+            <div className='details-preview'>
+                <Preview palette={ palette } />
             </div>
         </div>
     )
