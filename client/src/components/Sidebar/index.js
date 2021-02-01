@@ -105,7 +105,7 @@ const Sidebar = ({ palettes }) => {
     return (
         <div>
             {/* search component */}
-            <SearchBar />
+            <SearchBar/>
             <h3 className='sidebar-title'>Trending Today</h3>
             {/* palette of the day  */}
             <DailyPalette palette={daily} />

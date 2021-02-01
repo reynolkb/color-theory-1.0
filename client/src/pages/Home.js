@@ -24,6 +24,7 @@ const Home = () => {
     // constant for main content
     const palettes = data?.palettes || [];
     // const palettes = fakePalettes;
+    // console.log(palettes);
 
     // palettes.length && console.log(typeof palettes[0]._id);
 
