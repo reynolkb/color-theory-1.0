@@ -32,16 +32,6 @@ const SearchGallery = () => {
             newTaggedPalettesArr.push(tag.taggedPalettes[i]._id);
         }
         console.log(newTaggedPalettesArr);
-
-        // for (let i = 0; i < newTaggedPalettesArr.length; i++) {
-        //     const {loading2, data2} = useQuery(QUERY_PALETTE, {
-        //         variables: {_id: newTaggedPalettesArr[i]}
-        //     })
-
-        //     if (loading2 === false) {
-        //         newPaletteObjArr.push(data2);
-        //     }
-        // }
     }
 
     return(
