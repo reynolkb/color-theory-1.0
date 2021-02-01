@@ -3,7 +3,7 @@ import React from 'react';
 import Palette from '../components/Palette';
 import { useQuery } from '@apollo/react-hooks';
 import {Redirect, useParams} from "react-router-dom"
-import {QUERY_TAG} from '../utils/queries';
+import {QUERY_PALETTE, QUERY_TAG} from '../utils/queries';
 
 //components
 import SearchBar from '../components/SearchBar';
@@ -12,6 +12,7 @@ import { palettes } from '../const/colors';
 
 const SearchGallery = () => {
     const {name: tagName} = useParams();
+    console.log('search gallery');
 
     const {loading, data} = useQuery(QUERY_TAG, {
         variables: {name: tagName}
@@ -21,17 +22,27 @@ const SearchGallery = () => {
     console.log(loading);
     console.log(tagName);
 
-    const tag = data?.tag || [];
-    
-    console.log(tag.taggedPalettes);
-
-    const taggedPalettesArr = tag.taggedPalettes;
-    console.log(Array.isArray(taggedPalettesArr));
     const newTaggedPalettesArr = [];
-    // for (let i = 0; i < tag.taggedPalettes.length; i++) {
-    //     newTaggedPalettesArr.push(tag.taggedPalettes[i]._id);
-    // }
-    console.log(newTaggedPalettesArr);
+
+    // once the data has been loaded from the database grab all the palettes with the searched tag
+    if(loading === false) {
+        const tag = data?.tag || [];
+        const taggedPalettesArr = tag.taggedPalettes;
+        for (let i = 0; i < taggedPalettesArr.length; i++) {
+            newTaggedPalettesArr.push(tag.taggedPalettes[i]._id);
+        }
+        console.log(newTaggedPalettesArr);
+
+        // for (let i = 0; i < newTaggedPalettesArr.length; i++) {
+        //     const {loading2, data2} = useQuery(QUERY_PALETTE, {
+        //         variables: {_id: newTaggedPalettesArr[i]}
+        //     })
+
+        //     if (loading2 === false) {
+        //         newPaletteObjArr.push(data2);
+        //     }
+        // }
+    }
 
     return(
         <div className='global-wrapper'>
