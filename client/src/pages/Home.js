@@ -22,6 +22,8 @@ const Home = () => {
     // if data is undefined, save empty array 
     // constant for main content
     const palettes = data?.palettes || [];
+    // const palettes = fakePalettes;
+    // console.log(palettes);
 
     // palettes.length && console.log(typeof palettes[0]._id);
 

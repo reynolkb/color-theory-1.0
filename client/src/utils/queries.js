@@ -101,3 +101,32 @@ export const QUERY_TAG = gql`
 		}
 	}
 `;
+
+export const QUERY_SEARCHED_PALETTES = gql`
+	query searchedPalettes($paletteIds: [ID]!) {
+		searchedPalettes(paletteIds: $paletteIds) {
+			_id
+			title
+            description
+            primary
+            secondary
+            accent1
+            accent2
+			accent3
+			username
+			upvoteCount
+			tags {
+				_id
+				name
+			}
+			upvotes {
+				username
+			}
+			createdAt
+			saveCount
+			saves {
+				username
+			}
+		}
+	}
+`;
