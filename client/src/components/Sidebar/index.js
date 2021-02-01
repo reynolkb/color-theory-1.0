@@ -1,7 +1,9 @@
 import React from 'react';
 
+//components
 import DailyPalette from '../DailyPalette';
 import WeeklyPalette from '../WeeklyPalette';
+import SearchBar from '../SearchBar';
 
 import { convertToObj } from '../../utils/dateFormat';
 
@@ -95,6 +97,8 @@ const Sidebar = ({ palettes }) => {
     return (
 
         <div>
+            {/* search component */}
+            <SearchBar />
             {/* palette of the day  */}
             <h3 className='sidebar-title'>Trending Today</h3>
                 <DailyPalette palette={daily} />

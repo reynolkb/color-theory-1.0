@@ -2,7 +2,7 @@ import React, { useState, createContext } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 
 //utility
-import { ADD_PALETTE } from '../../utils/mutations';
+import { ADD_PALETTE, CREATE_TAG, LINK_TAG_TO_PALETTE } from '../../utils/mutations';
 
 //initial state for all forms
 const formState = {
@@ -18,21 +18,24 @@ const formState = {
     workingColor: 'primary'
 };
 
-//these are our intial state for provider
+//these are our states for provider
 const contextState = {
     state: formState,
     handleChange: () => {},
     handleSubmit: () => {},
     error: null,
+    tagError: null,
+    linkError: null,
     loading: false
 }
-
 
 export const paletteCreatorContext = createContext(contextState);
 
 const CreateProvider = ({ children }) => {
 
     const [ addPalette, { error }] = useMutation(ADD_PALETTE);
+    const [ createTag, { tagError }] = useMutation(CREATE_TAG);
+    const [ linkTagToPal, { linkError }] = useMutation(LINK_TAG_TO_PALETTE);
     const [ loading, setLoading ] = useState(false);
     const [ state, setState ] = useState(formState);
 
@@ -50,15 +53,34 @@ const CreateProvider = ({ children }) => {
             secondary: state.secondary,
             accent1: state.accent1,
             accent2: state.accent2,
-            accent3: state.accent3,
-            tags: state.tags,
+            accent3: state.accent3
+            // tags: state.tags,
         };
-        // console.log(palette);
+        const tagCount = state.tags.length;
+        const tagArray = [];
+        for (let i = 0; i < tagCount; i++){
+            tagArray.push(state.tags[i]);
+        }
         try {
-            // console.log(mutationResponse);
             const mutationResponse = await addPalette({
                 variables: palette,
-            })
+            });
+            const newPaletteId = mutationResponse.data.addPalette._id;
+            for(let j =0; j < tagCount; j++){
+                const tagMutationResponse = await createTag({
+                    variables: {name: tagArray[j]}
+                });
+                const newTagId = tagMutationResponse.data.createTag._id;
+                if (!tagMutationResponse.data.createTag){
+                    setLoading(false);
+                }
+                const linkMutationResponse = await linkTagToPal({
+                    variables: {paletteId: newPaletteId, tagId: newTagId}
+                });
+                if (!linkMutationResponse.data.linkTagToPal){
+                    setLoading(false);
+                }
+            }
             if (mutationResponse.data.addPalette) {
                 window.location.assign('/');
             } else {
@@ -71,7 +93,7 @@ const CreateProvider = ({ children }) => {
     }
 
     return (
-        <paletteCreatorContext.Provider value={{ state, handleChange, handleSubmit, error, loading }}>
+        <paletteCreatorContext.Provider value={{ state, handleChange, handleSubmit, error, tagError, linkError, loading }}>
             { children }
         </paletteCreatorContext.Provider>
     )
