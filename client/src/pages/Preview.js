@@ -11,91 +11,67 @@ const Preview = ({ palette }) => {
         backgroundColor: palette.primary,
     }
 
-    const previewH2 = {
-        fontWeight: 'bolder'
+    const previewNav = {
+        backgroundColor: palette.secondary,
     }
 
     const previewFooter = {
-        backgroundColor: palette.primary,
-        padding: '1em',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-
+        backgroundColor: palette.accent1
     }
 
-    const previewMain = {
-        display: 'flex',
-        backgroundColor: '#fff',
-        padding: '.55em',
-        flexDirection: 'column'
-    }
-
-    const previewCTA = {
+    const previewLinks = {
         backgroundColor: palette.secondary,
-        padding: '3em',
-        marginBottom: '20px',
-        display: 'flex',
-        justifyContent: 'center',
     }
 
-    const previewDiv1 = {
-        backgroundColor: palette.accent1,
-        padding: '1.25em',
-        marginBottom: '7px',
-        display: 'flex',
-        justifyContent: 'center',
+    const previewCTA ={
+        background: `linear-gradient(45deg, ${palette.accent3}, ${palette.primary})`,
     }
 
-    const previewDiv2 = {
+    const circle1 = {
+        backgroundColor: palette.primary
+    }
+
+    const circle2 = {
         backgroundColor: palette.accent2,
-        padding: '1.25em',
-        marginBottom: '7px',
-        display: 'flex',
-        justifyContent: 'center',
     }
 
-    const previewDiv3 = {
-        backgroundColor: palette.accent3,
-        padding: '1.25em',
-        marginBottom: '7px',
-        display: 'flex',
-        justifyContent: 'center',
+    const circle3 = {
+        backgroundColor: palette.accent3
     }
 
 
     return(
         <div className='preview-wrapper'>
-            <div style={previewHeader} className='preview-header'>
+            <div style={previewHeader} className='preview-navs'>
+                <h6>LOGO</h6>
                 <ul className='preview-ul'>
-                    <li>User</li>
-                    <li>Search</li>
-                    <li>Logout</li>
+                    <li><span style={previewNav}>User</span></li>
+                    <li><span style={previewNav}>Search</span></li>
+                    <li><span style={previewNav}>Logout</span></li>
                 </ul>
             </div>
-            <p>Primary: {palette.primary}</p>
 
-            <div className='preview-body'>
-                <div style={previewCTA}>
-                    <p>Here is an example page.</p>
+            <div className='preview-main'>
+                <div style={previewCTA} className='preview-CTA'>
+                    <p>Super Generic Website</p>
                 </div>
-                <div style={previewDiv1}>
-                    <p>It's here to give you an idea of how your website or application might look.</p>
+                <div className='preview-circle-wrapper'>
+                    <div style={circle1} className='preview-circle' />
+                    <div style={circle2} className='preview-circle' />
+                    <div style={circle3} className='preview-circle' />
                 </div>
-                <div style={previewDiv2}>
-                    <p>You can put colors wherever you like them.</p>
-                </div>
-                <div style={previewDiv3}>
-                    <p>Just grab the HEX codes and put them on your own CSS file.</p>
+                <div className='preview-example-text'>
+                    <p>This preview is here to give you an idea of how your application might look using these colors.</p>
+                    <p>This preview is here to give you an idea of how your application might look using these colors.</p>
+                    <p>This preview is here to give you an idea of how your application might look using these colors.</p>
                 </div>
             </div>
 
-            <div style={previewFooter}>
-                <p style={previewH2}>That's all folks!</p>
+            <div style={previewFooter} className='preview-navs'>
                 <ul className='preview-ul'>
-                    <li>Link 1</li>
-                    <li>Link 2</li>
-                    <li>Link 3</li>
+                    <li><span style={previewLinks}>Donate</span></li>
+                    <li><span style={previewLinks}>About</span></li>
+                    <li><span style={previewLinks}>Contact</span></li>
                 </ul>
             </div>
         </div>

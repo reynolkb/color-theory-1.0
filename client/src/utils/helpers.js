@@ -69,3 +69,7 @@ export function idbPromise(storeName, method, object) {
 
     });
 }
+
+export const getContrastingColor = (bg) => {
+    
+}

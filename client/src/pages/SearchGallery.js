@@ -19,7 +19,7 @@ const SearchGallery = () => {
                 </div>
 
                 <div className='gallery-palettes'>
-                    <Palette palettes={ palettes }/>
+                    <Palette key={palettes.title} palettes={ palettes }/>
                 </div>
             </div>
         </div>

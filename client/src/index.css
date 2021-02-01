@@ -307,6 +307,20 @@ footer ul li a:hover {
     margin-bottom: 2em;
 }
 
+/* .daily-palette:hover,
+.weekly-palette:hover {
+    padding: 1em;
+    background-color: #f6f6f6;
+    box-shadow: inset 0 0 5px 2px rgba(161, 161, 161, 0.50);
+    border: solid 1px #a1a1a1;
+    border-radius: 3px;
+} */
+
+.daily-palette:hover,
+.weekly-palette:hover {
+    cursor: pointer;
+}
+
 .searchbar-wrapper {
     margin-bottom: 1em;
 }
@@ -533,7 +547,7 @@ footer ul li a:hover {
 }
 
 .details-preview {
-    margin: 3em;
+    margin-left: 3em;
     margin-top: 2em;
     flex: 1 0 0;
 }
@@ -542,17 +556,17 @@ footer ul li a:hover {
 
 .preview-wrapper {
     border: #a1a1a1 solid 1px;
-    box-shadow: 0 0 5px 1px #a1a1a1;
+    /* box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.25); */
     border-radius: 5px;
-    padding: 1em;
+    /* padding: 1em; */
     width: 100%;
 }
 
-.preview-header {
+.preview-navs {
     color: #000;
     padding: 1em;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -562,8 +576,63 @@ footer ul li a:hover {
 }
 
 .preview-ul li {
-    padding-left: 5px;
+    padding-left: 18px;
     font-size: 12px;
+    display: inline-block;
+}
+
+.preview-ul li span {
+    display: inline-block;
+    padding: 5px;
+}
+
+.preview-CTA {
+    padding: 3em 2.25em;
+    /* margin-bottom: 20px; */
+    display: flex;
+    justify-content: center;
+    /* border-bottom-width: 5px; */
+    /* border-bottom-style: solid; */
+}
+
+.preview-CTA p {
+    color: #fff;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.preview-main {
+    display: flex;
+    background-color: #fff;
+    /* padding: .55em; */
+    flex-direction: column;
+}
+
+.preview-circle-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    padding: 30px 0;
+    background: #f6f6f6;
+}
+
+.preview-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.preview-example-text {
+    display: flex;
+    padding:  30px 10px;
+}
+
+.preview-example-text p {
+    letter-spacing: 1px;
+    font-size: 0.75em;
+    flex: 1 0 0;
+    margin: 0 10px;
 }
 
 /* search bar component */
