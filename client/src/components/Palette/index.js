@@ -15,48 +15,82 @@ import { UPDATE_PALETTES } from '../../utils/actions';
 // import helper
 import { idbPromise } from '../../utils/helpers';
 
-// const Palette = ({ paletteData }) => {
-const Palette = ({ palettes }) => {
+const Palette = () => {
+// const Palette = ({ palettes }) => {
 
     const state = useSelector(state => state);
     // console.log("Below is the current Global State:");
     // console.log(state);
     const dispatch = useDispatch();
 
-    const { filter } = state;
-    // console.log(filter[0]);
-    // console.log(filter[0].value);
+    const { palettes, currentfilter } = state;
+    // // console.log(filter);
+    // // console.log(filter[0].value);
 
-    // function filterData() {
+    // const { loading, data } = useQuery(QUERY_PALETTES);
 
-        // if (filter[0].value === 'most-liked') {
-        //     console.log("most liked");
-    
-        //     // sort the palette data by most upvotes and return in descending order
-        //     // let sortedPaletteData = palettes.sort((a, b) => b.upvoteCount - a.upvoteCount);
-        //     // console.log(sortedPaletteData);
-    
-        //     // set the state
-        //     // setPalette(sortedPaletteData);
-    
-        // } else if (filter[0].value === 'recent') {
-        //     console.log("recent");
-    
-        //     // sort the palette data by createdAt and return in descending order
-        //     // let sortedPaletteData = palettes.sort((a, b) => b.createdAt - a.createdAt);
-        //     // console.log(sortedPaletteData);
-    
-        //     // set the state
-        //     // setPalette(sortedPaletteData);
-        // }
-    
-    // }
+    // useEffect(() => {
+    //     if (data) {
+    //         dispatch({
+    //             type: UPDATE_PALETTES,
+    //             palettes: data.palettes
+    //         });
 
+    //         data.palettes.forEach((palette) => {
+    //             idbPromise('palettes', 'put', palette);
+    //         });
+
+    //     } else if (!loading) {
+    //         idbPromise('palettes', 'get').then((products) => {
+    //             dispatch({
+    //                 type: UPDATE_PALETTES,
+    //                 palettes: palettes
+    //             });
+    //         });
+    //     }
+    // }, [data, loading, dispatch]);
+
+
+    function filterPalettes() {
+
+        if (currentfilter === 'most-liked') {
+            // console.log("most liked");
+    
+            // sort the palette data by most upvotes and return in descending order
+            // let sortMostLiked = palettes.sort((a, b) => b.upvoteCount - a.upvoteCount);
+            // console.log("These are the most liked");
+            // console.log(sortMostLiked);
+    
+            // set the state
+            // setPalette(sortedPaletteData);
+            // console.log("Most Liked conditional");
+            // console.log(state.palettes);
+
+            return state.palettes.sort((a, b) => b.upvoteCount - a.upvoteCount);
+
+
+    
+        } else if (currentfilter === 'recent') {
+            // console.log("recent");
+    
+            // sort the palette data by createdAt and return in descending order
+            // let sortedPaletteData = palettes.sort((a, b) => b.createdAt - a.createdAt);
+            // console.log(sortedPaletteData);
+    
+            // set the state
+            // setPalette(sortedPaletteData);
+            // console.log("Recent conditional");
+            // console.log(state.palettes);
+            return state.palettes.sort((a, b) => b.createdAt - a.createdAt);
+        }
+    
+    }
 
     return (
         <div>
             {palettes &&
-                palettes.map(palette => (
+                // palettes.map(palette => (
+                filterPalettes().map(palette => (
                     <div key={palette._id}>
                         <div className='palette-wrapper'>
                             <h3 className='palette-title'>{palette.title}</h3>

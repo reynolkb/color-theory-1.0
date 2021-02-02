@@ -9,31 +9,29 @@ import { idbPromise } from '../../utils/helpers';
 const Filter = () => {
 
     const state = useSelector(state => state);
-    console.log("See below for current Global State:");
-    console.log(state);
+    // console.log("See below for current Global State:");
+    // console.log(state);
     const dispatch = useDispatch();
 
     const { currentfilter } = state;
     // console.log(filter[0]);
     // console.log(filter[0].value);
-    console.log(currentfilter);
+    // console.log(currentfilter);
 
     const changeFilter = event => {
-        console.log(event.target.value);
+        // console.log(event.target.value);
         dispatch({
             type: CURRENT_FILTER,
-            currentfilter: event.target
-
+            currentfilter: event.target.value
         });
-        console.log(currentfilter);
+        // console.log("This is the current filter");
+        // console.log(currentfilter);
     }
-
 
     return (
         <div className='filter-selection'>
             <form>
                 <select className='filter' name='filter' onChange={changeFilter} value={currentfilter}>
-                {/* <select className='filter' name='filter'> */}
                     <option value='most-liked'>Most Liked</option>
                     <option value='recent'>Recent</option>
                 </select>
