@@ -69,6 +69,7 @@ const Home = () => {
     
     }
 
+    // need to fix sidebar 
     // filter palette data in descending order on createdAt to get more recent first
     // function sidebarPalettes() {
 
