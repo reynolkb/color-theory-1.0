@@ -18,22 +18,22 @@ const Filter = () => {
     // console.log(filter[0].value);
     console.log(currentfilter);
 
-    // const changeFilter = event => {
-    //     console.log(event.target.value);
-    //     dispatch({
-    //         type: CURRENT_FILTER,
-    //         currentfilter: event.target
+    const changeFilter = event => {
+        console.log(event.target.value);
+        dispatch({
+            type: CURRENT_FILTER,
+            currentfilter: event.target
 
-    //     });
-    //     console.log(currentfilter);
-    // }
+        });
+        console.log(currentfilter);
+    }
 
 
     return (
         <div className='filter-selection'>
             <form>
-                {/* <select className='filter' name='filter' onChange={changeFilter} value={currentfilter}> */}
-                <select className='filter' name='filter'>
+                <select className='filter' name='filter' onChange={changeFilter} value={currentfilter}>
+                {/* <select className='filter' name='filter'> */}
                     <option value='most-liked'>Most Liked</option>
                     <option value='recent'>Recent</option>
                 </select>

@@ -33,7 +33,7 @@ export const reducer = (state = initialState, action) => {
         case CURRENT_FILTER:
             return {
                 ...state,
-                currentfilter: [...action.currentfilter]
+                currentfilter: action.currentfilter
             };
 
         // case UPDATE_DAILY_PALETTE:
