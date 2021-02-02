@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // for Global State using Redux, use React-Redux hook
 import { useSelector, useDispatch } from 'react-redux';
@@ -14,52 +14,15 @@ import { QUERY_PALETTES } from '../utils/queries';
 // import Menu from '../components/Menu';
 import Palette from '../components/Palette';
 import Sidebar from '../components/Sidebar';
+import Filter from '../components/Filter';
 
 const Home = () => {
-
-    // create Global state
-    // const state = useSelector(state => state);
-    // console.log(state);
-    // const dispatch = useDispatch();
-
-    // destructure from global state object
-    // const { palettes } = state;
-    // console.log(palettes);
 
     // load the Home component & execute the query for the Palette data
     // data returned from the server stored in the destructured data property
     // query for main content
     const { loading, data } = useQuery(QUERY_PALETTES);
     // console.log(data);
-    // const { loading, data: dbPaletteData } = useQuery(QUERY_PALETTES);
-    // console.log(dbPaletteData);
-
-    // useEffect(() => {
-    //     // if dbPaletteData exists or has changed, run dispatch to update Global State
-    //     if (dbPaletteData) {
-    //         dispatch({
-    //             type: UPDATE_PALETTES,
-    //             palettes: dbPaletteData.palettes
-    //         });
-    //         console.log("data received");
-
-    //         // put the data into the palettes store
-    //         dbPaletteData.palettes.forEach(palette => {
-    //             idbPromise('palettes', 'put', palette);
-    //             console.log("data delivered");
-    //         });
-
-    //     } else if (!loading) {
-    //         // get the data from IndexedDb
-    //         idbPromise('palettes', 'get').then(palettes => {
-    //             dispatch({
-    //                 type: UPDATE_PALETTES,
-    //                 palettes: palettes
-    //             });
-    //         });
-    //         console.log("i got data from indexedDb");
-    //     }
-    // }, [dbPaletteData, loading, dispatch]);
 
     // get Palette data out of the query's response with optional chaining
     // if data exists, store it in the palette constant we just created
@@ -74,20 +37,21 @@ const Home = () => {
 
         <div className='global-wrapper'>
             <div className='home-palette-wrapper'>
+                <Filter />
                 {loading ? (
                     <div>Loading...</div>
                 ) : (
                         /* // Once query is complete and loading is undefined, pass palettes array to <Palette> component as props */
-                        <Palette palettesData={palettes} />
-                )}
+                        <Palette palettes={palettes} />
+                    )}
             </div>
 
             <div className='sidebar-wrapper'>
-            {loading ? (
+                {loading ? (
                     <div>Loading...</div>
                 ) : (
-                    <Sidebar palettes={palettes} />
-                )}
+                        <Sidebar palettes={palettes} />
+                    )}
             </div>
         </div>
     );
