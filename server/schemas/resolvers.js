@@ -34,6 +34,9 @@ const resolvers = {
 		},
 		tag: async (parent, {name}) => {
 			return Tag.findOne({name});
+		},
+		searchAllPalettes: async () => {
+			return await Palette.find();
 		}
     },
     Mutation: {
