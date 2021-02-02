@@ -93,8 +93,8 @@ const Home = () => {
                 {loading ? (
                     <div>Loading...</div>
                 ) : (
-                        // <Sidebar palettes={sidebarPalettes()} />
-                        <Sidebar palettes={palettes} />
+                        <Sidebar />
+                        // <Sidebar palettes={palettes} />
                     )}
             </div>
         </div>
