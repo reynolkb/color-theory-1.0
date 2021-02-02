@@ -7,6 +7,9 @@ import Colors from '../Colors';
 import { palette } from '../../const/colors';
 
 const WeeklyPalette = ({ palette }) => {
+    if (!palette) {
+        return null;
+    }
 
     const {
         username,

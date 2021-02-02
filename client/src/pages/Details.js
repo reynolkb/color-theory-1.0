@@ -17,12 +17,18 @@ const Details = () => {
         variables: { id: paletteId }
     });
 
-    console.log(data);
-    console.log(loading);
-    console.log(paletteId);
+    // console.log('data',data);
+    // console.log(loading);
+    // console.log(paletteId);
 
     const palette = data?.palette || [];
     const palettes = [palette];
+
+    if (loading) {
+        return (
+            <div className='global-wrapper'>Loading...</div>
+        )
+    }
 
     return(
         <div className='global-wrapper'>
