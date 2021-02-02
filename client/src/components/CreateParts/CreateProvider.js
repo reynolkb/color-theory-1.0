@@ -1,5 +1,7 @@
 import React, { useState, createContext } from 'react';
 import { useMutation } from '@apollo/react-hooks';
+// import { useQuery } from '@apollo/react-hooks';
+// import { QUERY_TAG } from '../../utils/queries';
 
 //utility
 import { ADD_PALETTE, CREATE_TAG, LINK_TAG_TO_PALETTE } from '../../utils/mutations';
@@ -14,6 +16,7 @@ const formState = {
     accent2: '#f1f1f1',
     accent3: '#f6f6f6',
     tags: [],
+    ifNew: [],  
     current: '#f6f6f6',
     workingColor: 'primary'
 };
@@ -38,7 +41,7 @@ const CreateProvider = ({ children }) => {
     const [ linkTagToPal, { linkError }] = useMutation(LINK_TAG_TO_PALETTE);
     const [ loading, setLoading ] = useState(false);
     const [ state, setState ] = useState(formState);
-
+  
     const handleChange = (property) => {
         setState({...state, ...property})
     }
@@ -58,31 +61,55 @@ const CreateProvider = ({ children }) => {
         };
         const tagCount = state.tags.length;
         const tagArray = [];
+        const ifNewTagArr = [];
         for (let i = 0; i < tagCount; i++){
             tagArray.push(state.tags[i]);
+            ifNewTagArr.push(state.ifNew[i]);
         }
+        console.log(state.ifNew);
         try {
             const mutationResponse = await addPalette({
                 variables: palette,
             });
             const newPaletteId = mutationResponse.data.addPalette._id;
+            let newTagId;
             for(let j =0; j < tagCount; j++){
-                const tagMutationResponse = await createTag({
-                    variables: {name: tagArray[j]}
-                });
-                const newTagId = tagMutationResponse.data.createTag._id;
-                if (!tagMutationResponse.data.createTag){
-                    setLoading(false);
+                console.log(tagArray[j].charAt(0));
+                // checks to see if tag already exist
+                if (tagArray[j] !== ifNewTagArr[j]){
+                    console.log(tagArray[j]+' already exist');
+                    newTagId = ifNewTagArr[j];
                 }
-                const linkMutationResponse = await linkTagToPal({
-                    variables: {paletteId: newPaletteId, tagId: newTagId}
-                });
-                if (!linkMutationResponse.data.linkTagToPal){
+                else {
+                    try{
+                        const tagMutationResponse = await createTag({
+                            variables: {name: tagArray[j]}
+                        });
+                        newTagId = tagMutationResponse.data.createTag._id;
+                        if (!tagMutationResponse.data.createTag){
+                            setLoading(false);
+                        }
+                    }
+                    catch (e) {
+                        console.log(e);
+                        setLoading(false);
+                    }
+                }
+                try {
+                    const linkMutationResponse = await linkTagToPal({
+                        variables: {paletteId: newPaletteId, tagId: newTagId}
+                    });
+                    if (!linkMutationResponse.data.linkTagToPal){
+                        setLoading(false);
+                    }
+                }
+                catch (e) {
+                    console.log(e);
                     setLoading(false);
                 }
             }
             if (mutationResponse.data.addPalette) {
-                window.location.assign('/');
+                // window.location.assign('/');
             } else {
                 setLoading(false);
             }
