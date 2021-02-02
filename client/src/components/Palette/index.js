@@ -51,7 +51,7 @@ const Palette = ({ palettes }) => {
         // }
     
     // }
-
+    console.log('i am the', palettes);
 
     return (
         <div>
