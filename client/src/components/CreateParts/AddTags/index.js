@@ -90,7 +90,7 @@ const AddTags = () => {
             </form>
             {/* pill rough draft */}
             <div className='added-tags'>
-                <h4>Tags</h4>
+                <h4>Palette Tags</h4>
                 {
                     state.tags.map((tag, i) => (
                         <div key={`${tag}${i}`} className='tag-pill'>

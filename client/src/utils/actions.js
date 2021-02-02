@@ -2,7 +2,7 @@
 
 // actions for the home page
 // store the data retrieved by Apollo for the user-filtered palettes in this global state
-export const UPDATE_FILTERED_PALETTES = "UPDATE_FILTERED_PALETTES";
+export const UPDATE_PALETTES = "UPDATE_PALETTES";
 
 // store the data retrieved by Apollo for palette-of-the-day in this global state
 export const UPDATE_DAILY_PALETTE = "UPDATE_DAILY_PALETTE";
