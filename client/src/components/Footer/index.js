@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const flavorText = [
     "You’ll hue the day!",
@@ -19,13 +20,13 @@ const Footer = () => {
             <h2>{randomFlavor}</h2>
             <ul>
                 <li>
+                    <Link to='/donation'>Donations</Link>
+                </li>
+                <li>
                     <a href='#'>About The Creators</a>
                 </li>
                 <li>
                 <a href='https://github.com/reynolkb/color-theory-1.0' target='_blank' rel='noreferrer'>Github Repo</a>
-                </li>
-                <li>
-                    <a href='mailto:colortheory@gmail.com'>Contact Us</a>
                 </li>
             </ul>
         </footer>

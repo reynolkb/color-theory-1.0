@@ -14,6 +14,9 @@ const Nav = () => {
                     <li>
                         <Link to='/search'>Search</Link>
                     </li>
+                    <li>
+                        <Link to='/home'>Home</Link>
+                    </li>
                     <li><Link to='/create'>Create a Palette</Link></li>
                     <li>
                         <Link to='/' onClick={() => Auth.logout()}>Logout</Link>

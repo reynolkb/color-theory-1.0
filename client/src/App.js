@@ -15,7 +15,7 @@ import Login from './pages/Login';
 import Create from './pages/Create';
 import SearchGallery from './pages/SearchGallery';
 import Details from './pages/Details';
-// import Preview from './pages/Preview';
+import Donation from './pages/Donation';
 
 // establish the connection to the back-end server's /graphql endpoint using apollo
 const client = new ApolloClient({
@@ -53,7 +53,7 @@ function App() {
             <Route exact path='/create' component={Create} />
             <Route exact path='/search' component={SearchGallery} />
             <Route exact path='/details/:id' component={Details} />
-            {/* <Route exact path='/preview/:id' component={Preview} /> */}
+            <Route exact path='/donation' component={Donation} />
           </Switch>
         </main>
         <Footer />
