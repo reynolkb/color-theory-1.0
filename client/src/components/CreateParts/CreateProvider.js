@@ -62,29 +62,33 @@ const CreateProvider = ({ children }) => {
         const tagCount = state.tags.length;
         const tagArray = [];
         const ifNewTagArr = [];
+        // reassigning for easier calls
         for (let i = 0; i < tagCount; i++){
             tagArray.push(state.tags[i]);
             ifNewTagArr.push(state.ifNew[i]);
         }
-        console.log(state.ifNew);
+        // creating new palette from user inputs
         try {
             const mutationResponse = await addPalette({
                 variables: palette,
             });
+            // grab palette ID for linking tag with palette
             const newPaletteId = mutationResponse.data.addPalette._id;
             let newTagId;
+            // goes thru all tags inputed (if applicable)
             for(let j =0; j < tagCount; j++){
-                console.log(tagArray[j].charAt(0));
                 // checks to see if tag already exist
                 if (tagArray[j] !== ifNewTagArr[j]){
                     console.log(tagArray[j]+' already exist');
                     newTagId = ifNewTagArr[j];
                 }
                 else {
+                    // if tag does not exist create new tag
                     try{
                         const tagMutationResponse = await createTag({
                             variables: {name: tagArray[j]}
                         });
+                        // grab tag id for linking with palette
                         newTagId = tagMutationResponse.data.createTag._id;
                         if (!tagMutationResponse.data.createTag){
                             setLoading(false);
@@ -95,6 +99,7 @@ const CreateProvider = ({ children }) => {
                         setLoading(false);
                     }
                 }
+                // linking new or existing tag with new palette
                 try {
                     const linkMutationResponse = await linkTagToPal({
                         variables: {paletteId: newPaletteId, tagId: newTagId}
@@ -109,7 +114,7 @@ const CreateProvider = ({ children }) => {
                 }
             }
             if (mutationResponse.data.addPalette) {
-                // window.location.assign('/');
+                window.location.assign('/');
             } else {
                 setLoading(false);
             }

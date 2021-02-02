@@ -58,11 +58,9 @@ const AddTags = () => {
     const handleRemoveTag = (tag) => () => {
         const indexOfRemove = state.tags.indexOf(tag);
         const updatedTags = state.tags.filter(t => t !== tag);
+        // remove element from array to keep arrays symmetrical 
         const currentIfNew = state.ifNew;
         const removedIfNewTag = currentIfNew.splice(indexOfRemove, 1);
-        console.log(removedIfNewTag);
-        console.log(currentIfNew);
-        console.log(updatedTags);
         handleChange({
             tags: updatedTags,
             ifNew: currentIfNew
