@@ -35,7 +35,7 @@ const Details = () => {
             {/* left side */}
             <div className='details-palette'>
                 <Palette key={ paletteId } palettes={ palettes }/>
-                <div className='added-tags'>
+                   <div className='added-tags'>
                     <h4>Tags</h4>
                     {/* this is a dummy tag */}
                     <div className='tag-pill'>

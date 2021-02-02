@@ -3,29 +3,24 @@ import React from 'react';
 // for Global State using Redux, use React-Redux hook
 import { useSelector, useDispatch } from 'react-redux';
 import { CURRENT_FILTER } from '../../utils/actions';
-// import helper
-import { idbPromise } from '../../utils/helpers';
 
 const Filter = () => {
 
+    // use global store
     const state = useSelector(state => state);
-    // console.log("See below for current Global State:");
-    // console.log(state);
+
+    // useDispatch method for interacting with global store
     const dispatch = useDispatch();
 
+    // destructure currentfilter from state
     const { currentfilter } = state;
-    // console.log(filter[0]);
-    // console.log(filter[0].value);
-    // console.log(currentfilter);
 
+    // handle change event to store current filter selected
     const changeFilter = event => {
-        // console.log(event.target.value);
         dispatch({
             type: CURRENT_FILTER,
             currentfilter: event.target.value
         });
-        // console.log("This is the current filter");
-        // console.log(currentfilter);
     }
 
     return (
