@@ -15,7 +15,7 @@ import Login from './pages/Login';
 import Create from './pages/Create';
 import SearchGallery from './pages/SearchGallery';
 import Details from './pages/Details';
-// import Preview from './pages/Preview';
+import Donation from './pages/Donation';
 
 // Global State using Redux
 import { Provider } from 'react-redux';
@@ -46,20 +46,18 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-          <Provider store={store}>
-            <Nav />
-            <main>
-              <Switch>
-                <Route exact path='/' component={Home} />
-                <Route exact path='/login' component={Login} />
-                <Route exact path='/signup' component={Signup} />
-                <Route exact path='/create' component={Create} />
-                <Route exact path='/search/:name' component={SearchGallery} />
-                <Route exact path='/details/:id' component={Details} />
-                {/* <Route exact path='/preview/:id' component={Preview} /> */}
-              </Switch>
-            </main>
-          </Provider>
+        <Nav />
+        <main>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/signup' component={Signup} />
+            <Route exact path='/create' component={Create} />
+            <Route exact path='/search' component={SearchGallery} />
+            <Route exact path='/details/:id' component={Details} />
+            <Route exact path='/donation' component={Donation} />
+          </Switch>
+        </main>
         <Footer />
       </Router>
     </ApolloProvider>
