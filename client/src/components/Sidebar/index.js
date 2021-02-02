@@ -8,6 +8,9 @@ import SearchBar from '../SearchBar';
 import { convertToObj } from '../../utils/dateFormat';
 
 const Sidebar = ({ palettes }) => {
+// const Sidebar = ({ palettesData }) => {
+
+    console.log(palettes);
 
     // get today's date and get the date portion of the Date object in English 
     const today = new Date();

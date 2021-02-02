@@ -69,6 +69,13 @@ const Home = () => {
     
     }
 
+    // filter palette data in descending order on createdAt to get more recent first
+    // function sidebarPalettes() {
+
+    //     return palettes.sort((a, b) => b.createdAt - a.createdAt);
+    
+    // }
+
     return (
         <div className='global-wrapper'>
             <div className='home-palette-wrapper'>
@@ -85,6 +92,7 @@ const Home = () => {
                 {loading ? (
                     <div>Loading...</div>
                 ) : (
+                        // <Sidebar palettes={sidebarPalettes()} />
                         <Sidebar palettes={palettes} />
                     )}
             </div>
