@@ -101,3 +101,32 @@ export const QUERY_TAG = gql`
 		}
 	}
 `;
+
+export const QUERY_SEARCH_ALL_PALETTES = gql`
+{
+	palettes {
+		_id
+		title
+		description
+		primary
+		secondary
+		accent1
+		accent2
+		accent3
+		username
+		upvoteCount
+		tags {
+			_id
+			name
+		}
+		upvotes {
+			username
+		}
+		createdAt
+		saveCount
+		saves {
+			username
+		}
+	}
+}
+`;

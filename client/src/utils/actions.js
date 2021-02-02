@@ -4,6 +4,9 @@
 // store the data retrieved by Apollo for the user-filtered palettes in this global state
 export const UPDATE_PALETTES = "UPDATE_PALETTES";
 
+// store the filter choise
+export const CURRENT_FILTER = "CURRENT_FILTER";
+
 // store the data retrieved by Apollo for palette-of-the-day in this global state
 export const UPDATE_DAILY_PALETTE = "UPDATE_DAILY_PALETTE";
 

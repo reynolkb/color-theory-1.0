@@ -2,22 +2,26 @@
 // list of the possible actions we can perform to update state
 import {
     UPDATE_PALETTES,
-    UPDATE_DAILY_PALETTE,
-    UPDATE_WEEKLY_PALETTE,
-    UPDATE_MY_PALETTES,
-    UPDATE_FAVORITE_PALETTES,
-    UPDATE_CURRENT_PALETTE,
-} from "./actions";
+    CURRENT_FILTER
+    // UPDATE_DAILY_PALETTE,
+    // UPDATE_WEEKLY_PALETTE,
+    // UPDATE_MY_PALETTES,
+    // UPDATE_FAVORITE_PALETTES,
+    // UPDATE_CURRENT_PALETTE,
+} from './actions';
 
 const initialState = {
     palettes: [],
-    dailyPalette: '',
-    weeklyPalette: '',
-    myPalette: [],
-    favorites: [],
-    currentPalette: '',
-    menuOpen: false
+    currentfilter: 'recent'
+    // dailyPalette: '',
+    // weeklyPalette: '',
+    // myPalette: [],
+    // favorites: [],
+    // currentPalette: ''
 };
+
+console.log("The following is the initial state: ");
+console.log(initialState);
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -26,42 +30,41 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 palettes: [...action.palettes]
             };
-
-        case UPDATE_DAILY_PALETTE:
+        case CURRENT_FILTER:
             return {
                 ...state,
-                dailyPalette: action.dailyPalette
+                currentfilter: [...action.currentfilter]
             };
 
-        case UPDATE_WEEKLY_PALETTE:
-            return {
-                ...state,
-                weeklyPalette: action.weeklyPalette
-            };
+        // case UPDATE_DAILY_PALETTE:
+        //     return {
+        //         ...state,
+        //         dailyPalette: action.dailyPalette
+        //     };
 
-        case UPDATE_MY_PALETTES:
-            return {
-                ...state,
-                myPalette: [...state.myPalette, ...action.palette]
-            };
+        // case UPDATE_WEEKLY_PALETTE:
+        //     return {
+        //         ...state,
+        //         weeklyPalette: action.weeklyPalette
+        //     };
 
-        case UPDATE_FAVORITE_PALETTES:
-            return {
-                ...state,
-                favorites: [...state.favorites, ...action.palette]
-            };
+        // case UPDATE_MY_PALETTES:
+        //     return {
+        //         ...state,
+        //         myPalette: [...state.myPalette, ...action.palette]
+        //     };
 
-        case UPDATE_CURRENT_PALETTE:
-            return {
-                ...state,
-                currentPalette: currentPalette
-            };
+        // case UPDATE_FAVORITE_PALETTES:
+        //     return {
+        //         ...state,
+        //         favorites: [...state.favorites, ...action.palette]
+        //     };
 
-        case TOGGLE_MENU:
-            return { 
-                ...state,
-                menuOpen: !state.menuOpen
-            };
+        // case UPDATE_CURRENT_PALETTE:
+        //     return {
+        //         ...state,
+        //         currentPalette: currentPalette
+        //     };
 
         default:
             return state;

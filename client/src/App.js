@@ -5,10 +5,10 @@ import { ApolloProvider } from '@apollo/react-hooks';
 // functionality to make requests to the server with helper libraries
 import ApolloClient from 'apollo-boost';
 
-//components
+// components
 import Nav from './components/Nav';
 import Footer from './components/Footer';
-//pages
+// pages
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
@@ -16,6 +16,10 @@ import Create from './pages/Create';
 import SearchGallery from './pages/SearchGallery';
 import Details from './pages/Details';
 import Donation from './pages/Donation';
+
+// Global State using Redux
+import { Provider } from 'react-redux';
+import store from './utils/store';
 
 // establish the connection to the back-end server's /graphql endpoint using apollo
 const client = new ApolloClient({
@@ -38,9 +42,7 @@ const client = new ApolloClient({
 
 });
 
-
 function App() {
-
   return (
     <ApolloProvider client={client}>
       <Router>
