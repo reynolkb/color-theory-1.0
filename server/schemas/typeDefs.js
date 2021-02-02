@@ -45,7 +45,7 @@ const typeDefs = gql`
         palettes(username: String): [Palette]
         palette(_id: ID!): Palette
         tag(name: String!): Tag
-        searchedPalettes(paletteIds: [ID]!): [Palette]
+        searchAllPalettes: [Palette]
     }
 
     type Mutation {

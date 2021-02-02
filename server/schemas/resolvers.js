@@ -35,17 +35,8 @@ const resolvers = {
 		tag: async (parent, {name}) => {
 			return Tag.findOne({name});
 		},
-		searchedPalettes: async (parent, {paletteIds}, {Palette}) => {
-			console.log(paletteIds);
-			var queryArr = [];
-			paletteIds.forEach(palette => {
-				queryArr.push(`mongoose.Types.ObjectId('${palette}')`);
-			});
-			console.log(paletteIds);
-			Palette.find( { _id: { $in : paletteIds } }, (err, res) => {
-				console.log(res);
-			});
-			//mongoose.Types.ObjectId('4ed3ede8844f0f351100000c')
+		searchAllPalettes: async () => {
+			return await Palette.find();
 		}
     },
     Mutation: {
