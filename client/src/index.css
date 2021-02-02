@@ -173,7 +173,7 @@ textarea:focus {
 
 header {
     width: 100%;
-    padding: 1em;
+    padding: .5em;
     background-color: #ffffff;
     position: fixed;
     top: 0;
@@ -218,7 +218,7 @@ footer {
     width: 100%;
     position:fixed;
     bottom:0;
-    padding: 1em;
+    padding: .5em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -306,15 +306,6 @@ footer ul li a:hover {
 .daily-palette {
     margin-bottom: 2em;
 }
-
-/* .daily-palette:hover,
-.weekly-palette:hover {
-    padding: 1em;
-    background-color: #f6f6f6;
-    box-shadow: inset 0 0 5px 2px rgba(161, 161, 161, 0.50);
-    border: solid 1px #a1a1a1;
-    border-radius: 3px;
-} */
 
 .daily-palette:hover,
 .weekly-palette:hover {
@@ -722,11 +713,15 @@ input.search-input {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    padding: 1em;
+    border-radius: 5px;
+    border: 1px solid #a1a1a1;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px, rgba(0, 0, 0, 0.15) 0px 8px 16px;
 }
 
 .donation-header h3 {
     font-weight: lighter;
-    font-size: 20px;
+    font-size: 25px;
     background: -webkit-linear-gradient(
         5deg,
         #e73df0,
@@ -748,6 +743,7 @@ input.search-input {
     font-size: 15px;
     max-width: 60%;
     margin: 10px 0;
+    color: #000;
 }
 
 .donation-body {
@@ -756,10 +752,10 @@ input.search-input {
     justify-content: center;
     width: 100%;
     align-items: center;
-    margin-top: 2em;
-    border-radius: 5px;
+    margin-top: 1em;
+    /* border-radius: 5px;
     border: 1px solid #a1a1a1;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px, rgba(0, 0, 0, 0.15) 0px 8px 16px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px, rgba(0, 0, 0, 0.15) 0px 8px 16px; */
 }
 
 .donation-body h4,
@@ -772,7 +768,7 @@ input.search-input {
 }
 
 .donation-body p {
-    margin: 10px 0;
+    margin: 1em 0;
 }
 
 .donation-body div {
@@ -795,4 +791,29 @@ input.search-input {
     flex-direction: column;
     justify-content: center;
     border-radius: 50%;
+    cursor: pointer;
+}
+
+.bronze {
+    background-color: #b69872;
+}
+
+.silver {
+    background-color: #b9bdbc;
+}
+
+.gold {
+    background-color: #d1881c;
+}
+
+.platinum {
+    background-color: #49c2d1;
+}
+
+.diamond {
+    background-color: #e3c3e9;
+}
+
+.immortal {
+    background-color: #b02639;
 }

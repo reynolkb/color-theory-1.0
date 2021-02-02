@@ -2,63 +2,80 @@ import React from 'react';
 
 const Donation = () => {
 
+    function handleDonate () {
+        console.log('gimme that money');
+    }
+
     return(
         <div className='global-wrapper'>
             <div className='donation-page'>
-                <div className='donation-header'>
+                <div className='donation-header pattern-diagonal-stripes-left'>
                     <h3>
                         We appreciate your support!
                     </h3>
                     <p>
-                        We believe that colors and palettes should be open to share just like code is!<br />
-                        Color Theory was created to allow developers, designers, illustrators, and engineers a place to create community build around the need and want to share color. Whether that be for your art or your app. <br />
+                        We believe that colors and palettes should be shareable just like code is!
+                        <br /><br />
+                        Color Theory was created to allow developers, designers, illustrators, and engineers a place to create community build around the need and want to share color. Whether that be for your art or your app. <br /><br/>
                         Your donations allow us to continue maintaining this wonderful website.<br />
                         Without you we couldn't do it!
                     </p>
                 </div>
-                <div className='donation-body pattern-diagonal-stripes-left'>
+                <div className='donation-body'>
                     <h4>Donation Tiers</h4>
-                    <p>All donations are one time.</p>
-                    <div className='donation-options-wrapper'>
-                        <div className='tier-emblem'>
+                    <p>Select an option below to chekout with a one time donation of the selected amount.</p>
+                    <div 
+                        onClick={handleDonate}
+                        className='donation-options-wrapper'>
+                        <div className='tier-emblem bronze'>
                             <h5>Bronze</h5>
                             <div>
                                 $10
                             </div>
                         </div>
-                        <div className='tier-emblem'>
+                        <div 
+                            onClick={handleDonate}
+                            className='tier-emblem silver'>
                             <h5>Silver</h5>
-                            <div>
+                            <div >
                                 $20
                             </div>
                         </div>
-                        <div className='tier-emblem'>
+                        <div 
+                            onClick={handleDonate}
+                            className='tier-emblem gold'>
                             <h5>Gold</h5>
-                            <div>
+                            <div >
                                 $50
                             </div>
                         </div>
-                        <div className='tier-emblem'>
+                        <div 
+                            onClick={handleDonate}
+                            className='tier-emblem platinum'>
                             <h5>Platinum</h5>
-                            <div>
+                            <div >
                                 $100
                             </div>
                         </div>
-                        <div className='tier-emblem'>
+                        <div 
+                            onClick={handleDonate}
+                            className='tier-emblem diamond'>
                             <h5>Diamond</h5>
-                            <div>
+                            <div >
                                 $200
                             </div>
                         </div>
-                        <div className='tier-emblem'>
+                        <div 
+                            onClick={handleDonate}
+                            className='tier-emblem immortal'>
                             <h5>Immortal</h5>
-                            <div>
+                            <div >
                                 $500
                             </div>
                         </div>
                     </div>
                     <p>
-                        We appreciate your donations!
+                        Every penny supports the creators in continuing to make this website wonderful!
                     </p>
                 </div>
             </div>

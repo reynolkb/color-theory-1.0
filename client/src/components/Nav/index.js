@@ -11,11 +11,12 @@ const Nav = () => {
                     <li>
                         {/* <Link to=''>User Page</Link> */}
                     </li>
-                    <li>
+                    {/* i don't think we need search do we? */}
+                    {/* <li>
                         <Link to='/search'>Search</Link>
-                    </li>
+                    </li> */}
                     <li>
-                        <Link to='/home'>Home</Link>
+                        <Link to='/'>Home</Link>
                     </li>
                     <li><Link to='/create'>Create a Palette</Link></li>
                     <li>
