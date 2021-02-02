@@ -307,6 +307,20 @@ footer ul li a:hover {
     margin-bottom: 2em;
 }
 
+/* .daily-palette:hover,
+.weekly-palette:hover {
+    padding: 1em;
+    background-color: #f6f6f6;
+    box-shadow: inset 0 0 5px 2px rgba(161, 161, 161, 0.50);
+    border: solid 1px #a1a1a1;
+    border-radius: 3px;
+} */
+
+.daily-palette:hover,
+.weekly-palette:hover {
+    cursor: pointer;
+}
+
 .searchbar-wrapper {
     margin-bottom: 1em;
 }
@@ -525,7 +539,6 @@ footer ul li a:hover {
     border: solid 1px #fff;
 }
 
-
 /* detail palette page  */
 
 .details-palette {
@@ -533,26 +546,29 @@ footer ul li a:hover {
 }
 
 .details-preview {
-    margin: 3em;
+    margin-left: 3em;
     margin-top: 2em;
     flex: 1 0 0;
+}
+
+.details-preview h4 {
+    font-weight: lighter;
+    font-size: 18px;
 }
 
 /* preview styling */
 
 .preview-wrapper {
-    border: #a1a1a1 solid 1px;
-    box-shadow: 0 0 5px 1px #a1a1a1;
-    border-radius: 5px;
-    padding: 1em;
+    margin-top: 5px;
+    overflow: hidden;
+    border-radius: 8px;
     width: 100%;
 }
 
-.preview-header {
-    color: #000;
+.preview-navs {
     padding: 1em;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -562,8 +578,88 @@ footer ul li a:hover {
 }
 
 .preview-ul li {
-    padding-left: 5px;
+    padding-left: 18px;
     font-size: 12px;
+    display: inline-block;
+}
+
+.preview-ul li span {
+    display: inline-block;
+    padding: 5px;
+}
+
+.preview-CTA {
+    padding: 3em 2.25em;
+    display: flex;
+    justify-content: center;
+}
+
+.preview-CTA p {
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.preview-main {
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+}
+
+.preview-circle-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    padding: 30px 0;
+    background-color: #f6f6f6;
+}
+
+.preview-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.preview-example-text {
+    display: flex;
+    padding:  30px 10px;
+}
+
+.preview-example-text p {
+    letter-spacing: 1px;
+    font-size: 0.75em;
+    flex: 1 0 0;
+    margin: 0 10px;
+}
+
+.preview-hex {
+    margin-top: 3em;
+}
+
+.preview-hex  ul {
+    list-style: none;
+    display: flex;
+    margin-top: 5px;
+}
+
+.preview-hex ul li {
+    text-align: center;
+}
+
+.preview-hex-color{
+    display: inline-block;
+    padding: 5px;
+    width: 100%;
+}
+
+.code-snippet {
+    margin-top: 2.5em;
+}
+
+.code-background {
+    background-color: #f6f6f6;
+    margin-top: 5px;
+    padding: 1em;
 }
 
 /* search bar component */
