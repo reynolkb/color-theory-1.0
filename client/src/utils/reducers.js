@@ -2,9 +2,9 @@
 // list of the possible actions we can perform to update state
 import {
     UPDATE_PALETTES,
-    CURRENT_FILTER
-    // UPDATE_DAILY_PALETTE,
-    // UPDATE_WEEKLY_PALETTE,
+    CURRENT_FILTER,
+    UPDATE_TAGS, 
+    CURRENT_TAG
     // UPDATE_MY_PALETTES,
     // UPDATE_FAVORITE_PALETTES,
     // UPDATE_CURRENT_PALETTE,
@@ -12,16 +12,16 @@ import {
 
 const initialState = {
     palettes: [],
-    currentfilter: 'recent'
-    // dailyPalette: '',
-    // weeklyPalette: '',
+    currentfilter: 'recent',
+    tags: [],
+    currentTag: {}
     // myPalette: [],
     // favorites: [],
     // currentPalette: ''
 };
 
-console.log("The following is the initial state: ");
-console.log(initialState);
+// console.log("The following is the initial state: ");
+// console.log(initialState);
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -35,18 +35,16 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 currentfilter: action.currentfilter
             };
-
-        // case UPDATE_DAILY_PALETTE:
-        //     return {
-        //         ...state,
-        //         dailyPalette: action.dailyPalette
-        //     };
-
-        // case UPDATE_WEEKLY_PALETTE:
-        //     return {
-        //         ...state,
-        //         weeklyPalette: action.weeklyPalette
-        //     };
+        case UPDATE_TAGS:
+            return {
+                ...state,
+                tags: [...action.tags]
+            };
+        case CURRENT_TAG:
+            return {
+                ...state,
+                currentTag: action.currentTag
+            }
 
         // case UPDATE_MY_PALETTES:
         //     return {

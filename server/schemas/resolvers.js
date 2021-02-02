@@ -35,6 +35,10 @@ const resolvers = {
 		tag: async (parent, {name}) => {
 			return Tag.findOne({name});
 		},
+		tags: async () => {
+			return await Tag.find()
+				.populate('taggedPalettes');
+		},
 		searchAllPalettes: async () => {
 			return await Palette.find();
 		}

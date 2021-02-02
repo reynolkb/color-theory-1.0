@@ -102,6 +102,35 @@ export const QUERY_TAG = gql`
 	}
 `;
 
+export const QUERY_TAGS = gql`
+	query tags {
+		tags {
+			_id
+			name
+			taggedPalettes {
+				_id
+				title
+				description
+				primary
+				secondary
+				accent1
+				accent2
+				accent3
+				username
+				upvoteCount
+				upvotes {
+					username
+				}
+				createdAt
+				saveCount
+				saves {
+					username
+				}
+			}
+		}
+	}
+`;
+
 export const QUERY_SEARCH_ALL_PALETTES = gql`
 {
 	palettes {
