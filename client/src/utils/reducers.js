@@ -1,29 +1,30 @@
 // import our actions
 // list of the possible actions we can perform to update state
 import {
-    UPDATE_FILTERED_PALETTES,
+    UPDATE_PALETTES,
     UPDATE_DAILY_PALETTE,
     UPDATE_WEEKLY_PALETTE,
     UPDATE_MY_PALETTES,
     UPDATE_FAVORITE_PALETTES,
-    UPDATE_CURRENT_PALETTE
+    UPDATE_CURRENT_PALETTE,
 } from "./actions";
 
 const initialState = {
-    filteredPalettes: [],
+    palettes: [],
     dailyPalette: '',
     weeklyPalette: '',
     myPalette: [],
     favorites: [],
-    currentPalette: ''
+    currentPalette: '',
+    menuOpen: false
 };
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case UPDATE_FILTERED_PALETTES:
+        case UPDATE_PALETTES:
             return {
                 ...state,
-                filteredPalettes: [...state.filteredPalettes, ...action.palette]
+                palettes: [...action.palettes]
             };
 
         case UPDATE_DAILY_PALETTE:
@@ -54,6 +55,12 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 currentPalette: currentPalette
+            };
+
+        case TOGGLE_MENU:
+            return { 
+                ...state,
+                menuOpen: !state.menuOpen
             };
 
         default:
