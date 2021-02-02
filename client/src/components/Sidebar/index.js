@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 //components
 import DailyPalette from '../DailyPalette';
@@ -6,7 +6,6 @@ import WeeklyPalette from '../WeeklyPalette';
 import SearchBar from '../SearchBar';
 
 import { convertToObj } from '../../utils/dateFormat';
-// import { palette } from '../../const/colors';
 
 const Sidebar = ({ palettes }) => {
 
@@ -18,9 +17,6 @@ const Sidebar = ({ palettes }) => {
     const todayMinusSix = today.getDate() - 6;
     const pastWeek = today.setDate(todayMinusSix);
     const weeklyObject = new Date(pastWeek);
-    // console.log(weeklyObject);
-    // console.log("Week Trend is an " + typeof weeklyObject);
-    const weeklyToString = weeklyObject.toDateString();
 
     function generateDaily() {
 
@@ -39,6 +35,7 @@ const Sidebar = ({ palettes }) => {
 
             if (dateToString === todayToString) {
                 // console.log("this was created today.");
+
                 dailyArray.push(palettes[i]);
                 // console.log(dailyArray);
 
@@ -71,11 +68,6 @@ const Sidebar = ({ palettes }) => {
             // convert date from createdAt property of palette[i]
             const createdAt = palettes[i].createdAt;
             const date = convertToObj(createdAt);
-            // console.log(date);
-            // console.log("Date is an: " + typeof date);
-            const dateToString = date.toDateString();
-            // console.log("This is the palette at index " + i);
-            // console.log(dateToString);
 
             if (date >= weeklyObject) {
                 // console.log("this was created in the last week.");
@@ -91,7 +83,7 @@ const Sidebar = ({ palettes }) => {
 
         }
 
-        // sort the dailyArray by most upvotes and return in descending order
+        // sort the weeklyArray by most upvotes and return in descending order
         let sortedWeekly = weeklyArray.sort((a, b) => b.upvoteCount - a.upvoteCount);
         // console.log(sortedWeekly);
         // return the 0th index since it has the most upvotes
@@ -103,16 +95,17 @@ const Sidebar = ({ palettes }) => {
     const weekly = generateWeekly();
 
     return (
+
         <div>
             {/* search component */}
             <SearchBar/>
-            <h3 className='sidebar-title'>Trending Today</h3>
             {/* palette of the day  */}
-            <DailyPalette palette={daily} />
+            <h3 className='sidebar-title'>Trending Today</h3>
+                <DailyPalette palette={daily} />
 
-            <h3 className='sidebar-title'>Trending this Week</h3>
             {/* palette of the week  */}
-            <WeeklyPalette palette={weekly} />
+            <h3 className='sidebar-title'>Trending this Week</h3>
+                <WeeklyPalette palette={weekly} />
         </div>
     )
 };
