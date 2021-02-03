@@ -19,6 +19,7 @@ import Donation from './pages/Donation';
 import UserPage from './pages/UserPage';
 
 // Global State using Redux
+// Global State using Redux
 import { Provider } from 'react-redux';
 import store from './utils/store';
 

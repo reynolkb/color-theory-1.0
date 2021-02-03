@@ -137,3 +137,14 @@ export const LINK_TAG_TO_PALETTE = gql `
 		}
 	}
 `;
+
+export const ADD_DONATION_TIER = gql `
+	mutation addDonationTier($name: String! $description: String! $price: Number!) {
+		addDonationTier(name: $name description: $description price: $price) {
+			_id
+			name
+			description
+			price
+		}
+	}
+`

@@ -1,13 +1,30 @@
 import React from 'react';
 
-//components
+// components
 import DailyPalette from '../DailyPalette';
 import WeeklyPalette from '../WeeklyPalette';
 import SearchBar from '../SearchBar';
 
 import { convertToObj } from '../../utils/dateFormat';
 
-const Sidebar = ({ palettes }) => {
+// for Global State using Redux, use React-Redux hook
+import { useSelector, useDispatch } from 'react-redux';
+// import { UPDATE_PALETTES } from '../utils/actions';
+import { idbPromise } from '../../utils/helpers';
+
+const Sidebar = () => {
+// const Sidebar = ({ palettesData }) => {
+
+    // console.log(palettes);
+
+    // use global store
+    const state = useSelector(state => state);
+
+    // useDispatch method for interacting with global store
+    // const dispatch = useDispatch();
+    
+    // destructure palettes from state
+    const { palettes } = state;
 
     // get today's date and get the date portion of the Date object in English 
     const today = new Date();
@@ -18,25 +35,28 @@ const Sidebar = ({ palettes }) => {
     const pastWeek = today.setDate(todayMinusSix);
     const weeklyObject = new Date(pastWeek);
 
+    const recentPalettes = palettes.sort((a, b) => b.createdAt - a.createdAt);
+    console.log(recentPalettes);
+
     function generateDaily() {
 
         // for palette-of-the-day
         // create an Array to hold all palettes created today
         const dailyArray = [];
         // data is received in descending order, so push the most recent palette in case no palettes have been created today
-        dailyArray.push(palettes[0]);
+        dailyArray.push(recentPalettes[0]);
         // loop over daily palette array to add palettes created today and stop once it reaches the first palette from yesterday
-        for (let i = 1; i < palettes.length; i++) {
+        for (let i = 1; i < recentPalettes.length; i++) {
 
             // convert date from createdAt property of palette[i]
-            const createdAt = palettes[i].createdAt;
+            const createdAt = recentPalettes[i].createdAt;
             const date = convertToObj(createdAt);
             const dateToString = date.toDateString();
 
             if (dateToString === todayToString) {
                 // console.log("this was created today.");
 
-                dailyArray.push(palettes[i]);
+                dailyArray.push(recentPalettes[i]);
                 // console.log(dailyArray);
 
             } else {
@@ -61,18 +81,18 @@ const Sidebar = ({ palettes }) => {
         // create an Array to hold all palettes created today
         const weeklyArray = [];
         // data is received in descending order, so push the most recent palette in case no palettes have been created today
-        weeklyArray.push(palettes[0]);
+        weeklyArray.push(recentPalettes[0]);
         // loop over daily palette array to add palettes created today and stop once it reaches the first palette from yesterday
-        for (let i = 1; i < palettes.length; i++) {
+        for (let i = 1; i < recentPalettes.length; i++) {
 
             // convert date from createdAt property of palette[i]
-            const createdAt = palettes[i].createdAt;
+            const createdAt = recentPalettes[i].createdAt;
             const date = convertToObj(createdAt);
 
             if (date >= weeklyObject) {
                 // console.log("this was created in the last week.");
                 // console.log(palette[i]);
-                weeklyArray.push(palettes[i]);
+                weeklyArray.push(recentPalettes[i]);
                 // console.log(weeklyArray);
 
             } else {
@@ -98,7 +118,7 @@ const Sidebar = ({ palettes }) => {
 
         <div>
             {/* search component */}
-            <SearchBar/>
+            <SearchBar />
             {/* palette of the day  */}
             <h3 className='sidebar-title'>Trending Today</h3>
                 <DailyPalette palette={daily} />

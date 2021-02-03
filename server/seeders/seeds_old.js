@@ -1,4 +1,3 @@
-const { commerce } = require('faker');
 const faker = require('faker');
 
 const db = require('../config/connection');
@@ -14,7 +13,7 @@ db.once('open', async () => {
   // create user data
   const userData = [];
 
-  for (let i = 0; i < 100; i += 1) {
+  for (let i = 0; i < 20; i += 1) {
     const username = faker.internet.userName();
     const email = faker.internet.email(username);
     const password = faker.internet.password();
@@ -29,7 +28,6 @@ db.once('open', async () => {
   let name;
   let createdTag;
   for (let i = 0; i < 50; i += 1) {
-
     const title = faker.lorem.word();
 
     const description = faker.lorem.words(Math.round(Math.random() * 20) + 1);
@@ -40,19 +38,22 @@ db.once('open', async () => {
     const accent2 = faker.internet.color();
     const accent3 = faker.internet.color();
 
-    const createdAt = faker.date.between('2021-01-30', '2021-02-03' );
+    const createdAt = faker.date.between('2021-01-24', '2021-01-30' );
 
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username, _id: userId } = createdUsers.ops[randomUserIndex];
 
 
+
+    // const createdAt = faker.date.past();
+    // const upvotes = faker.random.number();
+    // const saves = faker.random.number();
+
     // const createdPalette = await Palette.create({ title, description, primary, secondary, accent1, accent2, accent3, username, createdAt, upvotes, saves });
     const createdPalette = await Palette.create({ title, description, primary, secondary, accent1, accent2, accent3, username, createdAt });
     
     // link tags
-    if (i === 0 || i == 3 || i === 6 || i === 9 || i === 12 || i === 15 ||
-        i === 20 || i === 25 || i === 28 || i ===34 || i === 40 || i === 43
-        || i === 47 || i === 50) {
+    if (i === 0 || i == 10 || i === 15 || i ===20 || i === 25 || i === 40 || i === 45){
       name = faker.random.word();
       createdTag = await Tag.create({name});
       console.log(name);
@@ -74,13 +75,36 @@ db.once('open', async () => {
     createdPalettes.push(createdPalette);
   }
 
+  // const userIdHistory = [];
+  // const paletteIdHistory = [];
+  // let historyFlag = true;
     // user favorite a palatte
-     for (let i = 0; i < 100; i += 1) {
+     for (let i = 0; i < 150; i += 1) {
       const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
       const randomPaletteIndex = Math.floor(Math.random() * createdPalettes.length);
 
       const { _id: userId } = createdUsers.ops[randomUserIndex];
       const { _id: paletteId } = createdPalettes[randomPaletteIndex];
+
+      // if(i !== 0){
+      //   historyFlag = true;
+      //   while(historyFlag)
+      //   for(let j = 0; i <= userIdHistory.length; i++) {
+      //     if (userIdHistory[j] === userId && paletteIdHistory[j] === paletteId){
+      //       console.log("Been There!");          
+      //       const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+      //       const randomPaletteIndex = Math.floor(Math.random() * createdPalettes.length);
+      //       const { _id: userId } = createdUsers.ops[randomUserIndex];
+      //       const { _id: paletteId } = createdPalettes[randomPaletteIndex];
+      //       historyFlag = true;
+      //     } else {
+      //       historyFlag = false;
+      //     }
+      //   }
+      // }
+      // userIdHistory.push(userId);
+      // paletteIdHistory.push(paletteId);
+      // console.log(userIdHistory);
 
       await User.updateOne(
         {_id: userId},
@@ -93,9 +117,13 @@ db.once('open', async () => {
         {$push: {saves: userId}},
         {new: true}
       )
+  
+      // while (friendId === userId) {
+      //   const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+      //   friendId = createdUsers.ops[randomUserIndex];
      }
   
-     for (let i = 0; i < 1200; i += 1) {
+     for (let i = 0; i < 150; i += 1) {
       const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
       const randomPaletteIndex = Math.floor(Math.random() * createdPalettes.length);
 
@@ -107,7 +135,30 @@ db.once('open', async () => {
         {$push: {upvotes: userId}},
         {new: true}
       )
+  
+      // while (friendId === userId) {
+      //   const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+      //   friendId = createdUsers.ops[randomUserIndex];
      }
+      // await User.updateOne({ _id: userId }, { $addToSet: { friends: friendId } });
+    // }
+
+  // create reactions
+  // for (let i = 0; i < 100; i += 1) {
+  //   const reactionBody = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+
+  //   const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+  //   const { username } = createdUsers.ops[randomUserIndex];
+
+  //   const randomThoughtIndex = Math.floor(Math.random() * createdThoughts.length);
+  //   const { _id: thoughtId } = createdThoughts[randomThoughtIndex];
+
+  //   await Thought.updateOne(
+  //     { _id: thoughtId },
+  //     { $push: { reactions: { reactionBody, username } } },
+  //     { runValidators: true }
+  //   );
+  // }
 
   console.log('all done!');
   process.exit(0);
