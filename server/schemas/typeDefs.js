@@ -33,6 +33,17 @@ const typeDefs = gql`
         taggedPalettes: [Palette]
     }
 
+    type DonationTier {
+        _id: ID
+        name: String!
+        description: String!
+        price: Int!
+    }
+
+    type Checkout {
+        session: ID
+    }
+
     type Auth {
         token: ID!
         user: User
@@ -45,7 +56,9 @@ const typeDefs = gql`
         palettes(username: String): [Palette]
         palette(_id: ID!): Palette
         tag(name: String!): Tag
-        searchedPalettes(paletteIds: [ID]!): [Palette]
+        searchAllPalettes: [Palette]
+        searchDonationTier(name: String!): DonationTier
+        checkout(name: String!): Checkout
     }
 
     type Mutation {
@@ -69,6 +82,11 @@ const typeDefs = gql`
         addFavPalette(paletteId: ID!): Palette
         createTag(name: String!): Tag
         linkTagToPalette(paletteId: ID! tagId: ID!): Tag
+        addDonationTier(
+            name: String!
+            description: String!
+            price: Int
+        ): DonationTier
     }
 `;
 

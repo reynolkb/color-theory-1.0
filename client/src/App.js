@@ -5,17 +5,23 @@ import { ApolloProvider } from '@apollo/react-hooks';
 // functionality to make requests to the server with helper libraries
 import ApolloClient from 'apollo-boost';
 
-//components
+// components
 import Nav from './components/Nav';
 import Footer from './components/Footer';
-//pages
+// pages
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Create from './pages/Create';
 import SearchGallery from './pages/SearchGallery';
 import Details from './pages/Details';
-// import Preview from './pages/Preview';
+import Donation from './pages/Donation';
+import UserPage from './pages/UserPage';
+
+// Global State using Redux
+// Global State using Redux
+import { Provider } from 'react-redux';
+import store from './utils/store';
 
 // establish the connection to the back-end server's /graphql endpoint using apollo
 const client = new ApolloClient({
@@ -38,24 +44,25 @@ const client = new ApolloClient({
 
 });
 
-
 function App() {
-
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Nav />
-        <main>
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/login' component={Login} />
-            <Route exact path='/signup' component={Signup} />
-            <Route exact path='/create' component={Create} />
-            <Route exact path='/search/:name' component={SearchGallery} />
-            <Route exact path='/details/:id' component={Details} />
-            {/* <Route exact path='/preview/:id' component={Preview} /> */}
-          </Switch>
-        </main>
+          <Provider store={store}>
+            <Nav />
+            <main>
+              <Switch>
+                <Route exact path='/' component={Home} />
+                <Route exact path='/login' component={Login} />
+                <Route exact path='/signup' component={Signup} />
+                <Route exact path='/create' component={Create} />
+                <Route exact path='/search/:name' component={SearchGallery} />
+                <Route exact path='/details/:id' component={Details} />
+                <Route exact path='/donation' component={Donation} />
+                <Route exact path='/user/:id' component={UserPage} />
+              </Switch>
+            </main>
+          </Provider>
         <Footer />
       </Router>
     </ApolloProvider>

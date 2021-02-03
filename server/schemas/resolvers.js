@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Palette } = require('../models');
+const { User, Palette, DonationTier } = require('../models');
 const Tag = require('../models/Tag');
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
@@ -35,17 +35,50 @@ const resolvers = {
 		tag: async (parent, {name}) => {
 			return Tag.findOne({name});
 		},
-		searchedPalettes: async (parent, {paletteIds}, {Palette}) => {
-			console.log(paletteIds);
-			var queryArr = [];
-			paletteIds.forEach(palette => {
-				queryArr.push(`mongoose.Types.ObjectId('${palette}')`);
+		searchAllPalettes: async () => {
+			return await Palette.find();
+		},
+		searchDonationTier: async (parent, {name}) => {
+			return await DonationTier.findOne({name});
+		},
+		checkout: async (parent, {name}, context) => {
+			const url = new URL(context.headers.referer).origin;
+			// const order = new Order({ products: args.products });
+			// const { products } = await order.populate('products').execPopulate();
+			const tier = await DonationTier.findOne({name});
+			
+			const line_items = [];
+
+			// generate product id
+			const product = await stripe.products.create({
+				name: tier.name,
+				description: tier.description
 			});
-			console.log(paletteIds);
-			Palette.find( { _id: { $in : paletteIds } }, (err, res) => {
-				console.log(res);
+
+			// console.log(product, {tier});
+
+			// generate price id using the product id
+			const price = await stripe.prices.create({
+				product: product.id,
+				unit_amount: tier.price * 100,
+				currency: 'usd',
 			});
-			//mongoose.Types.ObjectId('4ed3ede8844f0f351100000c')
+
+			// add price id to the line items array
+			line_items.push({
+				price: price.id,
+				quantity: 1
+			});
+
+			const session = await stripe.checkout.sessions.create({
+				payment_method_types: ['card'],
+				line_items,
+				mode: 'payment',
+				success_url: `${url}/`,
+				cancel_url: `${url}/donation`
+			});
+			  
+			return { session: session.id }; 
 		}
     },
     Mutation: {
@@ -172,7 +205,12 @@ const resolvers = {
 			  }
 			
 			  throw new AuthenticationError('You need to be logged in!');
-		}
+		},
+		addDonationTier: async (parent, args) => {
+			const tier = await DonationTier.create(args);
+		
+			return tier;
+		},
     }
 };
 

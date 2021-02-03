@@ -99,7 +99,6 @@ const Sidebar = ({ palettes }) => {
         <div>
             {/* search component */}
             <SearchBar/>
-            <h3 className='sidebar-title'>Trending Today</h3>
             {/* palette of the day  */}
             <h3 className='sidebar-title'>Trending Today</h3>
                 <DailyPalette palette={daily} />

@@ -17,20 +17,30 @@ const Details = () => {
         variables: { id: paletteId }
     });
 
-    console.log(data);
-    console.log(loading);
-    console.log(paletteId);
+    // console.log('data',data);
+    // console.log(loading);
+    // console.log(paletteId);
 
     const palette = data?.palette || [];
     const palettes = [palette];
+
+    if (loading) {
+        return (
+            <div className='global-wrapper'>Loading...</div>
+        )
+    }
 
     return(
         <div className='global-wrapper'>
             {/* left side */}
             <div className='details-palette'>
                 <Palette key={ paletteId } palettes={ palettes }/>
-                <div className='detail-tags'>
-                    tags will render here
+                <div className='added-tags'>
+                    <h4>Tags</h4>
+                    {/* this is a dummy tag */}
+                    <div className='tag-pill'>
+                        <p>tags here</p>
+                    </div>
                 </div>
             </div>
             {/* right side */}

@@ -102,31 +102,50 @@ export const QUERY_TAG = gql`
 	}
 `;
 
-export const QUERY_SEARCHED_PALETTES = gql`
-	query searchedPalettes($paletteIds: [ID]!) {
-		searchedPalettes(paletteIds: $paletteIds) {
+export const QUERY_SEARCH_ALL_PALETTES = gql`
+{
+	palettes {
+		_id
+		title
+		description
+		primary
+		secondary
+		accent1
+		accent2
+		accent3
+		username
+		upvoteCount
+		tags {
 			_id
-			title
-            description
-            primary
-            secondary
-            accent1
-            accent2
-			accent3
+			name
+		}
+		upvotes {
 			username
-			upvoteCount
-			tags {
-				_id
-				name
-			}
-			upvotes {
-				username
-			}
-			createdAt
-			saveCount
-			saves {
-				username
-			}
+		}
+		createdAt
+		saveCount
+		saves {
+			username
 		}
 	}
+}
+`;
+
+export const QUERY_DONATION_TIER = gql`
+	query searchDonationTier($name: String!) {
+		searchDonationTier(name: $name) {
+			_id
+			name
+			description
+			price
+		}
+	}
+`;
+
+export const QUERY_CHECKOUT = gql`
+  query checkout($name: String!) {
+    checkout(name: $name) {
+      session
+    }
+  }
 `;

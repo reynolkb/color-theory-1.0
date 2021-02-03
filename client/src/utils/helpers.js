@@ -1,3 +1,7 @@
+//api needed to contrast text on preview page
+import chroma from 'chroma-js';
+
+
 // IndexedDB to make our data persistent
 export function idbPromise(storeName, method, object) {
     return new Promise((resolve, reject) => {
@@ -11,8 +15,8 @@ export function idbPromise(storeName, method, object) {
         request.onupgradeneeded = function (e) {
             const db = request.result;
             // create object store for each type of data and set "primary" key index to be the `_id` of the data
-            db.createObjectStore('myPalette', { keyPath: '_id' });
-            db.createObjectStore('favorites', { keyPath: '_id' });
+            db.createObjectStore('palettes', { keyPath: '_id' });
+            db.createObjectStore('user', { keyPath: '_id' });
         };
 
         // handle any errors with connecting
@@ -69,3 +73,11 @@ export function idbPromise(storeName, method, object) {
 
     });
 }
+
+export const getContrastingColor = (bg) => {
+    console.log(bg)
+    const lightContrast = chroma.contrast(bg, '#ffffff');
+    const darkContrast = chroma.contrast(bg, '#000000');
+
+    return lightContrast > darkContrast ? '#ffffff' : '#000000';
+};

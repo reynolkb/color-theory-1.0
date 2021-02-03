@@ -1,4 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+// for Global State using Redux, use React-Redux hook
+import { useSelector, useDispatch } from 'react-redux';
+import { UPDATE_PALETTES } from '../utils/actions';
+import { idbPromise } from '../utils/helpers';
 
 // import functionality to make requests to GraphQL server 
 import { useQuery } from '@apollo/react-hooks';
@@ -9,6 +14,7 @@ import { QUERY_PALETTES } from '../utils/queries';
 // import Menu from '../components/Menu';
 import Palette from '../components/Palette';
 import Sidebar from '../components/Sidebar';
+import Filter from '../components/Filter';
 
 const Home = () => {
 
@@ -16,13 +22,13 @@ const Home = () => {
     // data returned from the server stored in the destructured data property
     // query for main content
     const { loading, data } = useQuery(QUERY_PALETTES);
+    // console.log(data);
 
     // get Palette data out of the query's response with optional chaining
     // if data exists, store it in the palette constant we just created
     // if data is undefined, save empty array 
     // constant for main content
     const palettes = data?.palettes || [];
-    // const palettes = fakePalettes;
     // console.log(palettes);
 
     // palettes.length && console.log(typeof palettes[0]._id);
@@ -31,20 +37,21 @@ const Home = () => {
 
         <div className='global-wrapper'>
             <div className='home-palette-wrapper'>
+                <Filter />
                 {loading ? (
                     <div>Loading...</div>
                 ) : (
                         /* // Once query is complete and loading is undefined, pass palettes array to <Palette> component as props */
-                        <Palette palettesData={palettes} />
-                )}
+                        <Palette palettes={palettes} />
+                    )}
             </div>
 
             <div className='sidebar-wrapper'>
-            {loading ? (
+                {loading ? (
                     <div>Loading...</div>
                 ) : (
-                    <Sidebar palettes={palettes} />
-                )}
+                        <Sidebar palettes={palettes} />
+                    )}
             </div>
         </div>
     );
