@@ -18,23 +18,58 @@ import Filter from '../components/Filter';
 
 const Home = () => {
 
-    // load the Home component & execute the query for the Palette data
+    // use global store
+    const state = useSelector(state => state);
+
+    // useDispatch method for interacting with global store
+    const dispatch = useDispatch();
+
+    // destructure palettes and currentfilter from state
+    const { palettes, currentfilter } = state;
+
+    // execute the query for the Palette data
     // data returned from the server stored in the destructured data property
-    // query for main content
     const { loading, data } = useQuery(QUERY_PALETTES);
-    // console.log(data);
 
-    // get Palette data out of the query's response with optional chaining
-    // if data exists, store it in the palette constant we just created
-    // if data is undefined, save empty array 
-    // constant for main content
-    const palettes = data?.palettes || [];
-    // console.log(palettes);
+    // wait for useQuery to execute and receive data
+    // put data into store
+    // or get data from the store
+    useEffect(() => {
+        if (data) {
+            dispatch({
+                type: UPDATE_PALETTES,
+                palettes: data.palettes
+            });
 
-    // palettes.length && console.log(typeof palettes[0]._id);
+            data.palettes.forEach((palette) => {
+                idbPromise('palettes', 'put', palette);
+            });
+
+        } else if (!loading) {
+            idbPromise('palettes', 'get').then((palettes) => {
+                dispatch({
+                    type: UPDATE_PALETTES,
+                    palettes: palettes
+                });
+            });
+        }
+    }, [data, loading, dispatch]);
+
+    // handle filter of palette data for 'most-liked' or 'recent'
+    function filterPalettes() {
+
+        if (currentfilter === 'most-liked') {
+
+            return palettes.sort((a, b) => b.upvoteCount - a.upvoteCount);
+    
+        } else if (currentfilter === 'recent') {
+
+            return palettes.sort((a, b) => b.createdAt - a.createdAt);
+        }
+    
+    }
 
     return (
-
         <div className='global-wrapper'>
             <div className='home-palette-wrapper'>
                 <Filter />
@@ -42,7 +77,7 @@ const Home = () => {
                     <div>Loading...</div>
                 ) : (
                         /* // Once query is complete and loading is undefined, pass palettes array to <Palette> component as props */
-                        <Palette palettes={palettes} />
+                        <Palette palettes={filterPalettes()} />
                     )}
             </div>
 
@@ -50,7 +85,8 @@ const Home = () => {
                 {loading ? (
                     <div>Loading...</div>
                 ) : (
-                        <Sidebar palettes={palettes} />
+                        <Sidebar />
+                        // <Sidebar palettes={palettes} />
                     )}
             </div>
         </div>

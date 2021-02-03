@@ -14,7 +14,7 @@ const SearchBar = () => {
         window.location.assign('/search/'+ searchValue);
     }
     
-    return(
+    return (
         <div className='searchbar-wrapper'>
             <form role='search'>
                 <label htmlFor='search' className='sidebar-title'>Search for Palettes</label>
