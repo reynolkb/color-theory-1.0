@@ -130,3 +130,22 @@ export const QUERY_SEARCH_ALL_PALETTES = gql`
 	}
 }
 `;
+
+export const QUERY_DONATION_TIER = gql`
+	query searchDonationTier($name: String!) {
+		searchDonationTier(name: $name) {
+			_id
+			name
+			description
+			price
+		}
+	}
+`;
+
+export const QUERY_CHECKOUT = gql`
+  query checkout($name: String!) {
+    checkout(name: $name) {
+      session
+    }
+  }
+`;
