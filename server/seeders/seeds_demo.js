@@ -1,3 +1,4 @@
+const { commerce } = require('faker');
 const faker = require('faker');
 
 const db = require('../config/connection');
@@ -13,7 +14,7 @@ db.once('open', async () => {
   // create user data
   const userData = [];
 
-  for (let i = 0; i < 20; i += 1) {
+  for (let i = 0; i < 50; i += 1) {
     const username = faker.internet.userName();
     const email = faker.internet.email(username);
     const password = faker.internet.password();
@@ -27,7 +28,8 @@ db.once('open', async () => {
   let createdPalettes = [];
   let name;
   let createdTag;
-  for (let i = 0; i < 50; i += 1) {
+  for (let i = 0; i < 15; i += 1) {
+
     const title = faker.lorem.word();
 
     const description = faker.lorem.words(Math.round(Math.random() * 20) + 1);
@@ -44,16 +46,11 @@ db.once('open', async () => {
     const { username, _id: userId } = createdUsers.ops[randomUserIndex];
 
 
-
-    // const createdAt = faker.date.past();
-    // const upvotes = faker.random.number();
-    // const saves = faker.random.number();
-
     // const createdPalette = await Palette.create({ title, description, primary, secondary, accent1, accent2, accent3, username, createdAt, upvotes, saves });
     const createdPalette = await Palette.create({ title, description, primary, secondary, accent1, accent2, accent3, username, createdAt });
     
     // link tags
-    if (i === 0 || i == 10 || i === 15 || i ===20 || i === 25 || i === 40 || i === 45){
+    if (i === 0 || i == 3 || i === 6 || i === 9 || i === 12 || i === 15) {
       name = faker.random.word();
       createdTag = await Tag.create({name});
       console.log(name);
