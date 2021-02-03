@@ -128,10 +128,9 @@ This application was built by:
 
 [GitHub](https://github.com/reynolkb) - kyle.reynolds9146@gmail.com
 
-* 
-* 
-* 
-* 
+* Backend Engineer
+* MongoDB Management
+* Query and Mutation setup
 
 ### Cat Lin (Caitlin) Morgan 
 

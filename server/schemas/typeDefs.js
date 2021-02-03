@@ -1,6 +1,7 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+# User typeDef to login/signup
     type User {
         _id: ID
         username: String
@@ -8,7 +9,7 @@ const typeDefs = gql`
         myPalettes: [Palette]
         favorites: [Palette]
     }
-
+# Palette typeDef for creating a palette and interacting with them
     type Palette {
         _id: ID
         title: String
@@ -26,29 +27,29 @@ const typeDefs = gql`
         saveCount: Int
         saves: [User]
     }
-    
+# tag for each palette, they have an array of all associated palettes
     type Tag {
         _id: ID
         name: String!
         taggedPalettes: [Palette]
     }
-
+# donation tiers for giving us money!
     type DonationTier {
         _id: ID
         name: String!
         description: String!
         price: Int!
     }
-
+# stripe checkout
     type Checkout {
         session: ID
     }
-
+# authentication for user logging in/logging out
     type Auth {
         token: ID!
         user: User
     }
-    
+# all queries
     type Query {
         me: User
         users: [User]
@@ -61,7 +62,7 @@ const typeDefs = gql`
         searchDonationTier(name: String!): DonationTier
         checkout(name: String!): Checkout
     }
-
+#  all mutations
     type Mutation {
         login(username: String!, password: String!): Auth
         addUser(
@@ -78,7 +79,7 @@ const typeDefs = gql`
             accent2: String!
             accent3: String!
         ): Palette
-        removePalette(_id: ID!): User
+        # removePalette(_id: ID!): User
         addUpvote(paletteId: ID!): Palette
         addFavPalette(paletteId: ID!): Palette
         createTag(name: String!): Tag
