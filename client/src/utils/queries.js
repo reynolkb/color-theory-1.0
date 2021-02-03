@@ -1,5 +1,6 @@
 import gql from 'graphql-tag';
 
+// query all palettes by username
 export const QUERY_PALETTES = gql`
 	query palettes($username: String) {
 		palettes(username: $username) {
@@ -29,6 +30,7 @@ export const QUERY_PALETTES = gql`
 	}
 `;
 
+// query a single palette by ID
 export const QUERY_PALETTE = gql`
 	query palette($id: ID!) {
 		palette(_id: $id) {
@@ -58,6 +60,7 @@ export const QUERY_PALETTE = gql`
 	}
 `;
 
+// query a user by username
 export const QUERY_USER = gql`
 	query user($username: String!) {
 		user(username: $username) {
@@ -96,6 +99,7 @@ export const QUERY_USER = gql`
 	}
 `;
 
+// query the logged in user
 export const QUERY_ME = gql`
 	{
 		me {
@@ -134,6 +138,7 @@ export const QUERY_ME = gql`
 	}
 `;
 
+// find a tag by the name
 export const QUERY_TAG = gql`
 	query tag($name: String!) {
 		tag(name: $name) {
@@ -146,6 +151,7 @@ export const QUERY_TAG = gql`
 	}
 `;
 
+// find all tags
 export const QUERY_TAGS = gql`
 	query tags {
 		tags {
@@ -175,6 +181,7 @@ export const QUERY_TAGS = gql`
 	}
 `;
 
+// query all palettes
 export const QUERY_SEARCH_ALL_PALETTES = gql`
 {
 	palettes {
@@ -204,6 +211,7 @@ export const QUERY_SEARCH_ALL_PALETTES = gql`
 }
 `;
 
+// search donation tier by name
 export const QUERY_DONATION_TIER = gql`
 	query searchDonationTier($name: String!) {
 		searchDonationTier(name: $name) {
@@ -215,6 +223,7 @@ export const QUERY_DONATION_TIER = gql`
 	}
 `;
 
+// checkout query for stripe
 export const QUERY_CHECKOUT = gql`
   query checkout($name: String!) {
     checkout(name: $name) {
