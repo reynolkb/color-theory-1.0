@@ -20,8 +20,8 @@ const initialState = {
     // currentPalette: ''
 };
 
-console.log("The following is the initial state: ");
-console.log(initialState);
+// console.log("The following is the initial state: ");
+// console.log(initialState);
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {

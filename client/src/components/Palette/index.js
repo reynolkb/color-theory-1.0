@@ -10,10 +10,10 @@ import SocialButtons from '../SocialButtons';
 
 // for Global State using Redux, use React-Redux hook
 import { useSelector, useDispatch } from 'react-redux';
-// local storage in IndexedDb
-import { UPDATE_PALETTES } from '../../utils/actions';
-// import helper
-import { idbPromise } from '../../utils/helpers';
+// // local storage in IndexedDb
+// import { UPDATE_PALETTES } from '../../utils/actions';
+// // import helper
+// import { idbPromise } from '../../utils/helpers';
 
 // const Palette = ({ paletteData }) => {
 const Palette = ({ palettes }) => {
@@ -51,8 +51,11 @@ const Palette = ({ palettes }) => {
         // }
     
     // }
-    console.log('i am the', palettes);
 
+    console.log(palettes);
+
+
+    
     return (
         <div>
             {palettes &&
@@ -60,7 +63,7 @@ const Palette = ({ palettes }) => {
                     <div key={palette._id}>
                         <div className='palette-wrapper'>
                             <h3 className='palette-title'>{palette.title}</h3>
-                            <p>by {palette.username} on {dateFormat(palette.createdAt)}</p>
+                            <p>by <Link to={`/user/${palette.username}`}>{palette.username}</Link> on {dateFormat(palette.createdAt)}</p>
                             <div>
                                 {/* to palette details page */}
                                 <Link to={`/details/${palette._id}`}>

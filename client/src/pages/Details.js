@@ -1,7 +1,7 @@
 //libraries
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { Redirect, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 
 import { QUERY_PALETTE } from '../utils/queries';
 

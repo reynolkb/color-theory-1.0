@@ -65,10 +65,32 @@ export const QUERY_USER = gql`
 			username
 			email
 			myPalettes {
-                _id
+        		_id
+				title
+				description
+				primary
+				secondary
+				accent1
+				accent2
+				accent3
+				username
+				upvoteCount
+				createdAt
+				saveCount
 			}
 			favorites {
-                _id
+        		_id
+				title
+				description
+				primary
+				secondary
+				accent1
+				accent2
+				accent3
+				username
+				upvoteCount
+				createdAt
+				saveCount
 			}
 		}
 	}
@@ -81,10 +103,32 @@ export const QUERY_ME = gql`
 			username
 			email
 			myPalettes {
-                _id
+        		_id
+				title
+				description
+				primary
+				secondary
+				accent1
+				accent2
+				accent3
+				username
+				upvoteCount
+				createdAt
+				saveCount
 			}
 			favorites {
-                _id
+        		_id
+				title
+				description
+				primary
+				secondary
+				accent1
+				accent2
+				accent3
+				username
+				upvoteCount
+				createdAt
+				saveCount
 			}
 		}
 	}

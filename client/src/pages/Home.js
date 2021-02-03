@@ -22,7 +22,7 @@ const Home = () => {
     // data returned from the server stored in the destructured data property
     // query for main content
     const { loading, data } = useQuery(QUERY_PALETTES);
-    // console.log(data);
+    console.log(data);
 
     // get Palette data out of the query's response with optional chaining
     // if data exists, store it in the palette constant we just created

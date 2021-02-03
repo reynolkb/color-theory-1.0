@@ -12,7 +12,7 @@ const Nav = () => {
                         <Link to='/'>Home</Link>
                     </li>
                     <li>
-                        <Link to='user/:id'>User Page</Link>
+                        <Link to='/user'>My Palettes</Link>
                     </li>
                     <li><Link to='/create'>Create a Palette</Link></li>
                     <li>
@@ -22,7 +22,7 @@ const Nav = () => {
             )
         } else {
             return (
-                <ul>
+                <ul>        
                     <li>
                         <Link to='/login'>Login</Link>
                     </li>
