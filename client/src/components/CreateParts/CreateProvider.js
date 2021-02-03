@@ -1,7 +1,5 @@
 import React, { useState, createContext } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-// import { useQuery } from '@apollo/react-hooks';
-// import { QUERY_TAG } from '../../utils/queries';
 
 //utility
 import { ADD_PALETTE, CREATE_TAG, LINK_TAG_TO_PALETTE } from '../../utils/mutations';
@@ -56,8 +54,7 @@ const CreateProvider = ({ children }) => {
             secondary: state.secondary,
             accent1: state.accent1,
             accent2: state.accent2,
-            accent3: state.accent3
-            // tags: state.tags,
+            accent3: state.accent3,
         };
         const tagCount = state.tags.length;
         const tagArray = [];

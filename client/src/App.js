@@ -59,13 +59,14 @@ function App() {
                 <Route exact path='/search/:name' component={SearchGallery} />
                 <Route exact path='/details/:id' component={Details} />
                 <Route exact path='/donation' component={Donation} />
-                <Route exact path='/user/:id' component={UserPage} />
+                <Route exact path='/user/:username?' component={UserPage} />
               </Switch>
             </main>
           </Provider>
         <Footer />
       </Router>
     </ApolloProvider>
+
   );
 }
 
