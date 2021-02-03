@@ -8,21 +8,13 @@ import SearchBar from '../SearchBar';
 import { convertToObj } from '../../utils/dateFormat';
 
 // for Global State using Redux, use React-Redux hook
-import { useSelector, useDispatch } from 'react-redux';
-// import { UPDATE_PALETTES } from '../utils/actions';
-import { idbPromise } from '../../utils/helpers';
+import { useSelector } from 'react-redux';
 
 const Sidebar = () => {
-// const Sidebar = ({ palettesData }) => {
-
-    // console.log(palettes);
 
     // use global store
     const state = useSelector(state => state);
-
-    // useDispatch method for interacting with global store
-    // const dispatch = useDispatch();
-    
+   
     // destructure palettes from state
     const { palettes } = state;
 
@@ -36,10 +28,8 @@ const Sidebar = () => {
     const weeklyObject = new Date(pastWeek);
 
     const recentPalettes = palettes.sort((a, b) => b.createdAt - a.createdAt);
-    console.log(recentPalettes);
 
     function generateDaily() {
-
         // for palette-of-the-day
         // create an Array to hold all palettes created today
         const dailyArray = [];
@@ -54,35 +44,25 @@ const Sidebar = () => {
             const dateToString = date.toDateString();
 
             if (dateToString === todayToString) {
-                // console.log("this was created today.");
-
                 dailyArray.push(recentPalettes[i]);
-                // console.log(dailyArray);
-
             } else {
-                // console.log("this was not created today.");
-                // console.log(palettes[i]);
                 break;
             }
-
         }
 
         // sort the dailyArray by most upvotes and return in descending order
         let sortedDaily = dailyArray.sort((a, b) => b.upvoteCount - a.upvoteCount);
-        // console.log(sortedDaily);
         // return the 0th index since it has the most upvotes
         return sortedDaily[0];
-
     }
 
     function generateWeekly() {
-        // console.log(palettes);
-        // for palette-of-the-day
+        // for palette-of-the-week
         // create an Array to hold all palettes created today
         const weeklyArray = [];
         // data is received in descending order, so push the most recent palette in case no palettes have been created today
         weeklyArray.push(recentPalettes[0]);
-        // loop over daily palette array to add palettes created today and stop once it reaches the first palette from yesterday
+        // loop over weekly palette array to add palettes created today and stop once it reaches the first palette from yesterday
         for (let i = 1; i < recentPalettes.length; i++) {
 
             // convert date from createdAt property of palette[i]
@@ -90,14 +70,9 @@ const Sidebar = () => {
             const date = convertToObj(createdAt);
 
             if (date >= weeklyObject) {
-                // console.log("this was created in the last week.");
-                // console.log(palette[i]);
                 weeklyArray.push(recentPalettes[i]);
-                // console.log(weeklyArray);
 
             } else {
-                // console.log("this was not created over the last week.");
-                // console.log(palettes[i]);
                 break;
             }
 
@@ -105,7 +80,6 @@ const Sidebar = () => {
 
         // sort the weeklyArray by most upvotes and return in descending order
         let sortedWeekly = weeklyArray.sort((a, b) => b.upvoteCount - a.upvoteCount);
-        // console.log(sortedWeekly);
         // return the 0th index since it has the most upvotes
         return sortedWeekly[0];
 
