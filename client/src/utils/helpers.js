@@ -1,7 +1,6 @@
 //api needed to contrast text on preview page
 import chroma from 'chroma-js';
 
-
 // IndexedDB to make our data persistent
 export function idbPromise(storeName, method, object) {
     return new Promise((resolve, reject) => {
@@ -75,7 +74,7 @@ export function idbPromise(storeName, method, object) {
 }
 
 export const getContrastingColor = (bg) => {
-    console.log(bg)
+    // console.log(bg)
     const lightContrast = chroma.contrast(bg, '#ffffff');
     const darkContrast = chroma.contrast(bg, '#000000');
 

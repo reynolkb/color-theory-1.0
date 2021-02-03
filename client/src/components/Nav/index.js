@@ -9,14 +9,10 @@ const Nav = () => {
             return(
                 <ul>
                     <li>
-                        {/* <Link to=''>User Page</Link> */}
-                    </li>
-                    {/* i don't think we need search do we? */}
-                    {/* <li>
-                        <Link to='/search'>Search</Link>
-                    </li> */}
-                    <li>
                         <Link to='/'>Home</Link>
+                    </li>
+                    <li>
+                    <Link to={`/user/`}>My Palettes</Link>
                     </li>
                     <li><Link to='/create'>Create a Palette</Link></li>
                     <li>
@@ -26,7 +22,7 @@ const Nav = () => {
             )
         } else {
             return (
-                <ul>
+                <ul>        
                     <li>
                         <Link to='/login'>Login</Link>
                     </li>

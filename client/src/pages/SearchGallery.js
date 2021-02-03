@@ -20,45 +20,68 @@ const SearchGallery = () => {
     // pull tag name from path
     const { name: tagName } = useParams();
 
-    const [currentTagPalettes, setCurrentTagPalettes] = useState([]);
+    const [currentTagPalettes, setCurrentTagPalettes] = useState([{
+        accent1: "#09ffc7",
+        accent2: "#a440ff",
+        accent3: "#0071f5",
+        createdAt: "1612328621360",
+        description: "Please try another Search word",
+        primary: "#5000ff",
+        saveCount: "50",
+        secondary: "#56a3ff",
+        title: "NO RESULTS FOUND",
+        upvoteCount: "100",
+        username: "ColorTheory",
+        _id: "601a2eadf6ed238e402c8bb4",
+    }]);
 
-    // use global store
+    // use global state
     const state = useSelector(state => state);
     console.log(state);
 
-    // useDispatch method for interacting with global store
+    // useDispatch method for interacting with global state
     const dispatch = useDispatch();
 
     // destructure palettes from state
     const { tags } = state;
 
     // query for tag data
-    const {loading, data} = useQuery(QUERY_TAGS);
+    // const {loading, data} = useQuery(QUERY_TAGS);
+    // console.log(data);
    
     // affect state of page
     useEffect(() => {  
-
         // if data returns
-        if (data) {
+        // if (data) {
+        if (tags.length) {
 
             // filter out the tag that was searched
-            const searchedTag = data.tags.filter(tag => tag.name === tagName);
-            const palettes = searchedTag[0].taggedPalettes;
-            setCurrentTagPalettes(palettes);
+            // const searchedTag = data.tags.filter(tag => tag.name.toLowerCase() === tagName.toLowerCase());
+            const searchedTag = tags.filter(tag => tag.name.toLowerCase() === tagName.toLowerCase());
+            console.log(searchedTag.length);
+            
+            if (searchedTag.length) {
+                console.log("Found");
+                const palettes = searchedTag[0].taggedPalettes;
+                setCurrentTagPalettes(palettes);
+            }
+            else {
+                console.log("Not found");
+            }
 
-            // dispatch the tag data to global store
-            dispatch({
-                type: UPDATE_TAGS,
-                tags: data.tags
-            });
+            // dispatch the tag data to global state
+            // dispatch({
+            //     type: UPDATE_TAGS,
+            //     tags: data.tags
+            // });
 
             // also update IndexedDB with updated tag data
-            data.tags.forEach((tag) => {
-                idbPromise('tags', 'put', tag)
-            });
+            // data.tags.forEach((tag) => {
+            //     idbPromise('tags', 'put', tag)
+            // });
 
         // if no data returns because user is offline, get data from IndexedDb
-        } else if (!loading) {
+        } else if (!tags.length) {
             idbPromise('tags', 'get').then((tags) => {
                 dispatch({
                     type: UPDATE_TAGS,
@@ -69,7 +92,8 @@ const SearchGallery = () => {
             console.log("we are offline so pull from idb");
         }
 
-    }, [data, loading, dispatch]);
+    // }, [data, loading, tagName, dispatch]);
+    }, [tagName, tags, dispatch]);
 
     return (
         <div className='global-wrapper'>
@@ -80,7 +104,7 @@ const SearchGallery = () => {
                         <p>Some words</p>
                     </div>
                 </div>
-
+                
                 <div className='gallery-palettes'>
                     <Palette palettes={currentTagPalettes} />
                 </div>

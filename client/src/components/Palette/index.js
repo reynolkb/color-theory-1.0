@@ -8,20 +8,16 @@ import { dateFormat } from '../../utils/dateFormat';
 import Colors from '../../components/Colors';
 import SocialButtons from '../SocialButtons';
 
-// for Global State using Redux, use React-Redux hook
-import { useSelector, useDispatch } from 'react-redux';
-
 const Palette = ({ palettes }) => {
 
     return (
         <div>
             {palettes &&
                 palettes.map(palette => (
-                // filterPalettes().map(palette => (
                     <div key={palette._id}>
                         <div className='palette-wrapper'>
                             <h3 className='palette-title'>{palette.title}</h3>
-                            <p>by {palette.username} on {dateFormat(palette.createdAt)}</p>
+                            <p>by <Link to={`/user/${palette.username}`}>{palette.username}</Link> on {dateFormat(palette.createdAt)}</p>
                             <div>
                                 {/* to palette details page */}
                                 <Link to={`/details/${palette._id}`}>
