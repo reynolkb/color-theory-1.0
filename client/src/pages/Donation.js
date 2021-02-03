@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useEffect } from "react";
+import { QUERY_CHECKOUT } from '../utils/queries';
+import { loadStripe } from '@stripe/stripe-js';
+import { useLazyQuery } from '@apollo/react-hooks';
+
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Donation = () => {
+    const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
-    function handleDonate () {
-        console.log('gimme that money');
+    useEffect(() => {
+        if (data) {
+          stripePromise.then((res) => {
+            res.redirectToCheckout({ sessionId: data.checkout.session });
+          });
+        }
+    }, [data]);
+
+    async function handleDonate(name) {
+        getCheckout({
+            variables: { name }
+        });
     }
 
     return(
@@ -24,17 +40,19 @@ const Donation = () => {
                 <div className='donation-body'>
                     <h4>Donation Tiers</h4>
                     <p>Select an option below to chekout with a one time donation of the selected amount.</p>
-                    <div 
-                        onClick={handleDonate}
-                        className='donation-options-wrapper'>
-                        <div className='tier-emblem bronze'>
-                            <h5>Bronze</h5>
-                            <div>
-                                $10
+                    <div>
+                        <div 
+                            onClick={() => handleDonate('Bronze')}
+                            className='donation-options-wrapper'>
+                            <div className='tier-emblem bronze'>
+                                <h5>Bronze</h5>
+                                <div>
+                                    $10
+                                </div>
                             </div>
                         </div>
                         <div 
-                            onClick={handleDonate}
+                            onClick={() => handleDonate('Silver')}
                             className='tier-emblem silver'>
                             <h5>Silver</h5>
                             <div >
@@ -42,7 +60,7 @@ const Donation = () => {
                             </div>
                         </div>
                         <div 
-                            onClick={handleDonate}
+                            onClick={() => handleDonate('Gold')}
                             className='tier-emblem gold'>
                             <h5>Gold</h5>
                             <div >
@@ -50,7 +68,7 @@ const Donation = () => {
                             </div>
                         </div>
                         <div 
-                            onClick={handleDonate}
+                            onClick={() => handleDonate('Platinum')}
                             className='tier-emblem platinum'>
                             <h5>Platinum</h5>
                             <div >
@@ -58,7 +76,7 @@ const Donation = () => {
                             </div>
                         </div>
                         <div 
-                            onClick={handleDonate}
+                            onClick={() => handleDonate('Diamond')}
                             className='tier-emblem diamond'>
                             <h5>Diamond</h5>
                             <div >
@@ -66,7 +84,7 @@ const Donation = () => {
                             </div>
                         </div>
                         <div 
-                            onClick={handleDonate}
+                            onClick={() => handleDonate('Immortal')}
                             className='tier-emblem immortal'>
                             <h5>Immortal</h5>
                             <div >

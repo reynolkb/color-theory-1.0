@@ -17,10 +17,6 @@ const Details = () => {
         variables: { id: paletteId }
     });
 
-    // console.log('data',data);
-    // console.log(loading);
-    // console.log(paletteId);
-
     const palette = data?.palette || [];
     const palettes = [palette];
 
@@ -30,6 +26,12 @@ const Details = () => {
         )
     }
 
+    // add tag names to array for displaying
+    let displayTags = [];
+    for(let j = 0; j < palette.tags.length; j++){
+        displayTags.push(palette.tags[j].name);
+    }
+
     return(
         <div className='global-wrapper'>
             {/* left side */}
@@ -37,10 +39,14 @@ const Details = () => {
                 <Palette key={ paletteId } palettes={ palettes }/>
                    <div className='added-tags'>
                     <h4>Tags</h4>
-                    {/* this is a dummy tag */}
-                    <div className='tag-pill'>
-                        <p>tags here</p>
-                    </div>
+                    {
+                    displayTags.map((tag, i) => (
+                        <div key={`${tag}${i}`} className='tag-pill'>
+                            <p>{tag}</p>
+                        </div>
+                    ))
+                    }
+
                 </div>
             </div>
             {/* right side */}
