@@ -101,3 +101,80 @@ export const QUERY_TAG = gql`
 		}
 	}
 `;
+
+export const QUERY_TAGS = gql`
+	query tags {
+		tags {
+			_id
+			name
+			taggedPalettes {
+				_id
+				title
+				description
+				primary
+				secondary
+				accent1
+				accent2
+				accent3
+				username
+				upvoteCount
+				upvotes {
+					username
+				}
+				createdAt
+				saveCount
+				saves {
+					username
+				}
+			}
+		}
+	}
+`;
+
+export const QUERY_SEARCH_ALL_PALETTES = gql`
+{
+	palettes {
+		_id
+		title
+		description
+		primary
+		secondary
+		accent1
+		accent2
+		accent3
+		username
+		upvoteCount
+		tags {
+			_id
+			name
+		}
+		upvotes {
+			username
+		}
+		createdAt
+		saveCount
+		saves {
+			username
+		}
+	}
+}
+`;
+
+export const QUERY_DONATION_TIER = gql`
+	query searchDonationTier($name: String!) {
+		searchDonationTier(name: $name) {
+			_id
+			name
+			description
+			price
+		}
+	}
+`;
+
+export const QUERY_CHECKOUT = gql`
+  query checkout($name: String!) {
+    checkout(name: $name) {
+      session
+    }
+  }
+`;

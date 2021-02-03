@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // components
 import SocialButtons from '../SocialButtons';
@@ -22,7 +23,9 @@ const DailyPalette = ({ palette }) => {
         <div className='daily-palette'>
             <h4>{title} by {username}</h4>
             <div>
-                <Colors palette={palette} />
+                <Link to={`/details/${palette._id}`}>
+                    <Colors palette={palette} />
+                </Link>
             </div>
             <SocialButtons upvoteCount={upvoteCount} saveCount={saveCount} paletteId={palette._id}/>
         </div>

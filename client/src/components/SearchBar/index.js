@@ -9,10 +9,12 @@ const SearchBar = () => {
 
     function handleSearch() {
         console.log('i am the search button');
-        window.location.assign('/search');
+        var searchValue = document.getElementById('searchValue').value;
+
+        window.location.assign('/search/'+ searchValue);
     }
     
-    return(
+    return (
         <div className='searchbar-wrapper'>
             <form role='search'>
                 <label htmlFor='search' className='sidebar-title'>Search for Palettes</label>
@@ -21,6 +23,7 @@ const SearchBar = () => {
                         type='text' 
                         name='search' 
                         className='search-input'
+                        id='searchValue'
                     />
                     <button 
                         onClick={handleSearch}
