@@ -82,26 +82,6 @@ db.once('open', async () => {
       const { _id: userId } = createdUsers.ops[randomUserIndex];
       const { _id: paletteId } = createdPalettes[randomPaletteIndex];
 
-      // if(i !== 0){
-      //   historyFlag = true;
-      //   while(historyFlag)
-      //   for(let j = 0; i <= userIdHistory.length; i++) {
-      //     if (userIdHistory[j] === userId && paletteIdHistory[j] === paletteId){
-      //       console.log("Been There!");          
-      //       const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-      //       const randomPaletteIndex = Math.floor(Math.random() * createdPalettes.length);
-      //       const { _id: userId } = createdUsers.ops[randomUserIndex];
-      //       const { _id: paletteId } = createdPalettes[randomPaletteIndex];
-      //       historyFlag = true;
-      //     } else {
-      //       historyFlag = false;
-      //     }
-      //   }
-      // }
-      // userIdHistory.push(userId);
-      // paletteIdHistory.push(paletteId);
-      // console.log(userIdHistory);
-
       await User.updateOne(
         {_id: userId},
         {$push: {favorites: paletteId}},
@@ -113,14 +93,9 @@ db.once('open', async () => {
         {$push: {saves: userId}},
         {new: true}
       )
-  
-      // while (friendId === userId) {
-      //   const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-      //   friendId = createdUsers.ops[randomUserIndex];
      }
   
-     for (let i = 0; i < 2000; i += 1) {
-       console.log(i);
+     for (let i = 0; i < 1200; i += 1) {
       const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
       const randomPaletteIndex = Math.floor(Math.random() * createdPalettes.length);
 
@@ -132,30 +107,7 @@ db.once('open', async () => {
         {$push: {upvotes: userId}},
         {new: true}
       )
-  
-      // while (friendId === userId) {
-      //   const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-      //   friendId = createdUsers.ops[randomUserIndex];
      }
-      // await User.updateOne({ _id: userId }, { $addToSet: { friends: friendId } });
-    // }
-
-  // create reactions
-  // for (let i = 0; i < 100; i += 1) {
-  //   const reactionBody = faker.lorem.words(Math.round(Math.random() * 20) + 1);
-
-  //   const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-  //   const { username } = createdUsers.ops[randomUserIndex];
-
-  //   const randomThoughtIndex = Math.floor(Math.random() * createdThoughts.length);
-  //   const { _id: thoughtId } = createdThoughts[randomThoughtIndex];
-
-  //   await Thought.updateOne(
-  //     { _id: thoughtId },
-  //     { $push: { reactions: { reactionBody, username } } },
-  //     { runValidators: true }
-  //   );
-  // }
 
   console.log('all done!');
   process.exit(0);
