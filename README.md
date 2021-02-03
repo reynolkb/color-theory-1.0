@@ -1,7 +1,21 @@
-# Project 3: Give this a name when we're ready
+___
+
+# Color Theory - MERN Stack Application 🎨
+
+[![license badge](https://img.shields.io/static/v1?label=license&message=MIT&color=important)](https://opensource.org/licenses/MIT)
+<!-- this has clickability and will go to the legalese -->
+
+## Description <a name="description"></a>
+This is --edit: generalize our application--- application that does ---edit: describe our application---.  This application is an interactive MERN stack single-page application, focused on performance and efficiency, for meeting user demand.  The application was also designed with mobile-first at the forefront including the ability to access the application offline.  As a MERN stack, this application uses MongoDB for the database, Express.js for the server-side web framework, React.js for the client-side framework, and Node.js for the web server.  Apollo is used to create a GraphQL API.  Additionally, the application is a Progressive Web Application, including a web manifest for local installation and utilizes a service worker and IndexedDB for offline functionality.  The application also utilizes JSON Web Tokens for authentication.
+
+![javascript badge](https://img.shields.io/badge/We%20Stan-Javascript-brightgreen)
+![node badge](https://img.shields.io/badge/Node-Over%20Here-blueviolet)
+![css badge](https://img.shields.io/badge/Sailor-CSS-ff69b4)
+![React badge](https://img.shields.io/badge/she%20doth-REACT-critical)
 
 ## Table of Contents
-* [Description](#description)
+* [Deployed Application](#application)
+* [Technology](#technology)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Contributing](#contributing)
@@ -9,10 +23,55 @@
 * [License](#license)
 * [Questions](#questions)
 
-## Description <a name="description"></a>
-This is --edit: generalize our application--- application that does ---edit: describe our application---.  This application is an interactive MERN stack single-page application, focused on performance and efficiency, for meeting user demand.  The application was also designed with mobile-first at the forefront including the ability to access the application offline.  As a MERN stack, this application uses MongoDB for the database, Express.js for the server-side web framework, React.js for the client-side framework, and Node.js for the web server.  Apollo is used to create a GraphQL API.  Additionally, the application is a Progressive Web Application, including a web manifest for local installation and utilizes a service worker and IndexedDB for offline functionality.  The application also utilizes JSON Web Tokens for authentication.
+## Application
 
-## Installation <a name="installation"></a>
+[Click here for Color Theory deployed on Heroku!](https://color-theory.herokuapp.com/ "Color Theory")
+
+## Technology
+
+### New Technology:
+
+
+#### [React-Color](https://casesandberg.github.io/react-color/) - Color-Pickering API
+
+* an API that allows you to access colors as variables and control them with React's State
+
+#### [chroma.js](https://www.npmjs.com/package/chroma-js) - A colorful JavaScript library
+
+* a library for converting and manipulating color and color scales
+
+
+### Other:
+
+#### Backend
+
+* if-env
+* concurrently
+* apollo-server-express
+* bcrypt
+* dotenv
+* express
+* jsonwebtoken
+* mongoose
+* stripe
+
+#### Frontend
+
+* @apollo/react-hooks
+* @stripe/stripe-js
+* apollo-boost
+* chroma-js
+* graphql
+* jwt-decode
+* react
+* react-dom
+* react-redux
+* react-router-dom
+* redux
+* web-vitals
+
+
+## Installation
 The code of the application can be installed as follows: 
 
 1. Clone the application's respository from GitHub onto your local drive.  The GitHub URL is: https://github.com/reynolkb/project-3.
@@ -32,7 +91,7 @@ The code of the application can be installed as follows:
     ```
     if you intend to push your code to a repository.
 
-## Usage <a name="usage"></a>
+## Usage
 
 1. a.  Once code installation is complete, run the application by typing the following into the command line at the root directory of the application:
 
@@ -42,31 +101,69 @@ The code of the application can be installed as follows:
     
     The server will start and open your browser to the application page at http://localhost:3000/.    
 
-1. b. The live version of the application is located at:  ---Add Heroku link here---
+1. b. The live version of the application: [Color Theory](https://color-theory.herokuapp.com/ "Color Theory")
+
+## Screenshot
 
 2. The application should look like the following:
 
-![Project-3-name-here](./assets/Project-3-name-snip.png)
+![Color Theory]()
 
 Functionality includes sign-up, log-in, ---add functionality notes here--- and logging out.    
 
-## Contributing <a name="contributing"></a>
-This application was built by:<br /><br />Cat Morgan (https://cat-lin-morgan.github.io/),<br />Gino Maglaque (https://github.com/ginomaglaqueucla),<br />Jane Hsu (https://github.com/plainjane99)<br />Kyle Reynolds (https://github.com/reynolkb)  
+## Contributing
 
-Contributions are welcome.  Please contact us regarding other improvements, questions, or comments you would like to make.
+This application was built by:
 
-## Tests <a name="tests"></a>
-This application does/does not use testing methods.
+### Gino Maglaque 
 
-## License <a name="license"></a>
+[GitHub](https://github.com/ginomaglaqueucla/) - ginomaglaque@gmail.com
+
+* Project Managment
+* Backend Engineer
+* Backend Routes and Models
+
+
+### Kyle Reynolds
+
+[GitHub](https://github.com/reynolkb) - kyle.reynolds9146@gmail.com
+
+* 
+* 
+* 
+* 
+
+### Cat Lin (Caitlin) Morgan 
+
+[GitHub](https://github.com/cat-lin-morgan/) - plummorgan@gmail.com
+
+* Lead Designer & Branding
+* Graphic Design
+* Frontend Engineer
+* CSS aesthetic and HTML structure
+* Chroma.js
+* React-Color API
+
+
+### Jane Hsu
+
+[GitHub](https://github.com/plainjane99) - jane99hsu@gmail.com
+
+* Lead Frontend Engineer
+* 
+* 
+* 
+* 
+
+
+
+Contributions are welcome.
+
+Please contact us regarding other improvements, questions, or comments you would like to make.
+
+## License
 This application is covered under the MIT license.
 
-## Questions <a name="questions"></a>
+___
 
-Please feel free to peruse our other projects.  If you have any questions regarding this application, please contact us via email at:
-
-Cat: plummorgan@gmail.com<br />
-Gino: ginomaglaque@gmail.com<br />
-Jane: jane99hsu@gmail.com<br />
-Kyle: kyle.reynolds9146@gmail.com<br />
-  
+___Thank you___
