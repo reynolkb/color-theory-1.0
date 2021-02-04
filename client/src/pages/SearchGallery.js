@@ -17,14 +17,14 @@ const SearchGallery = () => {
     const { name: tagName } = useParams();
 
     const [currentTagPalettes, setCurrentTagPalettes] = useState([{
-        accent1: "#09ffc7",
-        accent2: "#a440ff",
-        accent3: "#0071f5",
+        accent1: "#f6f6f6",
+        accent2: "#f1f1f1",
+        accent3: "#f6f6f6",
         createdAt: "1612328621360",
         description: "Please try another Search word",
-        primary: "#5000ff",
+        primary: "#f6f6f6",
         saveCount: "50",
-        secondary: "#56a3ff",
+        secondary: "#f1f1f1",
         title: "NO RESULTS FOUND",
         upvoteCount: "100",
         username: "ColorTheory",
@@ -72,9 +72,11 @@ const SearchGallery = () => {
         <div className='global-wrapper'>
             <div className='sg-page-wrapper'>
                 <div className='sg-header'>
-                    <SearchBar />
+                    <div className='searchbar-wrapper'>
+                        <SearchBar />
+                    </div>
                     <div className='gallery-description'>
-                        <p>Some words</p>
+                        <p>This is the Color Theory search gallery. Try searching for tags, such as colors, ideas, or feelings, to explore various palettes.</p>
                     </div>
                 </div>
                 

@@ -15,25 +15,23 @@ const SearchBar = () => {
     }
     
     return (
-        <div className='searchbar-wrapper'>
-            <form role='search'>
-                <label htmlFor='search' className='sidebar-title'>Search for Palettes</label>
-                <div className='search-container'>
-                    <input 
-                        type='text' 
-                        name='search' 
-                        className='search-input'
-                        id='searchValue'
-                    />
-                    <button 
-                        onClick={handleSearch}
-                        type='button' 
-                        className='btn search-btn'><i className="fas fa-search"></i></button>
-                </div>
-                <small>Try searching for red, winter, or natural.</small> {/* we might want to remove the prompt */}
-            </form>
-        </div>
-        
+        <form role='search'>
+            <label htmlFor='search' className='sidebar-title'>Search for Palettes</label>
+            <div className='search-container'>
+                <input 
+                    type='text' 
+                    name='search' 
+                    className='search-input'
+                    id='searchValue'
+                />
+                <button 
+                    onClick={handleSearch}
+                    type='button' 
+                    className='btn search-btn'><i className="fas fa-search"></i></button>
+            </div>
+            <small>Try searching for red, winter, or natural.</small> {/* we might want to remove the prompt */}
+        </form>
+
     )
 }
 
