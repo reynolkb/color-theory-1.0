@@ -36,7 +36,7 @@ const Details = () => {
 
     // destructure palettes from state
     const { palettes } = state;
-    console.log(palettes);
+    // console.log(palettes);
 
     useEffect(() => {
 
