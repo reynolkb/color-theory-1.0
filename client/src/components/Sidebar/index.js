@@ -90,16 +90,22 @@ const Sidebar = () => {
 
     return (
 
-        <div>
+        <div className='sidebar-component-wrapper'>
             {/* search component */}
             <SearchBar />
-            {/* palette of the day  */}
-            <h3 className='sidebar-title'>Trending Today</h3>
-                <DailyPalette palette={daily} />
+            <div className='trending-wrapper'>
+                {/* palette of the day  */}
+                <div className='daily-wrapper'>
+                    <h3 className='sidebar-title'>Trending Today</h3>
+                    <DailyPalette palette={daily} />
+                </div>
+                <div className='weekly-wrapper'>
+                    {/* palette of the week  */}
+                    <h3 className='sidebar-title'>Trending this Week</h3>
+                    <WeeklyPalette palette={weekly} />
+                </div>
 
-            {/* palette of the week  */}
-            <h3 className='sidebar-title'>Trending this Week</h3>
-                <WeeklyPalette palette={weekly} />
+            </div>
         </div>
     )
 };
