@@ -9,3 +9,6 @@ export const CURRENT_FILTER = "CURRENT_FILTER";
 
 // store the tags
 export const UPDATE_TAGS = "UPDATE_TAGS";
+
+// store user palettes and favorites
+export const UPDATE_USER = "UPDATE_USER";

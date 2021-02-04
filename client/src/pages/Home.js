@@ -20,7 +20,6 @@ const Home = () => {
 
     // use global store
     const state = useSelector(state => state);
-    console.log(state);
 
     // useDispatch method for interacting with global store
     const dispatch = useDispatch();
