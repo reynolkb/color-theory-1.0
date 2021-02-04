@@ -6,7 +6,7 @@ ___
 <!-- this has clickability and will go to the legalese -->
 
 ## Description <a name="description"></a>
-This is --edit: generalize our application--- application that does ---edit: describe our application---.  This application is an interactive MERN stack single-page application, focused on performance and efficiency, for meeting user demand.  The application was also designed with mobile-first at the forefront including the ability to access the application offline.  As a MERN stack, this application uses MongoDB for the database, Express.js for the server-side web framework, React.js for the client-side framework, and Node.js for the web server.  Apollo is used to create a GraphQL API.  Additionally, the application is a Progressive Web Application, including a web manifest for local installation and utilizes a service worker and IndexedDB for offline functionality.  The application also utilizes JSON Web Tokens for authentication.
+This is a community-sharing and creativity application that was developed to provide designers, developers, illustrators, and others a place to browse, create, and share the colors that inspire them.  Users have the ability to visualize their ideas immediately by creating palette schemes that display to a sample webpage.  Users enjoy a community experience through the "liking" and saving of other users' palettes.  This application is an interactive MERN stack single-page application, focused on performance and efficiency, for meeting user demand.  The application was also designed with mobile-first at the forefront including the ability to access the application offline.  As a MERN stack, this application uses MongoDB for the database, Express.js for the server-side web framework, React.js for the client-side framework, and Node.js for the web server.  Apollo is used to create a GraphQL API.  Additionally, the application is a Progressive Web Application, including a web manifest for local installation and utilizes a service worker and IndexedDB for offline functionality.  The application also utilizes JSON Web Tokens for authentication.
 
 ![javascript badge](https://img.shields.io/badge/We%20Stan-Javascript-brightgreen)
 ![node badge](https://img.shields.io/badge/Node-Over%20Here-blueviolet)
@@ -107,9 +107,9 @@ The code of the application can be installed as follows:
 
 2. The application should look like the following:
 
-![Color Theory]()
+![Color Theory](./images/Color-Theory-Snip.png)
 
-Functionality includes sign-up, log-in, ---add functionality notes here--- and logging out.    
+Functionality includes sign-up, log-in, homepage of user palettes, create-palette, user page, and logging out.    
 
 ## Contributing
 
@@ -149,14 +149,9 @@ This application was built by:
 [GitHub](https://github.com/plainjane99) - jane99hsu@gmail.com
 
 * Lead Frontend Engineer
-* 
-* 
-* 
-* 
-
-
-
-Contributions are welcome.
+* Homepage/Sidebar connection to back-end
+* Global State functionality 
+* IndexedDB functionality 
 
 Please contact us regarding other improvements, questions, or comments you would like to make.
 
