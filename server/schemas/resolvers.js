@@ -148,7 +148,7 @@ const resolvers = {
 				'You need to be logged in to add a palette!'
 			);
 		},
-		// removing a palette from the user's created palettes
+		// ** Future development - removing a palette from the user's created palettes
 		// removePalette: async (parent, {_id}, context) => {
 		// 	if (context.user) {
 		// 		const deletePalette = await User.findByIdAndUpdate(
