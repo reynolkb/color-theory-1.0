@@ -8,9 +8,6 @@ import { dateFormat } from '../../utils/dateFormat';
 import Colors from '../../components/Colors';
 import SocialButtons from '../SocialButtons';
 
-// for Global State using Redux, use React-Redux hook
-import { useSelector, useDispatch } from 'react-redux';
-
 const Palette = ({ palettes }) => {
 
     return (

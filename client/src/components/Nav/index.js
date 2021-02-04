@@ -12,7 +12,7 @@ const Nav = () => {
                         <Link to='/'>Home</Link>
                     </li>
                     <li>
-                        <Link to='/user'>My Palettes</Link>
+                    <Link to={`/user/`}>My Palettes</Link>
                     </li>
                     <li><Link to='/create'>Create a Palette</Link></li>
                     <li>

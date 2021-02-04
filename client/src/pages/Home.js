@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 // for Global State using Redux, use React-Redux hook
 import { useSelector, useDispatch } from 'react-redux';
-import { UPDATE_PALETTES } from '../utils/actions';
+import { UPDATE_PALETTES, UPDATE_TAGS } from '../utils/actions';
 import { idbPromise } from '../utils/helpers';
 
 // import functionality to make requests to GraphQL server 
 import { useQuery } from '@apollo/react-hooks';
 
 // import queries 
-import { QUERY_PALETTES } from '../utils/queries';
+import { QUERY_PALETTES, QUERY_TAGS } from '../utils/queries';
 
 // import Menu from '../components/Menu';
 import Palette from '../components/Palette';
@@ -20,6 +20,7 @@ const Home = () => {
 
     // use global store
     const state = useSelector(state => state);
+    console.log(state);
 
     // useDispatch method for interacting with global store
     const dispatch = useDispatch();
@@ -29,23 +30,26 @@ const Home = () => {
 
     // execute the query for the Palette data
     // data returned from the server stored in the destructured data property
-    const { loading, data } = useQuery(QUERY_PALETTES);
+    const { loading: paletteLoading, data: paletteData } = useQuery(QUERY_PALETTES);
 
+    // query for tags data to add to global state and indexedDB
+    const { loading: tagLoading, data: tagData } = useQuery(QUERY_TAGS);
+    
     // wait for useQuery to execute and receive data
     // put data into store
     // or get data from the store
     useEffect(() => {
-        if (data) {
+        if (paletteData) {
             dispatch({
                 type: UPDATE_PALETTES,
-                palettes: data.palettes
+                palettes: paletteData.palettes
             });
 
-            data.palettes.forEach((palette) => {
+            paletteData.palettes.forEach((palette) => {
                 idbPromise('palettes', 'put', palette);
             });
 
-        } else if (!loading) {
+        } else if (!paletteLoading) {
             idbPromise('palettes', 'get').then((palettes) => {
                 dispatch({
                     type: UPDATE_PALETTES,
@@ -53,7 +57,27 @@ const Home = () => {
                 });
             });
         }
-    }, [data, loading, dispatch]);
+
+        if (tagData) {
+            dispatch({
+                type: UPDATE_TAGS,
+                tags: tagData.tags
+            });
+
+            tagData.tags.forEach((tag) => {
+                idbPromise('tags', 'put', tag)
+            });
+
+        } else if (!tagLoading) {
+            idbPromise('tags', 'get').then((tags) => {
+                dispatch({
+                    type: UPDATE_TAGS,
+                    tags: tags
+                });
+            });
+        }
+
+    }, [paletteData, paletteLoading, tagData, tagLoading, dispatch]);
 
     // handle filter of palette data for 'most-liked' or 'recent'
     function filterPalettes() {

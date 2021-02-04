@@ -49,7 +49,7 @@ const SocialButtons = ({ upvoteCount, saveCount, paletteId}) => {
             <a href="http://www.facebook.com/sharer.php?u=https://color-theory.herokuapp.com/"
             target="_blank" rel="noreferrer">
                 <i className="fas fa-share-square"></i> Share
-            </a> 
+            </a>
         </div>
     </div>
     )
