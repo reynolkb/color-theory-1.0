@@ -29,14 +29,12 @@ const Details = () => {
 
     // use global state
     const state = useSelector(state => state);
-    // console.log(state);
 
     // useDispatch method for interacting with global state
     const dispatch = useDispatch();
 
     // destructure palettes from state
     const { palettes } = state;
-    // console.log(palettes);
 
     useEffect(() => {
 

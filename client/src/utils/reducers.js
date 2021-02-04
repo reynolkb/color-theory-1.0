@@ -3,13 +3,19 @@
 import {
     UPDATE_PALETTES,
     CURRENT_FILTER,
-    UPDATE_TAGS
+    UPDATE_TAGS,
+    UPDATE_USER
 } from './actions';
 
 const initialState = {
     palettes: [],
     currentfilter: 'recent',
-    tags: []
+    tags: [],
+    user: [{
+        username: 'Color Theory',
+        myPalettes: [],
+        favorites: []
+    }]
 };
 
 // console.log("The following is the initial state: ");
@@ -31,6 +37,11 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 tags: [...action.tags]
+            };
+        case UPDATE_USER:
+            return {
+                ...state,
+                user: [...action.user]
             };
         default:
             return state;
