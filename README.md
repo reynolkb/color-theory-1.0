@@ -5,13 +5,21 @@ ___
 [![license badge](https://img.shields.io/static/v1?label=license&message=MIT&color=important)](https://opensource.org/licenses/MIT)
 <!-- this has clickability and will go to the legalese -->
 
-## Description <a name="description"></a>
+
+<p align='center'>
+<img src='colortheory-icon-192.png' alt='Color Theory Logo'/>
+<img src='color-theory-logo-small.png' alt='Color Theory'/>
+</p>
+
+## Description
 This is a community-sharing and creativity application that was developed to provide designers, developers, illustrators, and others a place to browse, create, and share the colors that inspire them.  Users have the ability to visualize their ideas immediately by creating palette schemes that display to a sample webpage.  Users enjoy a community experience through the "liking" and saving of other users' palettes.  This application is an interactive MERN stack single-page application, focused on performance and efficiency, for meeting user demand.  The application was also designed with mobile-first at the forefront including the ability to access the application offline.  As a MERN stack, this application uses MongoDB for the database, Express.js for the server-side web framework, React.js for the client-side framework, and Node.js for the web server.  Apollo is used to create a GraphQL API.  Additionally, the application is a Progressive Web Application, including a web manifest for local installation and utilizes a service worker and IndexedDB for offline functionality.  The application also utilizes JSON Web Tokens for authentication.
+
+<br/>
 
 ![javascript badge](https://img.shields.io/badge/We%20Stan-Javascript-brightgreen)
 ![node badge](https://img.shields.io/badge/Node-Over%20Here-blueviolet)
 ![css badge](https://img.shields.io/badge/Sailor-CSS-ff69b4)
-![React badge](https://img.shields.io/badge/she%20doth-REACT-critical)
+![React badge](https://img.shields.io/badge/they%20doth-REACT-critical)
 
 ## Table of Contents
 * [Deployed Application](#application)
@@ -21,7 +29,7 @@ This is a community-sharing and creativity application that was developed to pro
 * [Contributing](#contributing)
 * [Tests](#tests)
 * [License](#license)
-* [Questions](#questions)
+* [Screenshot](#screenshot)
 
 ## Application
 
@@ -31,7 +39,6 @@ This is a community-sharing and creativity application that was developed to pro
 
 ### New Technology:
 
-
 #### [React-Color](https://casesandberg.github.io/react-color/) - Color-Pickering API
 
 * an API that allows you to access colors as variables and control them with React's State
@@ -39,7 +46,6 @@ This is a community-sharing and creativity application that was developed to pro
 #### [chroma.js](https://www.npmjs.com/package/chroma-js) - A colorful JavaScript library
 
 * a library for converting and manipulating color and color scales
-
 
 ### Other:
 
@@ -70,6 +76,9 @@ This is a community-sharing and creativity application that was developed to pro
 * redux
 * web-vitals
 
+### Other
+* Adobe Photoshop
+
 
 ## Installation
 The code of the application can be installed as follows: 
@@ -93,7 +102,7 @@ The code of the application can be installed as follows:
 
 ## Usage
 
-1. a.  Once code installation is complete, run the application by typing the following into the command line at the root directory of the application:
+1.  Once code installation is complete, run the application by typing the following into the command line at the root directory of the application:
 
     ```
     npm start
@@ -101,13 +110,7 @@ The code of the application can be installed as follows:
     
     The server will start and open your browser to the application page at http://localhost:3000/.    
 
-1. b. The live version of the application: [Color Theory](https://color-theory.herokuapp.com/ "Color Theory")
-
-## Screenshot
-
-2. The application should look like the following:
-
-![Color Theory](./images/Color-Theory-Snip.png)
+2.  The live version of the application: [Color Theory](https://color-theory.herokuapp.com/ "Color Theory")
 
 Functionality includes sign-up, log-in, homepage of user palettes, create-palette, user page, and logging out.    
 
@@ -131,6 +134,7 @@ This application was built by:
 * Backend Engineer
 * MongoDB Management
 * Query and Mutation setup
+* Service Worker
 
 ### Cat Lin (Caitlin) Morgan 
 
@@ -154,6 +158,10 @@ This application was built by:
 * IndexedDB functionality 
 
 Please contact us regarding other improvements, questions, or comments you would like to make.
+
+## Screenshot
+
+![Color Theory](Color-Theory-Screenshot.png)
 
 ## License
 This application is covered under the MIT license.
