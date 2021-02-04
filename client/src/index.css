@@ -1100,6 +1100,10 @@ input.search-input {
         font-size: 16px;
     }
 
+    .home-palette-wrapper {
+        margin: 0 1em;
+    }
+
 
     /* palette comp */
 
@@ -1187,6 +1191,10 @@ input.search-input {
     .weekly-palette,
     .daily-palette {
         margin-bottom: 0;
+    }
+
+    .palette-wrapper p {
+        font-size: 12px;
     }
 
     /* create page */

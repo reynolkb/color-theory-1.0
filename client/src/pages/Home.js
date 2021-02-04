@@ -16,11 +16,13 @@ import Palette from '../components/Palette';
 import Sidebar from '../components/Sidebar';
 import Filter from '../components/Filter';
 
+import spinner from '../assets/color-theory-spinner.gif';
+
 const Home = () => {
 
     // use global store
     const state = useSelector(state => state);
-    console.log(state);
+    // console.log(state);
 
     // useDispatch method for interacting with global store
     const dispatch = useDispatch();
