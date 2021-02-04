@@ -75,7 +75,6 @@ export function idbPromise(storeName, method, object) {
 }
 
 export const getContrastingColor = (bg) => {
-    // console.log(bg)
     const lightContrast = chroma.contrast(bg, '#ffffff');
     const darkContrast = chroma.contrast(bg, '#000000');
 

@@ -10,7 +10,6 @@ const SocialButtons = ({ upvoteCount, saveCount, paletteId}) => {
     const [favorite, setFavorite] = useState(saveCount);
 
     async function upvoteClick(paletteId) {
-        console.log(paletteId);
         try {
             const {data} = await addUpvote({
                 variables: {paletteId}
@@ -23,12 +22,10 @@ const SocialButtons = ({ upvoteCount, saveCount, paletteId}) => {
     };
 
     async function saveClick(paletteId) {
-        console.log(paletteId);
         try {
             const {data} = await addFavPalette({
                 variables: {paletteId}
             });
-            console.log(data);
             setFavorite(data.addFavPalette.saves.length);
         } catch (err) {
 			console.error(err);

@@ -6,8 +6,6 @@ import SocialButtons from '../SocialButtons';
 import Colors from '../Colors';
 
 const DailyPalette = ({ palette }) => {
-
-    // console.log(palette);
     if (!palette) {
         return null;
     }
