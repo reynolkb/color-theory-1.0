@@ -1,5 +1,6 @@
 import gql from 'graphql-tag';
 
+// logging in a user with username and password
 export const LOGIN_USER = gql`
 	mutation login($username: String!, $password: String!) {
 		login(username: $username, password: $password) {
@@ -12,6 +13,7 @@ export const LOGIN_USER = gql`
 	}
 `;
 
+// creating a user
 export const ADD_USER = gql`
 	mutation addUser(
 		$username: String!
@@ -32,6 +34,7 @@ export const ADD_USER = gql`
 	}
 `;
 
+// creating a palette
 export const ADD_PALETTE = gql`
 	mutation addPalette(
         $title: String!
@@ -63,18 +66,20 @@ export const ADD_PALETTE = gql`
 	}
 `;
 
-export const REMOVE_PALETTE = gql`
-	mutation removePalette($_id: ID!) {
-		removePalette(_id: $_id) {
-			_id
-			username
-			myPalettes {
-                _id
-            }
-		}
-	}
-`;
+// removing a palette from the user's created palettes
+// export const REMOVE_PALETTE = gql`
+// 	mutation removePalette($_id: ID!) {
+// 		removePalette(_id: $_id) {
+// 			_id
+// 			username
+// 			myPalettes {
+//                 _id
+//             }
+// 		}
+// 	}
+// `;
 
+// adding an upvote to a palette
 export const ADD_UPVOTE = gql`
 	mutation addUpvote($paletteId: ID!) {
 		addUpvote(paletteId: $paletteId) {
@@ -93,6 +98,7 @@ export const ADD_UPVOTE = gql`
 	}
 `;
 
+// book marking a palette
 export const ADD_FAV_PALETTE = gql`
 	mutation addFavPalette($paletteId: ID!) {
 		addFavPalette(paletteId: $paletteId) {
@@ -114,6 +120,7 @@ export const ADD_FAV_PALETTE = gql`
 	}
 `;
 
+// creating a tag for a palette
 export const CREATE_TAG =gql `
 	mutation createTag($name: String!) {
 		createTag(name: $name) {
@@ -126,6 +133,7 @@ export const CREATE_TAG =gql `
 	}
 `;
 
+// linking a tag to a palette
 export const LINK_TAG_TO_PALETTE = gql `
 	mutation linkTagToPalette($paletteId: ID! $tagId: ID!) {
 		linkTagToPalette(paletteId: $paletteId tagId: $tagId) {
@@ -138,6 +146,7 @@ export const LINK_TAG_TO_PALETTE = gql `
 	}
 `;
 
+// creating a new donation tier so we can get money
 export const ADD_DONATION_TIER = gql `
 	mutation addDonationTier($name: String! $description: String! $price: Number!) {
 		addDonationTier(name: $name description: $description price: $price) {
