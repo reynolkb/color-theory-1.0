@@ -98,7 +98,7 @@ const Home = () => {
             <div className='home-page-wrapper'>
                 <div className='home-palette-wrapper'>
                     <Filter />
-                    {loading ? (
+                    {paletteLoading ? (
                         <div>Loading...</div>
                     ) : (
                             /* // Once query is complete and loading is undefined, pass palettes array to <Palette> component as props */
@@ -107,7 +107,7 @@ const Home = () => {
                 </div>
 
                 <div className='sidebar-wrapper'>
-                    {loading ? (
+                    {paletteLoading ? (
                         <div>Loading...</div>
                     ) : (
                             <Sidebar />
