@@ -61,7 +61,7 @@ const SearchGallery = () => {
             console.log(searchedTag.length);
             
             if (searchedTag.length) {
-                console.log("Found");
+                // console.log("Found");
                 const palettes = searchedTag[0].taggedPalettes;
                 setCurrentTagPalettes(palettes);
             }
