@@ -16,6 +16,7 @@ export function idbPromise(storeName, method, object) {
             // create object store for each type of data and set "primary" key index to be the `_id` of the data
             db.createObjectStore('palettes', { keyPath: '_id' });
             db.createObjectStore('tags', { keyPath: '_id' });
+            db.createObjectStore('user', { keyPath: '_id' });
         };
 
         // handle any errors with connecting
@@ -74,7 +75,6 @@ export function idbPromise(storeName, method, object) {
 }
 
 export const getContrastingColor = (bg) => {
-    // console.log(bg)
     const lightContrast = chroma.contrast(bg, '#ffffff');
     const darkContrast = chroma.contrast(bg, '#000000');
 

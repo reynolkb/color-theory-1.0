@@ -127,16 +127,12 @@ const resolvers = {
 		},
 		// create a single palette
         addPalette: async (parent, args, context) => {
-            console.log("context user ------");
-            console.log(context.user);
 			if (context.user) {
 				const palette = await Palette.create({
 					...args,
 					username: context.user.username,
                 });
-                console.log("palette below")
                 const id = palette._id;
-                console.log(id);
 
 				await User.findByIdAndUpdate(
                     { _id: context.user._id },
