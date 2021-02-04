@@ -22,11 +22,12 @@ const Footer = () => {
                 <li>
                     <Link to='/donation'>Donations</Link>
                 </li>
-                <li>
+                {/* Future development page */}
+                {/* <li>
                     <a href='#'>About The Creators</a>
-                </li>
+                </li> */}
                 <li>
-                <a href='https://github.com/reynolkb/color-theory-1.0' target='_blank' rel='noreferrer'>Github Repo</a>
+                <a href='https://github.com/reynolkb/color-theory-1.0' target='_blank' rel="noopener noreferrer">Github Repo</a>
                 </li>
             </ul>
         </footer>

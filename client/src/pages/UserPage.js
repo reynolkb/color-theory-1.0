@@ -21,6 +21,13 @@ const UserPage = () => {
 
     const profile = userParam ? data.user : data.me;
 
+    function filterMyPalettes() {
+        return profile.myPalettes.sort((a, b) => b.createdAt - a.createdAt);
+    }
+    function filterFavoritePalettes() {
+        return profile.favorites.sort((a, b) => b.createdAt - a.createdAt);
+    }
+
     return(
         <div className='global-wrapper'>
             <div className='user-page'>
@@ -28,11 +35,11 @@ const UserPage = () => {
                 <div className='collection-wrapper'>
                     <div className='user-paletter-wrapper'>
                         <h4>User's Palette</h4>
-                        <Palette palettes={profile.myPalettes} />
+                        <Palette palettes={filterMyPalettes()} />
                     </div>
                     <div className='saved-palette-wrapper'>
                         <h4>Saved Palettes</h4>
-                        <Palette palettes={profile.favorites} />
+                        <Palette palettes={filterFavoritePalettes()} />
                     </div>
                 </div>
             </div>
