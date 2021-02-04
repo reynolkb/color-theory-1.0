@@ -94,22 +94,25 @@ const Home = () => {
 
     return (
         <div className='global-wrapper'>
-            <div className='home-palette-wrapper'>
-                <Filter />
-                {paletteLoading ? (
-                    <div>Loading...</div>
-                ) : (
-                        /* // Once query is complete and loading is undefined, pass palettes array to <Palette> component as props */
-                        <Palette palettes={filterPalettes()} />
-                    )}
-            </div>
+            <div className='home-page-wrapper'>
+                <div className='home-palette-wrapper'>
+                    <Filter />
+                    {paletteLoading ? (
+                        <div>Loading...</div>
+                    ) : (
+                            /* // Once query is complete and loading is undefined, pass palettes array to <Palette> component as props */
+                            <Palette palettes={filterPalettes()} />
+                        )}
+                </div>
 
-            <div className='sidebar-wrapper'>
-                {paletteLoading ? (
-                    <div>Loading...</div>
-                ) : (
-                        <Sidebar />
-                    )}
+                <div className='sidebar-wrapper'>
+                    {paletteLoading ? (
+                        <div>Loading...</div>
+                    ) : (
+                            <Sidebar />
+                            // <Sidebar palettes={palettes} />
+                        )}
+                </div>
             </div>
         </div>
     );

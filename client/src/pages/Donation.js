@@ -40,15 +40,12 @@ const Donation = () => {
                 <div className='donation-body'>
                     <h4>Donation Tiers</h4>
                     <p>Select an option below to chekout with a one time donation of the selected amount.</p>
-                    <div>
-                        <div 
-                            onClick={() => handleDonate('Bronze')}
-                            className='donation-options-wrapper'>
-                            <div className='tier-emblem bronze'>
-                                <h5>Bronze</h5>
-                                <div>
-                                    $10
-                                </div>
+                    <div className='donation-options-wrapper'>
+                        <div onClick={() => handleDonate('Bronze')}
+                            className='tier-emblem bronze'>
+                            <h5>Bronze</h5>
+                            <div>
+                                $10
                             </div>
                         </div>
                         <div 
