@@ -1,14 +1,10 @@
 // libraries
 import React, { useEffect, useState } from 'react';
-import { useQuery } from '@apollo/react-hooks';
 import { useParams } from "react-router-dom";
 
 // components
 import Palette from '../components/Palette';
 import SearchBar from '../components/SearchBar';
-
-// queries
-import { QUERY_TAGS } from '../utils/queries';
 
 // for Global State using Redux, use React-Redux hook
 import { useSelector, useDispatch } from 'react-redux';
@@ -37,48 +33,27 @@ const SearchGallery = () => {
 
     // use global state
     const state = useSelector(state => state);
-    console.log(state);
 
     // useDispatch method for interacting with global state
     const dispatch = useDispatch();
 
     // destructure palettes from state
     const { tags } = state;
-
-    // query for tag data
-    // const {loading, data} = useQuery(QUERY_TAGS);
-    // console.log(data);
-   
+  
     // affect state of page
     useEffect(() => {  
-        // if data returns
-        // if (data) {
         if (tags.length) {
 
             // filter out the tag that was searched
-            // const searchedTag = data.tags.filter(tag => tag.name.toLowerCase() === tagName.toLowerCase());
             const searchedTag = tags.filter(tag => tag.name.toLowerCase() === tagName.toLowerCase());
-            console.log(searchedTag.length);
             
             if (searchedTag.length) {
-                // console.log("Found");
                 const palettes = searchedTag[0].taggedPalettes;
                 setCurrentTagPalettes(palettes);
             }
             else {
                 console.log("Not found");
             }
-
-            // dispatch the tag data to global state
-            // dispatch({
-            //     type: UPDATE_TAGS,
-            //     tags: data.tags
-            // });
-
-            // also update IndexedDB with updated tag data
-            // data.tags.forEach((tag) => {
-            //     idbPromise('tags', 'put', tag)
-            // });
 
         // if no data returns because user is offline, get data from IndexedDb
         } else if (!tags.length) {
@@ -89,10 +64,8 @@ const SearchGallery = () => {
                 });
             });
 
-            console.log("we are offline so pull from idb");
         }
 
-    // }, [data, loading, tagName, dispatch]);
     }, [tagName, tags, dispatch]);
 
     return (
