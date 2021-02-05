@@ -83,7 +83,7 @@ This is a community-sharing and creativity application that was developed to pro
 ## Installation
 The code of the application can be installed as follows: 
 
-1. Clone the application's respository from GitHub onto your local drive.  The GitHub URL is: https://github.com/reynolkb/project-3.
+1. Clone the application's respository from GitHub onto your local drive.  The GitHub URL is: https://github.com/reynolkb/color-theory-1.0.
 
 2. Set up the ```npm``` package by running the following command in the root directory, the client directory, and the server directory of the application: 
     
